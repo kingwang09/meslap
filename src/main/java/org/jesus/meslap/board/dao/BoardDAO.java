@@ -7,6 +7,7 @@ import org.jesus.meslap.entity.Board;
 public interface BoardDAO {
 	
 	public List<Board> getBoardList(String boardCode);
-	public Integer saveBoard(Board board);
+	public void saveBoard(Board board);
 	public Board getBoard(Integer boardId);
+	public void deleteBoard(Integer boardId);
 }

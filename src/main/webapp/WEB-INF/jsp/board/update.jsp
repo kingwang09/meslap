@@ -9,24 +9,25 @@
 <title>Insert title here</title>
 </head>
 <body>
-Write<br/>
-<form action="${cp}/board/${boardCode}/write.do" method="post">
+update<br/>
+<form action="${cp}/board/${boardCode}/${board.id}/update.do" method="post">
 	<input type="hidden" name="boardCode" value="${boardCode}"/>
+	<input type="hidden" name="id" value="${board.id}"/>
 	<div>
-		<span>title : <input type="text" name="title" /></span>
+		<span>title : <input type="text" name="title" value="${board.title}"/></span>
 	</div>
 	<div>
 		<span>content: 
-			<textarea name="content"></textarea>
+			<textarea name="content">${board.content}</textarea>
 		</span>
 	</div>
 	<div>
 		<span>
 			writer :
-			<input type="text" name="writer" />
+			<input type="text" name="writer" value="${board.writer}"/>
 		</span>
 	</div>
-	<input type="submit" value="save" />
+	<input type="submit" value="update" />
 </form>
 </body>
 </html>

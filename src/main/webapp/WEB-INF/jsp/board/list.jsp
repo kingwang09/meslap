@@ -17,6 +17,7 @@
 				<th>title</th>
 				<th>writer</th>
 				<th>wdate</th>
+				<th>action</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -25,6 +26,10 @@
 				<td><a href="${cp}/board/${board.boardCode}/${board.id}/view.do">${board.title}</a></td>
 				<td>${board.writer}</td>
 				<td>${board.wdate}</td>
+				<td>
+					<a href="${cp}/board/${board.boardCode}/${board.id}/update.do">update</a>
+					<a href="${cp}/board/${board.boardCode}/${board.id}/delete.do">delete</a>
+				</td>
 			</tr>
 			</c:forEach>
 		</tbody>

@@ -43,4 +43,14 @@ public class Board implements Serializable{
 	@Getter @Setter
 	private String writer;
 	
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		StringBuilder sb = new StringBuilder();
+		sb.append("Board[boardCode=").append(boardCode)
+			.append(", id=").append(id)
+			.append(", title=").append(title)
+			.append("]");
+		return sb.toString();
+	}
 }

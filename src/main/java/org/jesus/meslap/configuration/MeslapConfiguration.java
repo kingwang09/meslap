@@ -62,6 +62,8 @@ public class MeslapConfiguration {
 	private String use_second_level_cache;
 	@Value("${hibernate.cache.use_query_cache}")
 	private String use_query_cache;
+	@Value("${hibernate.current_session_context_class}")
+	private String current_session_context_class;
 	
 	@Profile("development")
     public static class DevelopmentConfig {
@@ -110,10 +112,11 @@ public class MeslapConfiguration {
 		hibernateProperties.put("hibernate.hbm2ddl.auto", hbm2ddl_auto);
 		hibernateProperties.put("hibernate.show_sql", show_sql);
 		hibernateProperties.put("hibernate.format_sql", format_sql);
-		hibernateProperties.put("hibernate.query.substitutions", query_substitutions);
-		hibernateProperties.put("hibernate.cache.region.factory_class", cache_region_factory_class);
-		hibernateProperties.put("hibernate.cache.use_second_level_cache", use_second_level_cache);
-		hibernateProperties.put("hibernate.cache.use_query_cache", use_query_cache);
+		//hibernateProperties.put("hibernate.query.substitutions", query_substitutions);
+		//hibernateProperties.put("hibernate.cache.region.factory_class", cache_region_factory_class);
+		//hibernateProperties.put("hibernate.cache.use_second_level_cache", use_second_level_cache);
+		//hibernateProperties.put("hibernate.cache.use_query_cache", use_query_cache);
+		//hibernateProperties.put("hibernate.current_session_context_class", current_session_context_class);
 		factory.setHibernateProperties(hibernateProperties);
 		return factory;
 	}
