@@ -22,5 +22,5 @@
 	<!-- 
 	<context:component-scan base-package="org.jesus.meslap" />
 	-->
-
+	<context:component-scan base-package="org.jesus.meslap" />
 </beans>

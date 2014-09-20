@@ -14,11 +14,35 @@ public class MainController {
 	
 	private Logger log = LoggerFactory.getLogger(getClass());
 	
-	@RequestMapping(value="/main/test.do")
+	@RequestMapping(value="/index.do")
 	public ModelAndView indexView(HttpServletRequest req,HttpServletResponse resp){
 		log.debug("MainController - Main Method!!");
 		ModelAndView mav = new ModelAndView();
-		mav.setViewName("/main/test");
+		mav.setViewName("/index");
+		return mav;
+	}
+	
+	@RequestMapping(value="/worship.do")
+	public ModelAndView worshipView(HttpServletRequest req,HttpServletResponse resp){
+		log.debug("MainController - Worship Method!!");
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("/worship");
+		return mav;
+	}
+	
+	@RequestMapping(value="/mission.do")
+	public ModelAndView missionView(HttpServletRequest req,HttpServletResponse resp){
+		log.debug("MainController - Mission Method!!");
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("/mission");
+		return mav;
+	}
+	
+	@RequestMapping(value="/news.do")
+	public ModelAndView newsView(HttpServletRequest req,HttpServletResponse resp){
+		log.debug("MainController - news Method!!");
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("/news");
 		return mav;
 	}
 }
