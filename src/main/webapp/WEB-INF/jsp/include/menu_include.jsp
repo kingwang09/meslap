@@ -1,40 +1,64 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%String cp = request.getContextPath(); %>
+<script>
+
+$(document).ready(function(){
+	$(".hoverImages").hover(
+			function(){
+				var imgName = $(this).attr("imgName");
+				$(this).attr("src","<%=cp%>/images/main/"+imgName+"_hover.jpg");
+			},
+			function(){
+				var imgName = $(this).attr("imgName");
+				$(this).attr("src","<%=cp%>/images/main/"+imgName+".jpg");
+			}
+	);
+});
+</script>
 <div id="form-progress-bar" class="form-progress-bar">
     <div></div>
 </div>
 <!-- 상단 메인 메뉴 -->
 <!-- Meslap Logo -->
 <div class="site-navigation-item">
-    <a href="<%=cp%>/index.do"><img src="<%=cp %>/images/logo.gif" alt="MeslapLogo" width="240"></a>
+    <a href="<%=cp%>/index.do"><img src="<%=cp %>/images/main/meslap_logo.jpg" alt="MeslapLogo" width="240"></a>
 </div>
 <!-- About Meslap -->
 <div class="site-navigation-item site-navigation-about-meslap">
     <span class="site-navigation-about-meslap">
-        <img src="<%=cp %>/images/main_menu_about_meslap.gif" alt="AboutMeslap" width="150">
+        <a href="<%=cp%>/about/intro.do"><img class="hoverImages" src="<%=cp %>/images/main/main_menu_about_meslap.jpg" imgName="main_menu_about_meslap" alt="AboutMeslap" width="150"></a>
     </span>
     <div class="site-navigation-dropdown-about-meslap">            
-        <img src="<%=cp %>/images/roll_about_meslap.jpg" width="600">
+        <img src="<%=cp %>/images/main/roll_about_meslap.jpg" width="600">
     </div>
 </div>
 <!-- Worship -->
-<div class="site-navigation-item site-navigation-worship">
+<div class="site-navigation-item site-navigation-worship-meslap">
     <span class="site-navigation-worship-meslap">
-        <a href="<%=cp%>/worship.do"><img src="<%=cp %>/images/main_menu_worship.gif" alt="AboutMeslap" width="150"></a>
+        <a href="<%=cp%>/worship/main.do"><img class="hoverImages" src="<%=cp %>/images/main/main_menu_worship_meslap.jpg" imgName="main_menu_worship_meslap" alt="WorshipMeslap" width="150"></a>
     </span>
+    <div class="site-navigation-dropdown-worship-meslap">            
+        <img src="<%=cp %>/images/main/roll_worship_meslap.jpg" width="600">
+    </div>
 </div>
 <!-- Mission -->
-<div class="site-navigation-item site-navigation-mission">
+<div class="site-navigation-item site-navigation-mission-meslap">
     <span class="site-navigation-mission-meslap">
-        <a href="<%=cp%>/mission.do"><img src="<%=cp %>/images/main_menu_mission.gif" alt="AboutMeslap" width="150"></a>
+        <a href="<%=cp%>/mission/intro.do"><img class="hoverImages" src="<%=cp %>/images/main/main_menu_mission_meslap.jpg" imgName="main_menu_mission_meslap" alt="MissionMeslap" width="150"></a>
     </span>
+    <div class="site-navigation-dropdown-mission-meslap">            
+        <img src="<%=cp %>/images/main/roll_mission_meslap.jpg" width="600">
+    </div>
 </div>
 <!-- News -->
-<div class="site-navigation-item site-navigation-news">
+<div class="site-navigation-item site-navigation-news-meslap">
     <span class="site-navigation-news-meslap">
-        <a href="<%=cp%>/news.do"><img src="<%=cp %>/images/main_menu_news.gif" alt="AboutMeslap" width="150"></a>
+        <a href="<%=cp%>/news.do"><img class="hoverImages" src="<%=cp %>/images/main/main_menu_news_meslap.jpg" imgName="main_menu_news_meslap" alt="NewsMeslap" width="150"></a>
     </span>
+    <div class="site-navigation-dropdown-news-meslap">            
+        <img src="<%=cp %>/images/main/roll_news_meslap.jpg" width="600">
+    </div>
 </div>
 <!-- e-mail -->
 <div class="site-navigation-item site-navigation-email">
@@ -47,3 +71,4 @@
 </div>
 
 <hr class="separator_top" >
+<br/>

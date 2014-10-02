@@ -96,4 +96,5 @@ uploadArchives {
 jettyRun {
 	System.setProperty('tapestry.execution-mode','development')
 	System.setProperty('spring.profiles.active','development')
+	httpPort 9090
 }

@@ -83,7 +83,7 @@
                             <div class="col-xs-12">
                                 <span><a href="#"><img src="<%=cp%>/images/audio_button.jpg"/></a></span>
                                 <span><a href="#"><img src="<%=cp%>/images/text_button.jpg"/></a></span>
-                                <span><button id="juboBtn" class="btn btn-xs btn-default">주보</button></span>
+                                <span><a href="#" id="juboBtn"><img src="<%=cp%>/images/text_button.jpg" /></a></span>
                             </div>
                         </div>
 
@@ -128,6 +128,7 @@
                         마태복음 6장 9절~13절
                         <div class="pull-right">
                             <span><a href="#"><img src="<%=cp%>/images/audio_button.jpg"/></a></span>
+                            <span><a href="#"><img src="<%=cp%>/images/text_button.jpg"/></a></span>
                             <span><a href="#"><img src="<%=cp%>/images/text_button.jpg"/></a></span>
                         </div>
                     </p>

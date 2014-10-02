@@ -18,11 +18,11 @@ public class MainController {
 	public ModelAndView indexView(HttpServletRequest req,HttpServletResponse resp){
 		log.debug("MainController - Main Method!!");
 		ModelAndView mav = new ModelAndView();
-		mav.setViewName("/index");
+		mav.setViewName("/main");
 		return mav;
 	}
 	
-	@RequestMapping(value="/worship.do")
+	/*@RequestMapping(value="/worship.do")
 	public ModelAndView worshipView(HttpServletRequest req,HttpServletResponse resp){
 		log.debug("MainController - Worship Method!!");
 		ModelAndView mav = new ModelAndView();
@@ -36,7 +36,7 @@ public class MainController {
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("/mission");
 		return mav;
-	}
+	}*/
 	
 	@RequestMapping(value="/news.do")
 	public ModelAndView newsView(HttpServletRequest req,HttpServletResponse resp){

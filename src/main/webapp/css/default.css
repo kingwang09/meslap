@@ -420,11 +420,14 @@ border-bottom: none;
 .site-navigation-about-meslap{
     width: 150px;
     height: 66px;
-    /*background: url(image/main_menu_about_meslap.gif) center no-repeat;*/ }    
+    /*background: url(image/main_menu_about_meslap.gif) center no-repeat;*/ 
+}    
 .site-navigation-about-meslap:hover{   
-    /*background: url(image/main_menu_about_meslap_on.gif) center no-repeat;*/ }
+    /*background: url(image/main_menu_about_meslap_on.gif) center no-repeat;*/ 
+}
 .site-navigation-about-meslap:hover .site-navigation-dropdown-about-meslap{
-    visibility: visible; }
+    visibility: visible; 
+}
 /*hmlee 마우스 롤오버시 나타나는 페이지 배경 속성*/ 
 .site-navigation-dropdown-about-meslap{
     visibility: hidden;
@@ -435,33 +438,92 @@ border-bottom: none;
     margin-top: 2px;
     z-index: 1;
     /*background: url(image/roll_about_meslap.jpg) center no-repeat;*/
-    /*border: 1px solid #ccc;*/ }
+    /*border: 1px solid #ccc;*/ 
+}
 .site-navigation-dropdown-about-meslap:hover{
-    visibility: visible; }
+    visibility: visible; 
+}
 
 /*Worship*/
 .site-navigation-worship{
     width: 150px;
     height: 66px;
-    background: url(../image/main_menu_worship.gif) center no-repeat; }
+    background: url(../image/main_menu_worship.gif) center no-repeat; 
+}
 .site-navigation-worship:hover{
-    background: url(../image/main_menu_worship_on.gif) center no-repeat; }
+    background: url(../image/main_menu_worship_on.gif) center no-repeat; 
+}
+.site-navigation-worship-meslap:hover .site-navigation-dropdown-worship-meslap{
+    visibility: visible; 
+}
+.site-navigation-dropdown-worship-meslap{
+    visibility: hidden;
+    width: 600px;
+    height: 189px;
+    position: absolute;
+    left: auto;
+    margin-top: 2px;
+    z-index: 1;
+    /*background: url(image/roll_about_meslap.jpg) center no-repeat;*/
+    /*border: 1px solid #ccc;*/ 
+}
+.site-navigation-dropdown-worship-meslap:hover{
+    visibility: visible; 
+}
 
 /*Mission*/
 .site-navigation-mission{
     width: 150px;
     height: 66px;
-    background: url(../image/main_menu_mission.gif) center no-repeat; }
+    background: url(../image/main_menu_mission.gif) center no-repeat; 
+}
 .site-navigation-mission:hover{
-    background: url(../image/main_menu_mission_on.gif) center no-repeat; }
+    background: url(../image/main_menu_mission_on.gif) center no-repeat; 
+}
+.site-navigation-mission-meslap:hover .site-navigation-dropdown-mission-meslap{
+    visibility: visible; 
+}
+.site-navigation-dropdown-mission-meslap{
+    visibility: hidden;
+    width: 600px;
+    height: 189px;
+    position: absolute;
+    left: auto;
+    margin-top: 2px;
+    z-index: 1;
+    /*background: url(image/roll_about_meslap.jpg) center no-repeat;*/
+    /*border: 1px solid #ccc;*/ 
+}
+.site-navigation-dropdown-mission-meslap:hover{
+    visibility: visible; 
+}
 
 /*News*/
 .site-navigation-news{
     width: 150px;
     height: 66px;
-    background: url(../image/main_menu_news.gif) center no-repeat; }
+    background: url(../image/main_menu_news.gif) center no-repeat; 
+}
 .site-navigation-news:hover{
-    background: url(../image/main_menu_news_on.gif) center no-repeat; }
+    background: url(../image/main_menu_news_on.gif) center no-repeat; 
+}
+.site-navigation-news-meslap:hover .site-navigation-dropdown-news-meslap{
+    visibility: visible; 
+}
+.site-navigation-dropdown-news-meslap{
+    visibility: hidden;
+    width: 600px;
+    height: 189px;
+    position: absolute;
+    left: auto;
+    margin-top: 2px;
+    z-index: 1;
+    /*background: url(image/roll_about_meslap.jpg) center no-repeat;*/
+    /*border: 1px solid #ccc;*/ 
+}
+.site-navigation-dropdown-news-meslap:hover{
+    visibility: visible; 
+}
 
 /*e-mail*/
 .site-navigation-email{

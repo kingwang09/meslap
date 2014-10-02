@@ -61,17 +61,17 @@
         <!-- 메인 배너 하단 메뉴 - 1st --> 
         <div id="body_menu_1st">
             <div class="like-cell-body-padding-right">
-                <a href="<%=cp %>/about.do" class="block-products-list-item-icon">
+                <a href="<%=cp %>/about/intro.do" class="block-products-list-item-icon">
                     <img src="<%=cp %>/images/body_menu_about_meslap.gif" alt="AboutMeslap" width="240">
                 </a>
             </div>
             <div class="like-cell-body-padding-left-right">
-                <a href="<%=cp %>/worship.do" class="block-products-list-item-icon">
+                <a href="<%=cp %>/worship/main.do" class="block-products-list-item-icon">
                     <img src="<%=cp %>/images/body_menu_worship.gif" alt="Worship" width="240">
                 </a>
             </div>
             <div class="like-cell-body-padding-left-right">
-                <a href="<%=cp %>/mission.do" class="block-products-list-item-icon">
+                <a href="<%=cp %>/mission/intro.do" class="block-products-list-item-icon">
                     <img src="<%=cp %>/images/body_menu_mission.gif" alt="Mission" width="240">
                 </a>
             </div>
