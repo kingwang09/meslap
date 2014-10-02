@@ -7,14 +7,11 @@ $(document).ready(function(){
 	var changeImage = function(obj, hover){
 		//console.log(obj);
 		var imgName = $(obj).attr("imgName");
-		var ext = $(obj).attr("ext");
-		if(!ext)
-			ext = "jpg";
-		if(hover){
-			imgName = imgName+"_hover.";
-		}else{
-			imgName = imgName+".";
-		}
+		var ext = $(obj).attr("ext");//확장자
+		
+		ext = ext ? ext : "jpg";
+		imgName = hover? imgName+"_hover." : imgName+".";
+		
 		var imgFullName = "<%=cp%>/images/main/"+imgName+ext;
 		$(obj).attr("src",imgFullName);
 	};
