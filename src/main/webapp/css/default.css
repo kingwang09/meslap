@@ -529,25 +529,25 @@ border-bottom: none;
 .site-navigation-email{
     width: 24px;
     height: 63px;
-    background: url(../image/main_menu_contact_us_mail.gif) center no-repeat; }
+    background: url(../../images/main/main_menu_contact_us_mail.gif) center no-repeat; }
 .site-navigation-email:hover{
-    background: url(../image/main_menu_contact_us_mail_on.gif) center no-repeat; }
+    background: url(../../images/main/main_menu_contact_us_mail_on.gif) center no-repeat; }
 
 /*facebook*/
 .site-navigation-facebook{
     width: 24px;
     height: 63px;
-    background: url(../image/main_menu_face_book.gif) center no-repeat; }
+    background: url(../../images/main/main_menu_face_book.gif) center no-repeat; }
 .site-navigation-facebook:hover{
-    background: url(../image/main_menu_face_book_on.gif) center no-repeat; }
+    background: url(../../images/main/main_menu_face_book_on.gif) center no-repeat; }
 
 /*kakaomusic*/
 .site-navigation-kakaomusic{
     width: 24px;
     height: 63px;
-    background: url(../image/main_menu_kakao_music.gif) center no-repeat; }
+    background: url(../../images/main/main_menu_kakao_music.gif) center no-repeat; }
 .site-navigation-kakaomusic:hover{
-    background: url(../image/main_menu_kakao_music_on.gif) center no-repeat; }
+    background: url(../../images/main/main_menu_kakao_music_on.gif) center no-repeat; }
 
  /*hmlee 마우스 롤오버시 나타나는 페이지 배경 속성*/   
 .site-navigation-dropdown {

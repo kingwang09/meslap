@@ -20,25 +20,25 @@
             <!-- Wrapper for slides -->
             <div class="carousel-inner">
                 <div class="item active">
-                    <img src="<%=cp %>/images/main_banner_1.jpg" alt="...">
+                    <img src="<%=cp %>/images/main_banner_1.jpg" alt="..." style="height:409px;">
                     <div class="carousel-caption">
 
                     </div>
                 </div>
                 <div class="item">
-                    <img src="<%=cp %>/images/main_banner_1.jpg" alt="...">
+                    <img src="<%=cp %>/images/main_banner_1.jpg" alt="..." style="height:409px;">
                     <div class="carousel-caption">
 
                     </div>
                 </div>
                 <div class="item">
-                    <img src="<%=cp %>/images/main_banner_1.jpg" alt="...">
+                    <img src="<%=cp %>/images/main_banner_1.jpg" alt="..." style="height:409px;">
                     <div class="carousel-caption">
 
                     </div>
                 </div>
                 <div class="item">
-                    <img src="<%=cp %>/images/main_banner_1.jpg" alt="...">
+                    <img src="<%=cp %>/images/main_banner_1.jpg" alt="..." style="height:409px;">
                     <div class="carousel-caption">
 
                     </div>

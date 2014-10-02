@@ -4,14 +4,28 @@
 <script>
 
 $(document).ready(function(){
+	var changeImage = function(obj, hover){
+		//console.log(obj);
+		var imgName = $(obj).attr("imgName");
+		var ext = $(obj).attr("ext");
+		if(!ext)
+			ext = "jpg";
+		if(hover){
+			imgName = imgName+"_hover.";
+		}else{
+			imgName = imgName+".";
+		}
+		var imgFullName = "<%=cp%>/images/main/"+imgName+ext;
+		$(obj).attr("src",imgFullName);
+	};
+	
 	$(".hoverImages").hover(
 			function(){
-				var imgName = $(this).attr("imgName");
-				$(this).attr("src","<%=cp%>/images/main/"+imgName+"_hover.jpg");
+				//console.log(this);
+				changeImage(this, true);
 			},
 			function(){
-				var imgName = $(this).attr("imgName");
-				$(this).attr("src","<%=cp%>/images/main/"+imgName+".jpg");
+				changeImage(this, false);
 			}
 	);
 });
@@ -60,15 +74,21 @@ $(document).ready(function(){
         <img src="<%=cp %>/images/main/roll_news_meslap.jpg" width="600">
     </div>
 </div>
-<!-- e-mail -->
+<!-- e-mail 
 <div class="site-navigation-item site-navigation-email">
 </div>
-<!-- facebook -->
+-->
+<img class="hoverImages" src="<%=cp %>/images/main/main_menu_contact_us_mail.gif" imgName="main_menu_contact_us_mail" ext="gif" />
+<!-- facebook 
 <div class="site-navigation-item site-navigation-facebook">
 </div>
-<!-- kakao music -->
+-->
+<img class="hoverImages" src="<%=cp %>/images/main/main_menu_face_book.gif" imgName="main_menu_face_book" ext="gif" />
+<!-- kakao music 
 <div class="site-navigation-item site-navigation-kakaomusic">
 </div>
+-->
+<img class="hoverImages" src="<%=cp %>/images/main/main_menu_kakao_music.gif" imgName="main_menu_kakao_music" ext="gif" />
 
 <hr class="separator_top" >
 <br/>
