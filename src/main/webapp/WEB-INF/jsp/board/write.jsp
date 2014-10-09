@@ -10,7 +10,7 @@
 </head>
 <body>
 Write<br/>
-<form action="${cp}/board/${boardCode}/write.do" method="post">
+<form action="${cp}/board/${boardCode}/write.do" method="post" enctype="multipart/form-data">
 	<input type="hidden" name="boardCode" value="${boardCode}"/>
 	<div>
 		<span>title : <input type="text" name="title" /></span>
@@ -26,6 +26,8 @@ Write<br/>
 			<input type="text" name="writer" />
 		</span>
 	</div>
+	<input type="file" name="logicalFiles" />
+	
 	<input type="submit" value="save" />
 </form>
 </body>

@@ -2,6 +2,8 @@ package org.jesus.meslap.board.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.jesus.meslap.board.service.BoardService;
 import org.jesus.meslap.entity.Board;
 import org.slf4j.Logger;
@@ -22,6 +24,9 @@ public class BoardController {
 	
 	@Autowired
 	private BoardService bService;
+	
+	@Autowired
+	private HttpServletRequest request;
 	
 	private ModelAndView getDefaultMav(String viewName, String boardCode){
 		ModelAndView mav = new ModelAndView(viewName);
@@ -50,7 +55,10 @@ public class BoardController {
 	public ModelAndView writeLogic(@ModelAttribute("board") Board board){
 		log.debug("[Board Controller - write(POST)] start");
 		log.debug("	board = "+board);
-		bService.saveBoard(board);
+		
+		String path = request.getSession().getServletContext().getRealPath("/meslapFiles");
+		log.debug("	path = "+path);
+		bService.saveBoard(board, path);
 		return getDefaultMav("redirect:/board/"+board.getBoardCode()+"/list.do", board.getBoardCode());
 	}
 	
@@ -91,6 +99,7 @@ public class BoardController {
 		log.debug("	boardCode = "+boardCode);
 		log.debug("	boardId = "+boardId);
 		bService.deleteBoard(boardId);
+		
 		return getDefaultMav("redirect:/board/"+boardCode+"/list.do", boardCode);
 	}
 }

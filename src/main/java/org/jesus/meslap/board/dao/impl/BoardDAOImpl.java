@@ -9,12 +9,14 @@ import java.util.List;
 
 
 
+
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.jesus.meslap.board.dao.BoardDAO;
 import org.jesus.meslap.entity.Board;
+import org.jesus.meslap.entity.BoardFile;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -59,5 +61,10 @@ public class BoardDAOImpl implements BoardDAO {
 		//Query query = getSession().createQuery("delete from Board b where b.id = :boardId");
 		//query.setParameter("boardId", boardId);
 		//query.executeUpdate();
+	}
+
+	public void saveBoardFile(BoardFile boardFile) {
+		// TODO Auto-generated method stub
+		getSession().saveOrUpdate(boardFile);
 	}
 }
