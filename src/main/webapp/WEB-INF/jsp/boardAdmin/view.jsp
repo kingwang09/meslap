@@ -9,22 +9,18 @@
 <title>Insert title here</title>
 </head>
 <body>
-<a href="${cp}/board/${boardCode}/list.do">list</a><br/>
+<a href="${cp}/boardAdmin/list.do">list</a><br/>
 	<div>
-		<span>title : ${board.title}</span>
+		<span>boardTitle : ${boardAdmin.boardTitle}</span>
 	</div>
 	<div>
-		<span>content : ${board.content}</span>
+		<span>boardCode : ${boardAdmin.boardCode}</span>
 	</div>
 	<div>
-		<span>wdate : ${board.wdate}</span>
+		<span>description : ${boardAdmin.description}</span>
 	</div>
-	
-	<c:forEach var="file" items="${board.files}">
-		<div>
-			<span>filePath : <a href="${cp}/board/${boardCode}/${board.id}/download.do?filePath=${file.filePath}&fileName=${file.fileName}" title="${file.filePath}">${file.fileName}</a></span>
-		</div>
-		<hr/>
-	</c:forEach>
+	<div>
+		<span>wdate : ${boardAdmin.wdate}</span>
+	</div>
 </body>
 </html>

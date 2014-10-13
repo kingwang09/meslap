@@ -10,7 +10,7 @@
     <center>
 		<jsp:include page="./include/menu_include.jsp"></jsp:include>
         <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-            <!-- Indicators -->
+            <!-- Indicators -8->
             <ol class="carousel-indicators">
                 <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
                 <li data-target="#carousel-example-generic" data-slide-to="1"></li>

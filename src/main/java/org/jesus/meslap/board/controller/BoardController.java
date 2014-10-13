@@ -1,5 +1,6 @@
 package org.jesus.meslap.board.controller;
 
+import java.io.File;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
@@ -59,6 +61,7 @@ public class BoardController {
 		String path = request.getSession().getServletContext().getRealPath("/meslapFiles");
 		log.debug("	path = "+path);
 		bService.saveBoard(board, path);
+		//return getDefaultMav("redirect:/board/"+board.getBoardCode()+"/list.do", board.getBoardCode());
 		return getDefaultMav("redirect:/board/"+board.getBoardCode()+"/list.do", board.getBoardCode());
 	}
 	
@@ -79,6 +82,7 @@ public class BoardController {
 		log.debug("	board = "+board);
 		bService.updateBoard(board);
 		ModelAndView mav = getDefaultMav("redirect:/board/"+board.getBoardCode()+"/"+board.getId()+"/view.do", board.getBoardCode());
+		//ModelAndView mav = getDefaultMav("redirect:/board/"+board.getBoardAdmin().getBoardCode()+"/"+board.getId()+"/view.do", board.getBoardAdmin().getBoardCode());
 		return mav;
 	}
 	
@@ -101,5 +105,19 @@ public class BoardController {
 		bService.deleteBoard(boardId);
 		
 		return getDefaultMav("redirect:/board/"+boardCode+"/list.do", boardCode);
+	}
+	
+	@RequestMapping("/{boardCode}/{boardId}/download")
+	public ModelAndView download(@PathVariable String boardCode, @PathVariable Integer boardId, @RequestParam String filePath, @RequestParam String fileName){
+		log.debug("[Board Controller - download] start");
+		log.debug("	boardCode = "+boardCode);
+		log.debug("	boardId = "+boardId);
+		log.debug("	filePath = "+filePath);
+		log.debug("	fileName = "+fileName);
+		
+		File downFile = new File(filePath+File.separator+fileName);
+		ModelAndView mav = getDefaultMav("download", boardCode);
+		mav.addObject("downloadFile", downFile);
+		return mav;
 	}
 }

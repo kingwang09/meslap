@@ -1,5 +1,6 @@
 package org.jesus.meslap.board.dao.impl;
 
+import java.util.Date;
 import java.util.List;
 
 
@@ -10,12 +11,19 @@ import java.util.List;
 
 
 
+
+
+
+
+import org.apache.xmlbeans.impl.xb.xsdschema.RestrictionDocument.Restriction;
+import org.hibernate.Criteria;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.jesus.meslap.board.dao.BoardDAO;
 import org.jesus.meslap.entity.Board;
+import org.jesus.meslap.entity.BoardAdmin;
 import org.jesus.meslap.entity.BoardFile;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -36,7 +44,7 @@ public class BoardDAOImpl implements BoardDAO {
 	
 	@SuppressWarnings("unchecked")
 	public List<Board> getBoardList(String boardCode){
-		Query query = getSession().createQuery("from Board b where b.boardCode=:boardCode");
+		Query query = getSession().createQuery("from Board b where b.boardAdmin.boardCode=:boardCode");
 		query.setParameter("boardCode", boardCode);
 		List<Board> list = query.list();
 		//tx.commit();
@@ -64,7 +72,31 @@ public class BoardDAOImpl implements BoardDAO {
 	}
 
 	public void saveBoardFile(BoardFile boardFile) {
-		// TODO Auto-generated method stub
 		getSession().saveOrUpdate(boardFile);
+	}
+
+	public List<BoardAdmin> getBoardAdminList() {
+		Criteria crit = getSession().createCriteria(BoardAdmin.class);
+		return crit.list();
+	}
+
+	public boolean getCheckBoardAdmin(BoardAdmin boardAdmin) {
+		Query query = getSession().createQuery("select count(*) from BoardAdmin ba where ba.boardCode = :boardCode");
+		query.setParameter("boardCode", boardAdmin.getBoardCode());
+		Long count = (Long)query.uniqueResult();
+		if(count.intValue()>0){
+			return true;
+		}
+		return false;
+	}
+
+	public void createBoard(BoardAdmin boardAdmin) {
+		boardAdmin.setWdate(new Date());
+		getSession().saveOrUpdate(boardAdmin);
+	}
+	
+	public BoardAdmin getBoardAdmin(String boardCode){
+		return (BoardAdmin) getSession().get(BoardAdmin.class, boardCode);
+		//Criteria crit = getSession().createCriteria(BoardAdmin.class);
 	}
 }

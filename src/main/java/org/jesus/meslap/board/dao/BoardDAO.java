@@ -3,6 +3,7 @@ package org.jesus.meslap.board.dao;
 import java.util.List;
 
 import org.jesus.meslap.entity.Board;
+import org.jesus.meslap.entity.BoardAdmin;
 import org.jesus.meslap.entity.BoardFile;
 
 public interface BoardDAO {
@@ -12,4 +13,9 @@ public interface BoardDAO {
 	public Board getBoard(Integer boardId);
 	public void deleteBoard(Integer boardId);
 	public void saveBoardFile(BoardFile boardFile);
+	
+	public List<BoardAdmin> getBoardAdminList();
+	public boolean getCheckBoardAdmin(BoardAdmin boardAdmin);
+	public void createBoard(BoardAdmin boardAdmin);
+	public BoardAdmin getBoardAdmin(String boardCode);
 }
