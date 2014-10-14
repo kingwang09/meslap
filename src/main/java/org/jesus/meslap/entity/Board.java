@@ -27,7 +27,7 @@ import org.springframework.web.multipart.MultipartFile;
 public class Board implements Serializable{
 
 	private static final long serialVersionUID = 1L;
-
+	public static final String BOARD_FOLDER = "meslapFiles";
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Getter @Setter

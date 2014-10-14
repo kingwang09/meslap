@@ -6,6 +6,7 @@ import javax.sql.DataSource;
 
 import org.apache.commons.dbcp.BasicDataSource;
 import org.hibernate.SessionFactory;
+import org.jesus.meslap.util.MeslapUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
@@ -126,5 +127,10 @@ public class MeslapConfiguration {
 		HibernateTransactionManager transactionManager = new HibernateTransactionManager();
 		transactionManager.setSessionFactory(sessionFactory);
 		return transactionManager;
+	}
+	
+	@Bean(name="meslapUtils")
+	public MeslapUtils meslapUtils(){
+		return new MeslapUtils();
 	}
 }

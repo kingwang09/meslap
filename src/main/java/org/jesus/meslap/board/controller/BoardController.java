@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.jesus.meslap.board.service.BoardService;
 import org.jesus.meslap.entity.Board;
+import org.jesus.meslap.util.MeslapUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,7 +27,8 @@ public class BoardController {
 	
 	@Autowired
 	private BoardService bService;
-	
+	@Autowired
+	private MeslapUtils meslapUtils;
 	@Autowired
 	private HttpServletRequest request;
 	
@@ -58,7 +60,7 @@ public class BoardController {
 		log.debug("[Board Controller - write(POST)] start");
 		log.debug("	board = "+board);
 		
-		String path = request.getSession().getServletContext().getRealPath("/meslapFiles");
+		String path = meslapUtils.getPath(request, Board.BOARD_FOLDER);
 		log.debug("	path = "+path);
 		bService.saveBoard(board, path);
 		//return getDefaultMav("redirect:/board/"+board.getBoardCode()+"/list.do", board.getBoardCode());
