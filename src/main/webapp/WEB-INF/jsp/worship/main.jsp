@@ -46,9 +46,7 @@
     </script>
 </head>
 <body>
-<center>
 	<jsp:include page="../include/menu_include.jsp"></jsp:include>
-</center>
 <div class="row">
 	<div class="col-md-8 col-md-offset-2">
 		<img src="<%=cp%>/images/worship/bible_title_image.jpg" />

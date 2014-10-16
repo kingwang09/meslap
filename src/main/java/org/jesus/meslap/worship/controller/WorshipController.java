@@ -39,6 +39,7 @@ public class WorshipController {
 		mav.setViewName("/worship/write");
 		return mav;
 	}
+	
 	@RequestMapping(value="/admin/write.do", method=RequestMethod.POST)
 	public ModelAndView adminWriteLogic(HttpServletRequest request, @ModelAttribute("worship") Worship worship){
 		String path = meslapUtils.getPath(request, Worship.WORSHIP_FOLDER);

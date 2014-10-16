@@ -22,22 +22,6 @@ public class MainController {
 		return mav;
 	}
 	
-	/*@RequestMapping(value="/worship.do")
-	public ModelAndView worshipView(HttpServletRequest req,HttpServletResponse resp){
-		log.debug("MainController - Worship Method!!");
-		ModelAndView mav = new ModelAndView();
-		mav.setViewName("/worship");
-		return mav;
-	}
-	
-	@RequestMapping(value="/mission.do")
-	public ModelAndView missionView(HttpServletRequest req,HttpServletResponse resp){
-		log.debug("MainController - Mission Method!!");
-		ModelAndView mav = new ModelAndView();
-		mav.setViewName("/mission");
-		return mav;
-	}*/
-	
 	@RequestMapping(value="/news.do")
 	public ModelAndView newsView(HttpServletRequest req,HttpServletResponse resp){
 		log.debug("MainController - news Method!!");
