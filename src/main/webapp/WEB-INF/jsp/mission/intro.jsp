@@ -6,9 +6,7 @@
     <jsp:include page="../include/common_include.jsp"></jsp:include>    
 </head>
 <body>
-<center>
-	<jsp:include page="../include/menu_include.jsp"></jsp:include>
-</center>
+<jsp:include page="../include/menu_include.jsp"></jsp:include>
 <div class="row">
 	<div class="col-md-8 col-md-offset-2">
 		<img src="<%=cp%>/images/mission/about_ttl.jpg" />

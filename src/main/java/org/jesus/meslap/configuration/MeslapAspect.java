@@ -20,6 +20,7 @@ public class MeslapAspect {
 		String className = clazz.getSimpleName();
 		String methodName = pjp.getSignature().getName();
 		
+		
 		Signature sig = pjp.getSignature();
 		log.debug("------------------------------------------------------------");
 		log.debug("execute Controller AuthManage.");
