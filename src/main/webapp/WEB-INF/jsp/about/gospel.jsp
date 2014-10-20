@@ -7,18 +7,9 @@
 </head>
 <body>
 <jsp:include page="../include/menu_include.jsp"></jsp:include>
-<jsp:include page="../include/mission_sub_title.jsp"></jsp:include>
-<div class="content">
-	<div>
-		<img src="<%=cp %>/images/mission/ministry_txt.jpg" />
-	</div>
-	
-	<div>
-		<iframe width="100%" height="390" src="//www.youtube.com/embed/E-GSaWJMKaQ?feature=player_detailpage" frameborder="0" allowfullscreen></iframe>
-	</div>
-	<div>
-		<img src="<%=cp %>/images/mission/right_box.jpg" />
-	</div>
+<jsp:include page="../include/about_sub_title.jsp"></jsp:include>
+<div style="height:400px">
+	복음페이지
 </div>
 <jsp:include page="../include/common_bottom.jsp"></jsp:include>
 </body>

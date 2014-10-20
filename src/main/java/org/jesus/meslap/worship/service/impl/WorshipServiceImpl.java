@@ -30,12 +30,12 @@ public class WorshipServiceImpl implements WorshipService {
 		
 		try {
 			//Title Image File
-			MultipartFile titleImageFile = worship.getTitleImageFile();
-			if(titleImageFile!=null){
-				String titleImageFileName = titleImageFile.getOriginalFilename();
-				worship.setTitleImageFileName(titleImageFileName);
-				titleImageFile.transferTo(new File(path+File.separator+titleImageFileName));
-			}
+//			MultipartFile titleImageFile = worship.getTitleImageFile();
+//			if(titleImageFile!=null){
+//				String titleImageFileName = titleImageFile.getOriginalFilename();
+//				worship.setTitleImageFileName(titleImageFileName);
+//				titleImageFile.transferTo(new File(path+File.separator+titleImageFileName));
+//			}
 			
 			//Audio File
 			MultipartFile audioFile = worship.getAudioFile();

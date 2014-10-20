@@ -7,10 +7,10 @@
 </head>
 <body>
 <jsp:include page="../include/menu_include.jsp"></jsp:include>
-<div class="row">
-	<div class="col-md-8 col-md-offset-2">
-		<img src="<%=cp%>/images/about/about_ttl.jpg" />
-	</div>
+<jsp:include page="../include/about_sub_title.jsp"></jsp:include>
+<!-- 
+<div class="subTitle">
+	<img src="<%=cp%>/images/about/about_ttl.jpg" />
 </div>
 <br/>
 <div class="row">
@@ -22,22 +22,25 @@
 	</div>
 </div>
 <br/>
-<hr class="separator_top" >
+<div class="line_1px"></div>
 <br/>
-<div class="row">
-	<div class="col-md-8 col-md-offset-2">
-		<div>
-			<!-- <iframe src="http://map.naver.com/local/siteview.nhn?code=12271798"></iframe>  -->
-			Google Map
-		</div>
+ -->
+<div style="width:990px;margin:0 auto">
+	<div>
+		<!-- <iframe src="http://map.naver.com/local/siteview.nhn?code=12271798"></iframe>  -->
+		Google Map
+	</div>
+	<div>
 		<img src="<%=cp%>/images/about/about_ad.jpg" />
+	</div>
+	<div style="text-align:right">
 		<img src="<%=cp%>/images/about/map_bt.jpg" />
-		<img src="<%=cp%>/images/about/about_trans.jpg" />
+	</div>
+	<div>
+	<img src="<%=cp%>/images/about/about_trans.jpg" />
 	</div>
 </div>
-<center>
-	<jsp:include page="../include/common_bottom.jsp"></jsp:include>
-</center>
 
+<jsp:include page="../include/common_bottom.jsp"></jsp:include>
 </body>
 </html>

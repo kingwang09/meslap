@@ -30,6 +30,7 @@ public class WorshipController {
 	public ModelAndView indexView(HttpServletRequest req,HttpServletResponse resp){
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("/worship/main");
+		mav.addObject("overMenu","main");
 		return mav;
 	}
 	

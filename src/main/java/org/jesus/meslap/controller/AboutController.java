@@ -15,10 +15,19 @@ public class AboutController {
 	
 	private Logger log = LoggerFactory.getLogger(getClass());
 	
+	@RequestMapping(value="/gospel.do")
+	public ModelAndView gospelView(HttpServletRequest req,HttpServletResponse resp){
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("/about/gospel");
+		mav.addObject("overMenu","gospel");
+		return mav;
+	}
+	
 	@RequestMapping(value="/intro.do")
 	public ModelAndView indexView(HttpServletRequest req,HttpServletResponse resp){
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("/about/intro");
+		mav.addObject("overMenu","intro");
 		return mav;
 	}
 	
@@ -26,6 +35,7 @@ public class AboutController {
 	public ModelAndView worshipView(HttpServletRequest req,HttpServletResponse resp){
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("/about/members");
+		mav.addObject("overMenu","members");
 		return mav;
 	}
 	
@@ -33,6 +43,7 @@ public class AboutController {
 	public ModelAndView missionView(HttpServletRequest req,HttpServletResponse resp){
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("/about/times");
+		mav.addObject("overMenu","times");
 		return mav;
 	}
 	
@@ -40,6 +51,7 @@ public class AboutController {
 	public ModelAndView newsView(HttpServletRequest req,HttpServletResponse resp){
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("/about/road");
+		mav.addObject("overMenu","road");
 		return mav;
 	}
 }

@@ -19,6 +19,15 @@ public class MissionController {
 	public ModelAndView indexView(HttpServletRequest req,HttpServletResponse resp){
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("/mission/intro");
+		mav.addObject("overMenu","intro");
+		return mav;
+	}
+	
+	@RequestMapping(value="/gallery.do")
+	public ModelAndView galleryView(HttpServletRequest req,HttpServletResponse resp){
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("/mission/gallery");
+		mav.addObject("overMenu","gallery");
 		return mav;
 	}
 	

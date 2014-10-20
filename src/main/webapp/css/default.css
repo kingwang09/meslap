@@ -5,7 +5,7 @@ html {
 body {
   font-family: 'Open Sans', sans-serif;
   color: #333;
-  background: url(/img/main/bg_dark.png);
+  /*background: url(/img/main/bg_dark.png);*/
   line-height: 1.2;
 }
 
@@ -1247,3 +1247,41 @@ border-bottom: none;
 
   .site-footer .social-icon {
     background-image: url(http://cdn.macpaw.com/img/main/social_icons/icons_x2.png); } }
+   
+/**
+	Add CSS by hejin
+*/
+.main-banner{
+	margin:0 auto;
+	padding-top:15px;
+	width:990px;
+}
+.init-ul{
+	padding:0;
+	margin:0;
+}
+.init-li{
+	display:inline;font-size:0
+}
+.sub-banner{
+	text-align:center;padding-top:10px;
+}
+.sub-banner-body{
+	width:990px;height:350px;margin:0 auto;
+}
+.sub-banner-body-left{
+	width:490px;float:left;
+}
+.sub-banner-body-right{
+	width:490px;float:right;
+}
+div.line_1px{
+	height:1px; background-color:#e7e7e7
+}
+div.subTitle{
+	margin:0 auto;width:990px;
+}
+div.content{
+	margin:0 auto;width:990px;
+	text-align:center;
+}

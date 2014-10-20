@@ -31,6 +31,7 @@
 </head>
 <body>
    <jsp:include page="../include/menu_include.jsp"></jsp:include>
+   <jsp:include page="../include/news_sub_title.jsp"></jsp:include>
         <div style="padding-top:20px;padding-left:410px">
             <img src="<%=cp %>/images/copyright.jpg" width="1200px"/>
             <!--

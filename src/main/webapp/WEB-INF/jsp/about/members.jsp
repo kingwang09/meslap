@@ -7,37 +7,10 @@
 </head>
 <body>
 <jsp:include page="../include/menu_include.jsp"></jsp:include>
-<div class="row">
-	<div class="col-md-8 col-md-offset-2">
-		<img src="<%=cp%>/images/about/about_ttl.jpg" />
-	</div>
+<jsp:include page="../include/about_sub_title.jsp"></jsp:include>
+<div class="content">
+	<img src="<%=cp%>/images/about/about_basic.jpg" />
 </div>
-<br/>
-<div class="row">
-	<div class="col-md-8 col-md-offset-2">
-		<a href="<%=cp%>/about/intro.do">교회소개</a>  / 
-		<a href="<%=cp%>/about/members.do">교인등록 </a> / 
-		<a href="<%=cp%>/about/times.do">예배시간 </a> / 
-		<a href="<%=cp%>/about/road.do">오시는길 </a>
-	</div>
-</div>
-<br/>
-<hr class="separator_top" >
-<br/>
-<!-- 
-<div class="row">
-	<div class="col-md-12" style="border:1px solid gray">
-		<img src="<%=cp%>/images/about/about_line.jpg" width="100%"/>  
-	</div>
-</div>
--->
-<div class="row">
-	<div class="col-md-8 col-md-offset-2">
-		<img src="<%=cp%>/images/about/about_basic.jpg" />
-	</div>
-</div>
-<center>	
-	<jsp:include page="../include/common_bottom.jsp"></jsp:include>
-</center>
+<jsp:include page="../include/common_bottom.jsp"></jsp:include>
 </body>
 </html>

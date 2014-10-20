@@ -7,10 +7,10 @@
 </head>
 <body>
 <jsp:include page="../include/menu_include.jsp"></jsp:include>
-<div class="row">
-	<div class="col-md-8 col-md-offset-2">
-		<img src="<%=cp%>/images/about/about_ttl.jpg" />
-	</div>
+<jsp:include page="../include/about_sub_title.jsp"></jsp:include>
+<!-- 
+<div class="subTitle">
+	<img src="<%=cp%>/images/about/about_ttl.jpg" />
 </div>
 <br/>
 <div class="row">
@@ -21,16 +21,12 @@
 		<a href="<%=cp%>/about/road.do">오시는길 </a>
 	</div>
 </div>
-<br/>
-<hr class="separator_top" >
-<br/>
-<div class="row">
-	<div class="col-md-8 col-md-offset-2">
-		<img src="<%=cp%>/images/about/about_time.jpg" />
-	</div>
+<div class="line_1px"></div>
+ -->
+<div style="margin:0 auto; width:990px">
+	<img src="<%=cp%>/images/about/about_time.jpg" />
 </div>
-<center>
-	<jsp:include page="../include/common_bottom.jsp"></jsp:include>
-</center>
+
+<jsp:include page="../include/common_bottom.jsp"></jsp:include>
 </body>
 </html>

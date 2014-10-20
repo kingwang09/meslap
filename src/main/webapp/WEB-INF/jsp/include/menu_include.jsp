@@ -61,13 +61,19 @@ $(document).ready(function(){
 	    </span>
 	    <div class="main-dropdown site-navigation-dropdown-about-meslap" id="aboutMenu">            
 	        <!-- <img src="<%=cp %>/images/main/roll_about_meslap.jpg" width="600"/>  -->
+	        <!-- 
+	        	복음{187,125,225,154}
+				교회소개{232,125,290,154}
+				교인등록{297,125,354,154}
+				예배안내{361,125,419,154} 
+			-->
 	        <img src="<%=cp %>/images/main/roll_about_meslap.jpg" usemap="#about_map"/>
 	        <map name="about_map">
-	            <area shape="rect" coords="187,125,248,154" href="/" alt="replay_movie">
-	            <area shape="rect" coords="255,125,317,154" href="/" alt="replay_audio">
-	            <area shape="rect" coords="323,125,381,154" href="/" alt="replay_audio">
-	            <area shape="rect" coords="388,125,445,154" href="/" alt="replay_audio">
-	            <area shape="rect" coords="452,125,517,154" href="/" alt="replay_audio">
+	        	<area shape="rect" coords="187,125,225,154" href="<%=cp %>/about/gospel.do" alt="replay_movie">
+	            <area shape="rect" coords="232,125,290,154" href="<%=cp %>/about/intro.do" alt="replay_movie">
+	            <area shape="rect" coords="297,125,354,154" href="<%=cp %>/about/members.do" alt="replay_audio">
+	            <area shape="rect" coords="323,125,381,154" href="<%=cp %>/about/times.do" alt="replay_audio">
+	            <area shape="rect" coords="361,125,419,154" href="<%=cp %>/about/road.do" alt="replay_audio">
 	        </map>
 	    </div>
 	</div>
@@ -93,8 +99,8 @@ $(document).ready(function(){
 	    <div class="main-dropdown site-navigation-dropdown-mission-meslap" id="missionMenu">            
 	        <img src="<%=cp %>/images/main/roll_mission_meslap.jpg" usemap="#mission_map"/>
 	        <map name="mission_map">
-	            <area shape="rect" coords="186,145,263,174" href="/" alt="replay_movie">
-	            <area shape="rect" coords="269,145,319,174" href="/" alt="replay_audio">
+	            <area shape="rect" coords="186,145,263,174" href="<%=cp %>/mission/intro.do" alt="replay_movie">
+	            <area shape="rect" coords="269,145,319,174" href="<%=cp %>/mission/gallery.do" alt="replay_audio">
 	        </map>
 	    </div>
 	</div>
@@ -106,7 +112,7 @@ $(document).ready(function(){
 	    <div class="main-dropdown site-navigation-dropdown-news-meslap" id="newsMenu">            
 	        <img src="<%=cp %>/images/main/roll_news_meslap.jpg" usemap="#news_map"/>
 	        <map name="news_map">
-	            <area shape="rect" coords="186,124,252,154" href="/" alt="replay_movie">
+	            <area shape="rect" coords="186,124,252,154" href="<%=cp %>/board/test/list.do" alt="replay_movie">
 	        </map>
 	    </div>
 	</div>
