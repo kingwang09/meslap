@@ -7,7 +7,7 @@
 </head>
 <body>
 Write<br/>
-<form action="${cp}/worship/admin/write.do" method="post" enctype="multipart/form-data">
+<form action="<%=cp %>/worship/admin/write.do" method="post" enctype="multipart/form-data">
 	Video Image : <input type="file" name="videoImage" /><br/>
 	Youtube URL : <input type="text" name="youtubeUrl" />
 	

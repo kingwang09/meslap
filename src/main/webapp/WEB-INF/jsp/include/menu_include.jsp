@@ -57,7 +57,7 @@ $(document).ready(function(){
 	<!-- About Meslap -->
 	<div class="site-navigation-item site-navigation-about-meslap" style="padding-left:60px">
 	    <span id="stanardPosition" class="site-navigation-about-meslap">
-	        <a href="<%=cp%>/about/intro.do"><img class="mainMenu hoverImages" src="<%=cp %>/images/main/main_menu_about_meslap.jpg" imgName="main_menu_about_meslap" alt="AboutMeslap" menuId="aboutMenu" /></a>
+	        <a href="<%=cp%>/about/gospel.do"><img class="mainMenu hoverImages" src="<%=cp %>/images/main/main_menu_about_meslap.jpg" imgName="main_menu_about_meslap" alt="AboutMeslap" menuId="aboutMenu" /></a>
 	    </span>
 	    <div class="main-dropdown site-navigation-dropdown-about-meslap" id="aboutMenu">            
 	        <!-- <img src="<%=cp %>/images/main/roll_about_meslap.jpg" width="600"/>  -->
@@ -120,16 +120,16 @@ $(document).ready(function(){
 	<div class="site-navigation-item site-navigation-email">
 	</div>
 	-->
-	<img class="hoverImages" src="<%=cp %>/images/main/main_menu_contact_us_mail.gif" imgName="main_menu_contact_us_mail" ext="gif" style="padding-right:13px"/>
+	<img class="hoverImages" src="<%=cp %>/images/main/mail.jpg" imgName="mail" ext="jpg" style="padding-right:13px"/>
 	<!-- facebook 
 	<div class="site-navigation-item site-navigation-facebook">
 	</div>
 	-->
-	<img class="hoverImages" src="<%=cp %>/images/main/main_menu_face_book.gif" imgName="main_menu_face_book" ext="gif" style="padding-right:13px"/>
+	<img class="hoverImages" src="<%=cp %>/images/main/facebook.jpg" imgName="facebook" ext="jpg" style="padding-right:13px"/>
 	<!-- kakao music 
 	<div class="site-navigation-item site-navigation-kakaomusic">
 	</div>
 	-->
-	<img class="hoverImages" src="<%=cp %>/images/main/main_menu_kakao_music.gif" imgName="main_menu_kakao_music" ext="gif" />
+	<img class="hoverImages" src="<%=cp %>/images/main/kakao.jpg" imgName="kakao" ext="jpg" />
 </div>
 <hr class="separator_top" >

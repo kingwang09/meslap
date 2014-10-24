@@ -4,9 +4,7 @@
 <%String cp = request.getContextPath(); %>
 <%String overMenu = (String)request.getAttribute("overMenu"); %>
 
-<div class="subTitle" style="padding-top:18px;padding-bottom:8px">
-	<img src="<%=cp%>/images/about/sub_about_title.jpg" />
-</div>
+
 <div class="subTitle" style="padding-bottom:21px">
 	<a href="<%=cp%>/about/gospel.do">
 		<img src="<%=cp%>/images/about/about_submenu01<%if("gospel".equals(overMenu)){%>_over<%}%>.jpg" />

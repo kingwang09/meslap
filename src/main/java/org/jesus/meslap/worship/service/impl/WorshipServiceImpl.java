@@ -2,6 +2,7 @@ package org.jesus.meslap.worship.service.impl;
 
 import java.io.File;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import org.jesus.meslap.entity.Worship;
@@ -37,10 +38,12 @@ public class WorshipServiceImpl implements WorshipService {
 //				titleImageFile.transferTo(new File(path+File.separator+titleImageFileName));
 //			}
 			
+			SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
+			String currentDate = sdf.format(new Date());
 			//Audio File
 			MultipartFile audioFile = worship.getAudioFile();
 			if(audioFile!=null){
-				String audioFileName = audioFile.getOriginalFilename();
+				String audioFileName = currentDate+"_"+audioFile.getOriginalFilename();
 				worship.setAudioFileName(audioFileName);
 				audioFile.transferTo(new File(path+File.separator+audioFileName));
 			}
@@ -48,7 +51,7 @@ public class WorshipServiceImpl implements WorshipService {
 			//Text File
 			MultipartFile textFile = worship.getTextFile();
 			if(textFile!=null){
-				String textFileName = textFile.getOriginalFilename();
+				String textFileName = currentDate+"_"+textFile.getOriginalFilename();
 				worship.setTextFileName(textFileName);
 				textFile.transferTo(new File(path+File.separator+textFileName));
 			}
@@ -61,17 +64,17 @@ public class WorshipServiceImpl implements WorshipService {
 					String juboFileName = null;
 					switch(i){
 					case 0: 
-						juboFileName = juboFile.getOriginalFilename(); 
+						juboFileName = currentDate+"_"+juboFile.getOriginalFilename(); 
 						worship.setJuboFileName01(juboFileName);
 						juboFile.transferTo(new File(path+File.separator+juboFileName));
 						break;
 					case 1: 
-						juboFileName = juboFile.getOriginalFilename(); 
+						juboFileName = currentDate+"_"+juboFile.getOriginalFilename(); 
 						worship.setJuboFileName02(juboFileName);
 						juboFile.transferTo(new File(path+File.separator+juboFileName));
 						break;
 					case 2: 
-						juboFileName = juboFile.getOriginalFilename(); 
+						juboFileName = currentDate+"_"+juboFile.getOriginalFilename(); 
 						worship.setJuboFileName03(juboFileName);
 						juboFile.transferTo(new File(path+File.separator+juboFileName));
 						break;
@@ -83,7 +86,7 @@ public class WorshipServiceImpl implements WorshipService {
 			}//end if
 			
 			worship.setWdate(new Date());
-			
+			worshipDao.save(worship);
 		} catch (IllegalStateException e) {
 			log.error("WorshipService.write Error 01. \n"+e.getMessage());
 		} catch (IOException e) {

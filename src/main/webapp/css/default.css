@@ -1280,8 +1280,19 @@ div.line_1px{
 }
 div.subTitle{
 	margin:0 auto;width:990px;
+	padding-top:18px;padding-bottom:8px;padding-left:46px;
 }
 div.content{
 	margin:0 auto;width:990px;
 	text-align:center;
+}
+div.worship-body-left{
+	width:600px;float:left;
+}
+div.worship-body-right{
+	float:right;width:360px;
+}
+div.worship-content{
+	margin:0 auto;width:990px;
+	padding-top:15px;
 }

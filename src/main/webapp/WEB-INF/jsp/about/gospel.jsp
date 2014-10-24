@@ -7,7 +7,10 @@
 </head>
 <body>
 <jsp:include page="../include/menu_include.jsp"></jsp:include>
-<jsp:include page="../include/about_sub_title.jsp"></jsp:include>
+<div class="subTitle">
+	<img src="<%=cp %>/images/about/about_submenu01.jpg" />
+</div>
+<div class="line_1px"></div>
 <div style="height:400px">
 	복음페이지
 </div>
