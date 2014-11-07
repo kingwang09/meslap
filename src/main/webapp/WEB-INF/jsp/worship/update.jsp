@@ -6,13 +6,14 @@
 <jsp:include page="../include/common_include.jsp"></jsp:include>
 </head>
 <body>
-Write<br/>
+Update<br/>
 <div style="width:1200px">
-<form action="<%=cp %>/worship/admin/write.do" method="post" enctype="multipart/form-data" class="form-horizontal" role="form">
+<form action="<%=cp %>/worship/admin/update.do" method="post" enctype="multipart/form-data" class="form-horizontal" role="form">
 	<div class="form-group">
 		<label for="videoImage" class="col-sm-2 control-label">Video 이미지</label>
 		<div class="col-sm-10">
 			<input type="file" name="videoImage" id="videoImage" class="form-control"/>
+			<span class="help-block">파일을 선택하실 경우, 새로운 파일로 대체 됩니다.</span>
 		</div>
 	</div>
 	<div class="form-group">
@@ -63,12 +64,14 @@ Write<br/>
 		<label for="videoImage" class="col-sm-2 control-label">말씀 오디오 파일</label>
 		<div class="col-sm-10">
 			<input type="file" name="audioFile" class="form-control"/>
+			<span class="help-block">파일을 선택하실 경우, 새로운 파일로 대체 됩니다.</span>
 		</div>
 	</div>
 	<div class="form-group">
 		<label for="videoImage" class="col-sm-2 control-label">말씀 텍스트 파일</label>
 		<div class="col-sm-10">
 			<input type="file" name="textFile" class="form-control"/>
+			<span class="help-block">파일을 선택하실 경우, 새로운 파일로 대체 됩니다.</span>
 		</div>
 	</div>
 	<div class="form-group">
@@ -77,11 +80,12 @@ Write<br/>
 			<input type="file" name="juboFile[0]" class="form-control"/><br/>
 			<input type="file" name="juboFile[1]" class="form-control"/><br/>
 			<input type="file" name="juboFile[2]" class="form-control"/><br/>
+			<span class="help-block">파일을 선택하실 경우, 새로운 파일로 대체 됩니다.</span>
 		</div>
 	</div>
 	<div class="form-group">
 		<div class="col-sm-10 col-sm-offset-2">
-			<input type="submit" value="업로드" class="btn"/>
+			<input type="submit" value="수정" class="btn"/>
 			<input type="button" value="미리보기" class="btn" />
 		</div>
 	</div>

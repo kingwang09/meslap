@@ -9,30 +9,27 @@
 <title>Insert title here</title>
 </head>
 <body>
-	list Size = ${boards}<br/>
-	<a href="${cp}/board/${boardCode}/write.do">write</a><br/>
+	list Size = ${worships}<br/>
 	<table class="table table-condensed">
 		<thead>
 			<tr>
-				<th>title</th>
-				<th>writer</th>
-				<th>wdate</th>
-				<th>action</th>
+				<th>카테고리</th>
+				<th>제목</th>
+				<th>Action</th>
 			</tr>
 		</thead>
 		<tbody>
-			<c:forEach var="board" items="${boards}">
+			<c:forEach  var="worship" items="${worships}">
 			<tr>
-				<td><a href="${cp}/board/${board.boardCode}/${board.id}/view.do">${board.title}</a></td>
-				<td>${board.writer}</td>
-				<td>${board.wdate}</td>
+				<td>${worship.category}</td>
+				<td>${worship.title}</td>
 				<td>
-					<a href="${cp}/board/${board.boardCode}/${board.id}/update.do">update</a>
-					<a href="${cp}/board/${board.boardCode}/${board.id}/delete.do">delete</a>
+					update
+					delete
 				</td>
 			</tr>
 			</c:forEach>
-		</tbody>
+		</tbody>	
 	</table>
 </body>
 </html>

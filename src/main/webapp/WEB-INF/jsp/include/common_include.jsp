@@ -18,4 +18,4 @@
 <script src="<%=cp %>/frameworks/jquery/jquery-1.11.1.js"></script>
 <script src="<%=cp %>/frameworks/bootstrap/js/bootstrap.js"></script>
 <script src="<%=cp %>/frameworks/jquery-magnific/jquery.magnific-popup.js"></script>
-<!-- include/common_include.jsp end -->
+<!-- include/common_include.jsp end --> 

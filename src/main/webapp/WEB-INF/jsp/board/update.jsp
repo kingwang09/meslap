@@ -27,6 +27,7 @@ update<br/>
 			<input type="text" name="writer" value="${board.writer}"/>
 		</span>
 	</div>
+	<input type="file" name="logicalFiles" />
 	<input type="submit" value="update" />
 </form>
 </body>

@@ -1,5 +1,8 @@
 package org.jesus.meslap.worship.dao.impl;
 
+import java.util.List;
+
+import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.jesus.meslap.entity.Worship;
@@ -22,5 +25,13 @@ public class WorshipDAOImpl implements WorshipDAO {
 	public void save(Worship worship) {
 		getSession().saveOrUpdate(worship);
 	}
+	
+	public List<Worship> getWorships(){
+		Criteria crit = getSession().createCriteria(Worship.class);
+		return crit.list();
+	}
 
+	public Worship getWorship(Integer id) {
+		return (Worship) getSession().get(Worship.class, id);
+	}
 }

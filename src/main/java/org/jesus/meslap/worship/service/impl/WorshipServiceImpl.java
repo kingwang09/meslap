@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 import org.jesus.meslap.entity.Worship;
 import org.jesus.meslap.worship.dao.WorshipDAO;
@@ -23,6 +24,10 @@ public class WorshipServiceImpl implements WorshipService {
 	@Autowired
 	private WorshipDAO worshipDao;
 	
+	@Transactional
+	public List<Worship> getWorships(){
+		return worshipDao.getWorships();
+	}
 	@Transactional
 	public void write(String path, Worship worship){
 		File dir = new File(path);
@@ -92,6 +97,12 @@ public class WorshipServiceImpl implements WorshipService {
 		} catch (IOException e) {
 			log.error("WorshipService.write Error 02. \n"+e.getMessage());
 		}
+	}
+	
+	@Transactional
+	public void update(String path, Worship worship) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

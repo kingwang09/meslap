@@ -1,5 +1,7 @@
 package org.jesus.meslap.worship.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -13,6 +15,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
@@ -33,6 +36,14 @@ public class WorshipController {
 		mav.addObject("overMenu","main");
 		return mav;
 	}
+	@RequestMapping(value="/admin/list.do", method=RequestMethod.GET)
+	public ModelAndView adminList(HttpServletRequest req,HttpServletResponse resp){
+		ModelAndView mav = new ModelAndView();
+		List<Worship> worships = wService.getWorships();
+		mav.addObject("worships",worships);
+		mav.setViewName("/worship/list");
+		return mav;
+	}
 	
 	@RequestMapping(value="/admin/write.do", method=RequestMethod.GET)
 	public ModelAndView adminWrite(HttpServletRequest req,HttpServletResponse resp){
@@ -45,6 +56,21 @@ public class WorshipController {
 	public ModelAndView adminWriteLogic(HttpServletRequest request, @ModelAttribute("worship") Worship worship){
 		String path = meslapUtils.getPath(request, Worship.WORSHIP_FOLDER);
 		wService.write(path, worship);
+		return new ModelAndView("redirect:/worship/main.do");
+	}
+	
+	@RequestMapping(value="/admin/update.do", method=RequestMethod.GET)
+	public ModelAndView adminUpdate(HttpServletRequest req,HttpServletResponse resp, @RequestParam Integer id){
+		ModelAndView mav = new ModelAndView();
+		
+		mav.setViewName("/worship/update");
+		return mav;
+	}
+	
+	@RequestMapping(value="/admin/update.do", method=RequestMethod.POST)
+	public ModelAndView adminUpdateLogic(HttpServletRequest request, @ModelAttribute("worship") Worship worship){
+		String path = meslapUtils.getPath(request, Worship.WORSHIP_FOLDER);
+		wService.update(path, worship);
 		return new ModelAndView("redirect:/worship/main.do");
 	}
 }
