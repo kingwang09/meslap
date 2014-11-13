@@ -12,8 +12,8 @@ import javax.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
 
-@Entity
-@Table(name="CMM_BOARD_FILE")
+//@Entity
+//@Table(name="CMM_BOARD_FILE")
 public class BoardFile implements Serializable{
 
 	/**

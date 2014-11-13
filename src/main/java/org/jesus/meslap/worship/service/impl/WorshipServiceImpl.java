@@ -28,6 +28,7 @@ public class WorshipServiceImpl implements WorshipService {
 	public List<Worship> getWorships(){
 		return worshipDao.getWorships();
 	}
+	
 	@Transactional
 	public void write(String path, Worship worship){
 		File dir = new File(path);
@@ -103,6 +104,11 @@ public class WorshipServiceImpl implements WorshipService {
 	public void update(String path, Worship worship) {
 		// TODO Auto-generated method stub
 		
+	}
+	
+	@Transactional
+	public Worship getWorship(Integer id) {
+		return worshipDao.getWorship(id);
 	}
 
 }

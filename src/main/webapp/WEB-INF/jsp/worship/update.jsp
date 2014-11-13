@@ -13,13 +13,13 @@ Update<br/>
 		<label for="videoImage" class="col-sm-2 control-label">Video 이미지</label>
 		<div class="col-sm-10">
 			<input type="file" name="videoImage" id="videoImage" class="form-control"/>
-			<span class="help-block">파일을 선택하실 경우, 새로운 파일로 대체 됩니다.</span>
+			<span class="help-block">기존 파일 : ${worship.videoImageFileName}. 파일을 선택하실 경우, 새로운 파일로 대체 됩니다.</span>
 		</div>
 	</div>
 	<div class="form-group">
 		<label for="videoImage" class="col-sm-2 control-label">Youtube URL</label>
 		<div class="col-sm-10">
-			<input type="text" name="youtubeUrl" id="youtubeUrl" class="form-control"/>
+			<input type="text" name="youtubeUrl" id="youtubeUrl" class="form-control" value="${worship.youtubeUrl}"/>
 		</div>
 	</div>
 	<div class="form-group">
@@ -27,51 +27,51 @@ Update<br/>
 		<div class="col-sm-10">
 			<!-- 기존 등록된 카테고리 Distinct 목록 -->
 			<select></select>
-			<input type="text" name="category" class="form-control"/>
+			<input type="text" name="category" class="form-control" value="${worship.category }"/>
 		</div>
 	</div>
 	<div class="form-group">
 		<label for="videoImage" class="col-sm-2 control-label">제목 </label>
 		<div class="col-sm-10">
-			<input type="text" name="title" class="form-control"/>
+			<input type="text" name="title" class="form-control" value="${worship.title }"/>
 		</div>
 	</div>
 	<div class="form-group">
 		<label for="videoImage" class="col-sm-2 control-label">말씀위치(장/절)</label>
 		<div class="col-sm-10">
-			<input type="text" name="bibleIndex" class="form-control"/>
+			<input type="text" name="bibleIndex" class="form-control" value="${worship.bibleIndex }"/>
 		</div>
 	</div>
 	<div class="form-group">
 		<label for="videoImage" class="col-sm-2 control-label">말씀구절 </label>
 		<div class="col-sm-10">
-			<textarea name="bible" class="form-control"></textarea>
+			<textarea name="bible" class="form-control">${worship.bible }</textarea>
 		</div>
 	</div>
 	<div class="form-group">
 		<label for="videoImage" class="col-sm-2 control-label">암송구절 </label>
 		<div class="col-sm-10">
-			<input type="text" name="recitationBibleIndex" class="form-control"/>
+			<input type="text" name="recitationBibleIndex" class="form-control" value="${worship.recitationBibleIndex }"/>
 		</div>
 	</div>
 	<div class="form-group">
 		<label for="videoImage" class="col-sm-2 control-label">암송구절(장/절)</label>
 		<div class="col-sm-10">
-			<input type="text" name="recitationBible" class="form-control" />
+			<input type="text" name="recitationBible" class="form-control" value="${worship.recitationBible }"/>
 		</div>
 	</div>
 	<div class="form-group">
 		<label for="videoImage" class="col-sm-2 control-label">말씀 오디오 파일</label>
 		<div class="col-sm-10">
-			<input type="file" name="audioFile" class="form-control"/>
-			<span class="help-block">파일을 선택하실 경우, 새로운 파일로 대체 됩니다.</span>
+			<input type="file" name="audioFile" class="form-control" />
+			<span class="help-block">기존 파일 : ${worship.audioFileName }. 파일을 선택하실 경우, 새로운 파일로 대체 됩니다.</span>
 		</div>
 	</div>
 	<div class="form-group">
 		<label for="videoImage" class="col-sm-2 control-label">말씀 텍스트 파일</label>
 		<div class="col-sm-10">
 			<input type="file" name="textFile" class="form-control"/>
-			<span class="help-block">파일을 선택하실 경우, 새로운 파일로 대체 됩니다.</span>
+			<span class="help-block">기존 파일 : ${worship.textFileName }. 파일을 선택하실 경우, 새로운 파일로 대체 됩니다.</span>
 		</div>
 	</div>
 	<div class="form-group">
@@ -80,7 +80,7 @@ Update<br/>
 			<input type="file" name="juboFile[0]" class="form-control"/><br/>
 			<input type="file" name="juboFile[1]" class="form-control"/><br/>
 			<input type="file" name="juboFile[2]" class="form-control"/><br/>
-			<span class="help-block">파일을 선택하실 경우, 새로운 파일로 대체 됩니다.</span>
+			<span class="help-block">기존 파일 : ${worship.juboFileName01}, ${worship.juboFileName02}, ${worship.juboFileName03}. 파일을 선택하실 경우, 새로운 파일로 대체 됩니다.</span>
 		</div>
 	</div>
 	<div class="form-group">

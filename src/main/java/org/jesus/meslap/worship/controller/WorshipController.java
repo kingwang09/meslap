@@ -62,8 +62,9 @@ public class WorshipController {
 	@RequestMapping(value="/admin/update.do", method=RequestMethod.GET)
 	public ModelAndView adminUpdate(HttpServletRequest req,HttpServletResponse resp, @RequestParam Integer id){
 		ModelAndView mav = new ModelAndView();
-		
+		Worship worship = wService.getWorship(id);
 		mav.setViewName("/worship/update");
+		mav.addObject("worship",worship);
 		return mav;
 	}
 	

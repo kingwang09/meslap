@@ -17,8 +17,8 @@ import javax.persistence.Transient;
 import lombok.Getter;
 import lombok.Setter;
 
-@Entity
-@Table(name="CMM_BOARD_ADMIN")
+//@Entity
+//@Table(name="CMM_BOARD_ADMIN")
 public class BoardAdmin {
 	
 //	@Id

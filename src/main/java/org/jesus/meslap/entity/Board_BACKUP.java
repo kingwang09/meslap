@@ -23,9 +23,9 @@ import lombok.Setter;
 
 import org.springframework.web.multipart.MultipartFile;
 
-@Entity
-@Table(name="CMM_BOARD")
-public class Board implements Serializable{
+//@Entity
+//@Table(name="CMM_BOARD")
+public class Board_BACKUP implements Serializable{
 
 	private static final long serialVersionUID = 1L;
 	public static final String BOARD_FOLDER = "meslapFiles";
@@ -53,16 +53,20 @@ public class Board implements Serializable{
 	@Getter @Setter
 	private String writer;
 	
+	//fetch=Eager 과 Lazy차이점 알아보기.
+	@OneToMany(cascade = { CascadeType.REMOVE }, mappedBy="board", fetch=FetchType.EAGER)
 	@Getter @Setter
-	private String filePath;
-	
-	@Getter @Setter
-	private String fileName;
+	private Set<BoardFile> files;
 	
 	@Transient
 	@Getter @Setter
-	private MultipartFile logicalFile;
+	private MultipartFile[] logicalFiles;
 	
+	
+	@ManyToOne(fetch=FetchType.EAGER)
+	@JoinColumn(name="BOARD_CODE", insertable = false, updatable = false)
+	@Getter @Setter
+	private BoardAdmin boardAdmin;
 	
 	@Override
 	public String toString() {
@@ -72,6 +76,7 @@ public class Board implements Serializable{
 			.append(", id=").append(id)
 			.append(", title=").append(title)
 			.append("]");
+		ArrayList<String> a = new ArrayList<String>();
 		return sb.toString();
 	}
 }

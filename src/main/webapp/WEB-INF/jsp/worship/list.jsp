@@ -5,12 +5,11 @@
 <c:set var="cp" value="${pageContext.request.contextPath}" scope="request"></c:set>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+	<jsp:include page="../include/common_include.jsp"></jsp:include>
 </head>
 <body>
 	list Size = ${worships}<br/>
-	<table class="table table-condensed">
+	<table class="table table-bordered table-hover">
 		<thead>
 			<tr>
 				<th>카테고리</th>
@@ -22,10 +21,10 @@
 			<c:forEach  var="worship" items="${worships}">
 			<tr>
 				<td>${worship.category}</td>
-				<td>${worship.title}</td>
+				<td><a href="${cp}/worship/view.do?id=${worship.id}">${worship.title}</a></td>
 				<td>
-					update
-					delete
+					<a href="${cp}/worship/admin/update.do?id=${worship.id}"><i class="glyphicon glyphicon-edit"></i></a>
+					<a href="${cp}/worship/admin/delete.do?id=${worship.id}"><i class="glyphicon glyphicon-trash"></i></a>
 				</td>
 			</tr>
 			</c:forEach>

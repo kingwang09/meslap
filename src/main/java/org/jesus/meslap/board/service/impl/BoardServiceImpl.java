@@ -38,29 +38,44 @@ public class BoardServiceImpl implements BoardService {
 		FileOutputStream fos =  null;
 		try {
 			board.setWdate(new Date());
-			boardDao.saveBoard(board);//board 저장 후에 첨부파일 저장 수행해야함.
-			MultipartFile[] logicalFiles = board.getLogicalFiles();
-			for(int i=0; i<logicalFiles.length;i++){
-				MultipartFile tempFile = logicalFiles[i];
-				log.debug("FileName = "+tempFile.getName());
-				log.debug("OriginalFileName = "+tempFile.getOriginalFilename());
+			MultipartFile logicalFiles = board.getLogicalFile();
+			if(logicalFiles!=null){
+				log.debug("FileName = "+logicalFiles.getName());
+				log.debug("OriginalFileName = "+logicalFiles.getOriginalFilename());
 				log.debug("\n");
-				Set<BoardFile> files = new HashSet<BoardFile>();
-				BoardFile boardFile = new BoardFile(filePath, tempFile.getOriginalFilename(), board);
-				boardDao.saveBoardFile(boardFile);
-				files.add(boardFile);
-				board.setFiles(files);
-				
+				board.setFilePath(filePath);
+				board.setFileName(logicalFiles.getOriginalFilename());
 				
 				File f = new File(filePath);
 				if(!f.exists())
 					f.mkdir();
-				tempFile.transferTo(new File(filePath+File.separator+tempFile.getOriginalFilename()));
+				logicalFiles.transferTo(new File(filePath+File.separator+logicalFiles.getOriginalFilename()));
+			}
+			
+			boardDao.saveBoard(board);//board 저장 후에 첨부파일 저장 수행해야함.
+			
+//			MultipartFile[] logicalFiles = board.getLogicalFiles();
+//			for(int i=0; i<logicalFiles.length;i++){
+//				MultipartFile tempFile = logicalFiles[i];
+//				log.debug("FileName = "+tempFile.getName());
+//				log.debug("OriginalFileName = "+tempFile.getOriginalFilename());
+//				log.debug("\n");
+//				Set<BoardFile> files = new HashSet<BoardFile>();
+//				BoardFile boardFile = new BoardFile(filePath, tempFile.getOriginalFilename(), board);
+//				boardDao.saveBoardFile(boardFile);
+//				files.add(boardFile);
+//				board.setFiles(files);
+//				
+//				
+//				File f = new File(filePath);
+//				if(!f.exists())
+//					f.mkdir();
+//				tempFile.transferTo(new File(filePath+File.separator+tempFile.getOriginalFilename()));
 				
 //				byte[] temp = tempFile.getBytes();
 //				fos = new FileOutputStream(filePath+File.separator+tempFile.getOriginalFilename());
 //				fos.write(temp);
-			}//for
+//			}//for
 		} catch (IllegalStateException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
