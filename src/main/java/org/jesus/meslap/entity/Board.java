@@ -61,7 +61,7 @@ public class Board implements Serializable{
 	
 	@Transient
 	@Getter @Setter
-	private MultipartFile logicalFile;
+	private MultipartFile logicalFiles;
 	
 	
 	@Override

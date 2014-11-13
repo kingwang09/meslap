@@ -5,8 +5,7 @@
 <c:set var="cp" value="${pageContext.request.contextPath}" scope="request"></c:set>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<jsp:include page="../include/common_include.jsp"></jsp:include>
 </head>
 <body>
 <a href="${cp}/boardAdmin/list.do">list</a><br/>
