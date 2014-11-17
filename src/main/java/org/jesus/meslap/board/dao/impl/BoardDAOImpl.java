@@ -44,7 +44,7 @@ public class BoardDAOImpl implements BoardDAO {
 	
 	@SuppressWarnings("unchecked")
 	public List<Board> getBoardList(String boardCode){
-		Query query = getSession().createQuery("from Board b where b.boardAdmin.boardCode=:boardCode");
+		Query query = getSession().createQuery("from Board b where b.boardCode=:boardCode");
 		query.setParameter("boardCode", boardCode);
 		List<Board> list = query.list();
 		//tx.commit();

@@ -8,6 +8,8 @@
 <jsp:include page="../include/common_include.jsp"></jsp:include>
 </head>
 <body>
+<jsp:include page="../include/menu_include.jsp"></jsp:include>
+<div class="content">
 	list Size = ${boardAdmins}<br/>
 	<a href="${cp}/boardAdmin/create.do">Create New Board</a><br/>
 	<table class="table table-condense">
@@ -32,5 +34,7 @@
 			</c:forEach>
 		</tbody>
 	</table>
+</div>
+<jsp:include page="../include/common_bottom.jsp"></jsp:include>
 </body>
 </html>

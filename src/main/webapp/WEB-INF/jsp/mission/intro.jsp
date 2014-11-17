@@ -13,8 +13,11 @@
 		<img src="<%=cp %>/images/mission/ministry_txt.jpg" />
 	</div>
 	
-	<div>
-		<iframe width="100%" height="390" src="//www.youtube.com/embed/E-GSaWJMKaQ?feature=player_detailpage" frameborder="0" allowfullscreen></iframe>
+	<div style="float:left">
+		<video width="320" height="240" controls>
+		  <source src="<%=cp%>/videos/awana_video.mp4">
+			Your browser does not support the video tag.
+		</video>
 	</div>
 	<div>
 		<img src="<%=cp %>/images/mission/right_box.jpg" />

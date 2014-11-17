@@ -19,3 +19,14 @@
 <script src="<%=cp %>/frameworks/bootstrap/js/bootstrap.js"></script>
 <script src="<%=cp %>/frameworks/jquery-magnific/jquery.magnific-popup.js"></script>
 <!-- include/common_include.jsp end --> 
+<style>
+    body{
+        font-family: 'Nanum Gothic', sans-serif;
+        font-size:13px;
+        line-height:20px;
+        margin:0;
+    }
+    .row{
+        margin-right:0px;
+    }
+</style>

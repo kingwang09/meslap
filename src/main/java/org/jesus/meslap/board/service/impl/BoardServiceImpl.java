@@ -38,7 +38,7 @@ public class BoardServiceImpl implements BoardService {
 		FileOutputStream fos =  null;
 		try {
 			board.setWdate(new Date());
-			MultipartFile logicalFiles = board.getLogicalFile();
+			MultipartFile logicalFiles = board.getLogicalFiles();
 			if(logicalFiles!=null){
 				log.debug("FileName = "+logicalFiles.getName());
 				log.debug("OriginalFileName = "+logicalFiles.getOriginalFilename());

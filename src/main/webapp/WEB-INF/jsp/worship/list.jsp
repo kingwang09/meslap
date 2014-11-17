@@ -8,8 +8,10 @@
 	<jsp:include page="../include/common_include.jsp"></jsp:include>
 </head>
 <body>
+<jsp:include page="../include/menu_include.jsp"></jsp:include>
+<div class="content">
 	list Size = ${worships}<br/>
-	<table class="table table-bordered table-hover">
+	<table class="table table-condense">
 		<thead>
 			<tr>
 				<th>카테고리</th>
@@ -30,5 +32,6 @@
 			</c:forEach>
 		</tbody>	
 	</table>
+</div>
 </body>
 </html>

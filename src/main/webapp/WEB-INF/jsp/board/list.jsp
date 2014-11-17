@@ -8,20 +8,33 @@
 <jsp:include page="../include/common_include.jsp"></jsp:include>
 </head>
 <body>
+<jsp:include page="../include/menu_include.jsp"></jsp:include>
+<div class="content" style="height:650px">
 	list Size = ${boards}<br/>
-	<a href="${cp}/board/${boardCode}/write.do">write</a><br/>
+	
+	<div class="pull-right">
+		<a href="${cp}/board/${boardCode}/write.do" class="btn btn-default btn-xs"><i class="fa fa-pencil"></i> 글작성</a><br/>	
+	</div>
 	<table class="table table-condensed">
 		<thead>
 			<tr>
-				<th>title</th>
-				<th>writer</th>
-				<th>wdate</th>
-				<th>action</th>
+				<th>카테고리</th>
+				<th>제목</th>
+				<th>작성자</th>
+				<th>작성일자</th>
+				<th>작업</th>
 			</tr>
 		</thead>
 		<tbody>
+			<c:if test="${empty boards}">
+				<tr>
+					<td colspan="5" align="center">현재 게시글이 존재하지 않습니다.</td>
+				</tr>
+			</c:if>	
+			
 			<c:forEach var="board" items="${boards}">
 			<tr>
+				<td></td>
 				<td><a href="${cp}/board/${board.boardCode}/${board.id}/view.do">${board.title}</a></td>
 				<td>${board.writer}</td>
 				<td>${board.wdate}</td>
@@ -33,5 +46,7 @@
 			</c:forEach>
 		</tbody>
 	</table>
+</div>
+<jsp:include page="../include/common_bottom.jsp"></jsp:include>
 </body>
 </html>

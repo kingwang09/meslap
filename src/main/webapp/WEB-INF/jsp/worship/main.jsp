@@ -4,22 +4,6 @@
 <html lang="ko">
 <head>
     <jsp:include page="../include/common_include.jsp"></jsp:include>    
-    <style>
-        body{
-            /*font-family: 'Open Sans', sans-serif;*/
-            font-family: 'Nanum Gothic', sans-serif;
-            font-size:13px;
-            line-height:20px;
-            /*padding-top:48px;*/
-            margin:0;
-            /*background:#ddd url('../img/back.png') repeat;
-            -webkit-font-smoothing: antialiased;*/
-        }
-        /*bootstrap width bug*/
-        .row{
-            margin-right:0px;
-        }
-    </style>
     <script>
         $(document).ready(function(){
            $(".media").on("mouseenter",function(){
