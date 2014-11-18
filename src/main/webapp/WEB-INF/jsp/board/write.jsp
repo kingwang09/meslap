@@ -34,7 +34,7 @@ function write(){
 		<select class="form-control">
 			<option>test</option>
 		</select>
-		<input type="text" name="category" class="form-control" placeholder="카테고리"/>
+		<input type="text" name="category" class="form-control" placeholder="분류"/>
 	</div>
 	<div class="input-group input-group-sm" style="z-index:2">
 		<span class="input-group-addon"><i class="fa fa-check-circle"></i></span>
