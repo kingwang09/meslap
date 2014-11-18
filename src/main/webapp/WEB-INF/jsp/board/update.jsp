@@ -11,7 +11,7 @@ function goList(){
 	//location.href="${cp}/board/${boardCode}/list.do";
 	var form = document.boardForm;
 	form.action = "${cp}/board/${boardCode}/list.do";
-	form.method = "get";
+	form.method = "post";
 	form.submit();
 }
 function write(){

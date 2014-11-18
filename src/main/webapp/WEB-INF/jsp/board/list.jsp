@@ -11,7 +11,6 @@
 <jsp:include page="../include/menu_include.jsp"></jsp:include>
 <div class="content" style="height:650px">
 	list Size = ${boards}<br/>
-	
 	<div class="pull-right">
 		<a href="${cp}/board/${boardCode}/write.do" class="btn btn-default btn-xs"><i class="fa fa-pencil"></i> 글작성</a><br/>	
 	</div>
