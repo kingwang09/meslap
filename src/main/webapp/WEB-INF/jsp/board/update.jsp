@@ -6,28 +6,65 @@
 <html>
 <head>
 <jsp:include page="../include/common_include.jsp"></jsp:include>
+<script>
+function goList(){
+	//location.href="${cp}/board/${boardCode}/list.do";
+	var form = document.boardForm;
+	form.action = "${cp}/board/${boardCode}/list.do";
+	form.method = "get";
+	form.submit();
+}
+function write(){
+	//validation
+	var form = document.boardForm;
+	form.action = "${cp}/board/${boardCode}/${board.id}/update.do";
+	form.method = "post";
+	form.submit();
+}
+</script>
 </head>
 <body>
-update<br/>
-<form action="${cp}/board/${boardCode}/${board.id}/update.do" method="post">
+<jsp:include page="../include/menu_include.jsp"></jsp:include>
+<br/>
+<div class="content" style="text-align:left">
+<form id="boardForm" name="boardForm" action="${cp}/board/${boardCode}/${board.id}/update.do" method="post" enctype="multipart/form-data">
 	<input type="hidden" name="boardCode" value="${boardCode}"/>
 	<input type="hidden" name="id" value="${board.id}"/>
-	<div>
-		<span>title : <input type="text" name="title" value="${board.title}"/></span>
+	<div class="input-group input-group-sm" style="z-index:2">
+		<span class="input-group-addon"><i class="fa fa-check-circle-o"></i></span>
+		<select class="form-control">
+			<option>test</option>
+		</select>
+		<input type="text" name="category" class="form-control" placeholder="카테고리" value="${board.category}"/>
 	</div>
-	<div>
-		<span>content: 
-			<textarea name="content">${board.content}</textarea>
-		</span>
+	<div class="input-group input-group-sm" style="z-index:2">
+		<span class="input-group-addon"><i class="fa fa-check-circle"></i></span>
+		<input type="text" name="title" class="form-control" placeholder="글제목" value="${board.title}"/>
 	</div>
-	<div>
-		<span>
-			writer :
-			<input type="text" name="writer" value="${board.writer}"/>
-		</span>
+	<textarea name="content" class="form-control" placeholder="내용" style="height:400px">${board.content}</textarea>
+	<div class="input-group input-group-sm">
+		<span class="input-group-addon"><i class="fa fa-check-circle"></i></span>
+		<input type="text" name="writer" class="form-control" placeholder="작성자(자동)" value="${board.writer}"/>
 	</div>
-	<input type="file" name="logicalFiles" />
-	<input type="submit" value="update" />
+	<div class="input-group input-group-sm">
+		<span class="input-group-addon"><i class="fa fa-check-circle-o"></i></span>
+		<input type="file" name="logicalFiles" class="form-control" placeholder="파일을 첨부해주세요."/>
+	</div>
+	<br/>
+	<div style="text-align:center">
+		<button class="btn btn-default btn-xs" onclick="write()">
+			<i class="fa fa-floppy-o"></i>
+			수정완료
+		</button>
+		&nbsp;
+		<button class="btn btn-default btn-xs" onclick="goList()">
+			<i class="fa fa-th-list"></i>
+			목록으로
+		</button>
+	</div>
 </form>
+</div>
+<br/>
+<jsp:include page="../include/common_bottom.jsp"></jsp:include>
 </body>
 </html>

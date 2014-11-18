@@ -63,6 +63,9 @@ public class Board implements Serializable{
 	@Getter @Setter
 	private MultipartFile logicalFiles;
 	
+	@Getter @Setter
+	private String category;
+	
 	
 	@Override
 	public String toString() {

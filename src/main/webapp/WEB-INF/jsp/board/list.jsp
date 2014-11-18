@@ -34,13 +34,13 @@
 			
 			<c:forEach var="board" items="${boards}">
 			<tr>
-				<td></td>
+				<td>${board.category}</td>
 				<td><a href="${cp}/board/${board.boardCode}/${board.id}/view.do">${board.title}</a></td>
 				<td>${board.writer}</td>
 				<td>${board.wdate}</td>
 				<td>
-					<a href="${cp}/board/${board.boardCode}/${board.id}/update.do">update</a>
-					<a href="${cp}/board/${board.boardCode}/${board.id}/delete.do">delete</a>
+					<a href="${cp}/board/${board.boardCode}/${board.id}/update.do" class="btn btn-default btn-xs"><i class="fa fa-pencil-square-o"></i> 수정</a>
+					<a href="${cp}/board/${board.boardCode}/${board.id}/delete.do" class="btn btn-default btn-xs"><i class="fa fa-times"></i> 삭제</a>
 				</td>
 			</tr>
 			</c:forEach>

@@ -39,7 +39,7 @@ public class BoardServiceImpl implements BoardService {
 		try {
 			board.setWdate(new Date());
 			MultipartFile logicalFiles = board.getLogicalFiles();
-			if(logicalFiles!=null){
+			if(logicalFiles!=null && logicalFiles.getSize()>0){
 				log.debug("FileName = "+logicalFiles.getName());
 				log.debug("OriginalFileName = "+logicalFiles.getOriginalFilename());
 				log.debug("\n");

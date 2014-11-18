@@ -8,22 +8,33 @@
 <jsp:include page="../include/common_include.jsp"></jsp:include>
 </head>
 <body>
-<a href="${cp}/board/${boardCode}/list.do">list</a><br/>
-	<div>
-		<span>title : ${board.title}</span>
+<jsp:include page="../include/menu_include.jsp"></jsp:include>
+<br/>
+<div class="content" style="text-align:left">
+	<div class="panel panel-default">
+	  <div class="panel-heading"><small>[${board.category }]</small> ${board.title }</div>
+	  <div class="panel-body">
+	    <pre style="height:400px">${board.content}</pre>
+	    <div style="text-align:right">
+	    	<span>
+	    		<a href="${cp}/board/${boardCode}/${board.id}/download.do?filePath=${board.filePath}&fileName=${board.fileName}" title="${board.filePath}" class="btn btn-default btn-xs">
+	    		<i class="fa fa-file-archive-o"></i> <!-- 확장자에따라 아이콘 변경. -->
+	    		${board.fileName}
+	    		</a>
+	    	</span>
+	    	<small>${board.wdate} - ${board.writer }</small>
+	    </div>
+	  </div>
 	</div>
-	<div>
-		<span>content : ${board.content}</span>
+	<br/>
+	<div style="text-align:center">
+		<a href="${cp}/board/${boardCode}/list.do" class="btn btn-default btn-xs">
+			<i class="fa fa-th-list"></i>
+			목록으로
+		</a>
 	</div>
-	<div>
-		<span>wdate : ${board.wdate}</span>
-	</div>
-	
-	<c:forEach var="file" items="${board.files}">
-		<div>
-			<span>filePath : <a href="${cp}/board/${boardCode}/${board.id}/download.do?filePath=${file.filePath}&fileName=${file.fileName}" title="${file.filePath}">${file.fileName}</a></span>
-		</div>
-		<hr/>
-	</c:forEach>
+</div>
+<br/>
+<jsp:include page="../include/common_bottom.jsp"></jsp:include>
 </body>
 </html>
