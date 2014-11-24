@@ -4,89 +4,120 @@
 <html lang="ko">
 <head>
 <jsp:include page="../include/common_include.jsp"></jsp:include>
+<script>
+function goList(){
+	location.href="<%=cp%>/worship/admin/list.do";
+}
+function doSubmit(){
+	var form = document.worshipForm;
+	//validate
+	form.submit();
+}
+</script>
 </head>
 <body>
-Write<br/>
-<div style="width:1200px">
-<form action="<%=cp %>/worship/admin/write.do" method="post" enctype="multipart/form-data" class="form-horizontal" role="form">
-	<div class="form-group">
-		<label for="videoImage" class="col-sm-2 control-label">Video 이미지</label>
-		<div class="col-sm-10">
-			<input type="file" name="videoImage" id="videoImage" class="form-control"/>
+<jsp:include page="../include/menu_include.jsp"></jsp:include>
+<br/>
+<div class="content">
+	<form action="<%=cp %>/worship/admin/write.do" id="worshipForm" name="worshipForm" method="post" enctype="multipart/form-data" class="form-horizontal" role="form">
+		<div class="form-group">
+			<label for="mainBibleImage" class="col-sm-2 control-label">Main Bible 이미지</label>
+			<div class="col-sm-10">
+				<input type="file" name="mainBibleImage" id="mainBibleImage" class="form-control"/>
+			</div>
 		</div>
-	</div>
-	<div class="form-group">
-		<label for="videoImage" class="col-sm-2 control-label">Youtube URL</label>
-		<div class="col-sm-10">
-			<input type="text" name="youtubeUrl" id="youtubeUrl" class="form-control"/>
+		<div class="form-group">
+			<label for="mainVideoImage" class="col-sm-2 control-label">Main Video 이미지</label>
+			<div class="col-sm-10">
+				<input type="file" name="mainVideoImage" id="mainVideoImage" class="form-control"/>
+			</div>
 		</div>
-	</div>
-	<div class="form-group">
-		<label for="videoImage" class="col-sm-2 control-label">카테고리</label>
-		<div class="col-sm-10">
-			<!-- 기존 등록된 카테고리 Distinct 목록 -->
-			<select></select>
-			<input type="text" name="category" class="form-control"/>
+		<div class="form-group">
+			<label for="videoImage" class="col-sm-2 control-label">Video 이미지</label>
+			<div class="col-sm-10">
+				<input type="file" name="videoImage" id="videoImage" class="form-control"/>
+			</div>
 		</div>
-	</div>
-	<div class="form-group">
-		<label for="videoImage" class="col-sm-2 control-label">제목 </label>
-		<div class="col-sm-10">
-			<input type="text" name="title" class="form-control"/>
+		<div class="form-group">
+			<label for="videoImage" class="col-sm-2 control-label">Youtube URL</label>
+			<div class="col-sm-10">
+				<input type="text" name="youtubeUrl" id="youtubeUrl" class="form-control"/>
+			</div>
 		</div>
-	</div>
-	<div class="form-group">
-		<label for="videoImage" class="col-sm-2 control-label">말씀위치(장/절)</label>
-		<div class="col-sm-10">
-			<input type="text" name="bibleIndex" class="form-control"/>
+		<div class="form-group">
+			<label for="videoImage" class="col-sm-2 control-label">카테고리</label>
+			<div class="col-sm-10">
+				<!-- 기존 등록된 카테고리 Distinct 목록 -->
+				<select></select>
+				<input type="text" name="category" class="form-control"/>
+			</div>
 		</div>
-	</div>
-	<div class="form-group">
-		<label for="videoImage" class="col-sm-2 control-label">말씀구절 </label>
-		<div class="col-sm-10">
-			<textarea name="bible" class="form-control"></textarea>
+		<div class="form-group">
+			<label for="videoImage" class="col-sm-2 control-label">제목 </label>
+			<div class="col-sm-10">
+				<input type="text" name="title" class="form-control"/>
+			</div>
 		</div>
-	</div>
-	<div class="form-group">
-		<label for="videoImage" class="col-sm-2 control-label">암송구절 </label>
-		<div class="col-sm-10">
-			<input type="text" name="recitationBibleIndex" class="form-control"/>
+		<div class="form-group">
+			<label for="videoImage" class="col-sm-2 control-label">말씀위치(장/절)</label>
+			<div class="col-sm-10">
+				<input type="text" name="bibleIndex" class="form-control"/>
+			</div>
 		</div>
-	</div>
-	<div class="form-group">
-		<label for="videoImage" class="col-sm-2 control-label">암송구절(장/절)</label>
-		<div class="col-sm-10">
-			<input type="text" name="recitationBible" class="form-control" />
+		<div class="form-group">
+			<label for="videoImage" class="col-sm-2 control-label">말씀구절 </label>
+			<div class="col-sm-10">
+				<textarea name="bible" class="form-control"></textarea>
+			</div>
 		</div>
-	</div>
-	<div class="form-group">
-		<label for="videoImage" class="col-sm-2 control-label">말씀 오디오 파일</label>
-		<div class="col-sm-10">
-			<input type="file" name="audioFile" class="form-control"/>
+		<div class="form-group">
+			<label for="videoImage" class="col-sm-2 control-label">암송구절(장/절)</label>
+			<div class="col-sm-10">
+				<input type="text" name="recitationBible" class="form-control" />
+			</div>
 		</div>
-	</div>
-	<div class="form-group">
-		<label for="videoImage" class="col-sm-2 control-label">말씀 텍스트 파일</label>
-		<div class="col-sm-10">
-			<input type="file" name="textFile" class="form-control"/>
+		<div class="form-group">
+			<label for="videoImage" class="col-sm-2 control-label">암송구절 </label>
+			<div class="col-sm-10">
+				<input type="text" name="recitationBibleIndex" class="form-control"/>
+			</div>
 		</div>
-	</div>
-	<div class="form-group">
-		<label for="videoImage" class="col-sm-2 control-label">주보 파일</label>
-		<div class="col-sm-10">
-			<input type="file" name="juboFile[0]" class="form-control"/><br/>
-			<input type="file" name="juboFile[1]" class="form-control"/><br/>
-			<input type="file" name="juboFile[2]" class="form-control"/><br/>
+		<div class="form-group">
+			<label for="videoImage" class="col-sm-2 control-label">말씀 오디오 파일</label>
+			<div class="col-sm-10">
+				<input type="file" name="audioFile" class="form-control"/>
+			</div>
 		</div>
-	</div>
-	<div class="form-group">
-		<div class="col-sm-10 col-sm-offset-2">
-			<input type="submit" value="업로드" class="btn"/>
-			<input type="button" value="미리보기" class="btn" />
+		<div class="form-group">
+			<label for="videoImage" class="col-sm-2 control-label">말씀 텍스트 파일</label>
+			<div class="col-sm-10">
+				<input type="file" name="textFile" class="form-control"/>
+			</div>
 		</div>
-	</div>
-
-</form>
+		<div class="form-group">
+			<label for="videoImage" class="col-sm-2 control-label">주보 파일</label>
+			<div class="col-sm-10">
+				<input type="file" name="juboFile01" class="form-control"/><br/>
+				<input type="file" name="juboFile02" class="form-control"/><br/>
+				<input type="file" name="juboFile03" class="form-control"/><br/>
+			</div>
+		</div>
+		<div style="text-algin:center">
+			<a href="javascript:doSubmit();" class="btn btn-default btn-xs">
+				<i class="fa fa-floppy-o"></i> 등록 완료
+			</a>
+			&nbsp;
+			<!-- 
+			<input type="button" value="미리보기" class="btn btn-default btn-xs" />
+			&nbsp;
+			 -->
+			<a href="<%=cp %>/worship/admin/list.do" class="btn btn-default btn-xs">
+				<i class="fa fa-th-list"></i> 목록으로
+			</a>
+		</div>
+	</form>
 </div>
+<br/>
+<jsp:include page="../include/common_bottom.jsp"></jsp:include>
 </body>
 </html>

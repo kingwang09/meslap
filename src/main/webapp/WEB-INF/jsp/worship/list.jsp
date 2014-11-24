@@ -11,6 +11,9 @@
 <jsp:include page="../include/menu_include.jsp"></jsp:include>
 <div class="content">
 	list Size = ${worships}<br/>
+	<div class="pull-right">
+		<a href="${cp}/worship/admin/write.do" class="btn btn-default btn-xs"><i class="fa fa-pencil"></i> 말씀 등록</a><br/>	
+	</div>
 	<table class="table table-condense">
 		<thead>
 			<tr>
@@ -20,6 +23,11 @@
 			</tr>
 		</thead>
 		<tbody>
+			<c:if test="${empty worships}">
+				<tr>
+					<td colspan="3" align="center">현재 말씀이 존재하지 않습니다.</td>
+				</tr>
+			</c:if>	
 			<c:forEach  var="worship" items="${worships}">
 			<tr>
 				<td>${worship.category}</td>
@@ -33,5 +41,6 @@
 		</tbody>	
 	</table>
 </div>
+<jsp:include page="../include/common_bottom.jsp"></jsp:include>
 </body>
 </html>

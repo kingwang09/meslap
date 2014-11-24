@@ -42,7 +42,7 @@
   		<property name="order" value="0"/>
   	</bean>
   	
-  	<bean id="download" class="org.jesus.meslap.board.view.BoardDownloadView" />
+  	<bean id="download" class="org.jesus.meslap.util.DownloadView" />
   	<!-- 
   		@ResponseBody annotation의 경우 HTTP통신 매개체가 Java Object가 아닌 plainText로 보내겟다는 선언
   		따라서 object를 리턴시 자동으로 json컨버트로 변환해줌.

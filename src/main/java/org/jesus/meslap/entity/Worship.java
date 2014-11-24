@@ -22,7 +22,7 @@ public class Worship {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	@Getter
+	@Getter @Setter
 	private Integer id;
 	
 	/**
@@ -108,18 +108,23 @@ public class Worship {
 	@Column(name="JUBO_FILE_NAME01")
 	@Getter @Setter
 	private String juboFileName01;
+	@Transient
+	@Getter @Setter
+	private MultipartFile juboFile01;
 	
 	@Column(name="JUBO_FILE_NAME02")
 	@Getter @Setter
 	private String juboFileName02;
+	@Transient
+	@Getter @Setter
+	private MultipartFile juboFile02;
 	
 	@Column(name="JUBO_FILE_NAME03")
 	@Getter @Setter
 	private String juboFileName03;
-	
 	@Transient
 	@Getter @Setter
-	private MultipartFile[] juboFile;
+	private MultipartFile juboFile03;
 	
 	@Column(name="YOUTUBE_URL")
 	@Getter @Setter
@@ -132,6 +137,22 @@ public class Worship {
 	@Transient
 	@Getter @Setter
 	private MultipartFile videoImage;
+	
+	@Column(name="MAIN_VIDEO_IMAGE_FILE_NAME")
+	@Getter @Setter
+	private String mainVideoImageFileName;
+	
+	@Transient
+	@Getter @Setter
+	private MultipartFile mainVideoImage;
+	
+	@Column(name="MAIN_BIBLE_IMAGE_FILE_NAME")
+	@Getter @Setter
+	private String mainBibleImageFileName;
+	
+	@Transient
+	@Getter @Setter
+	private MultipartFile mainBibleImage;
 	
 	@Column
 	@Getter @Setter

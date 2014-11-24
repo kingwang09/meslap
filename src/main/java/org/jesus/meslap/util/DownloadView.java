@@ -1,4 +1,4 @@
-package org.jesus.meslap.board.view;
+package org.jesus.meslap.util;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -14,7 +14,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.util.FileCopyUtils;
 import org.springframework.web.servlet.view.AbstractView;
 
-public class BoardDownloadView extends AbstractView {
+public class DownloadView extends AbstractView {
 	
 	
 	private Logger log = LoggerFactory.getLogger(getClass());

@@ -11,4 +11,5 @@ public interface WorshipService {
 	public List<Worship> getWorships();
 	public void update(String path, Worship worship);
 	public Worship getWorship(Integer id);
+	public void delete(String path, Integer id);
 }

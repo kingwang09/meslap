@@ -1296,3 +1296,14 @@ div.worship-content{
 	margin:0 auto;width:990px;
 	padding-top:15px;
 }
+pre.worship{
+	font-family: 'Nanum Gothic', sans-serif;
+	padding:0;
+	margin:0;
+	backgroud-color:none;
+	border:none;
+	overflow:none;
+	word-wrap:normal;
+	background-color:white;
+		
+}

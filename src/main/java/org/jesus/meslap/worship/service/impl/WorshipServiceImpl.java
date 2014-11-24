@@ -29,6 +29,33 @@ public class WorshipServiceImpl implements WorshipService {
 		return worshipDao.getWorships();
 	}
 	
+	private String getSavedImageFileName(MultipartFile file){
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
+		String currentDate = sdf.format(new Date());
+		return currentDate+"_"+file.getOriginalFilename();
+	}
+	
+	private String writeFile(String path, MultipartFile file) throws IllegalStateException, IOException{
+		if(file!=null && file.getSize()>0){
+			String savedFileName = getSavedImageFileName(file);
+			//worship.setMainBibleImageFileName(savedImageFileName);
+			file.transferTo(new File(path+File.separator+savedFileName));
+			return savedFileName;
+		}
+		return null;
+	}
+	
+	private String updateFile(String path, MultipartFile newfile, String oldFileName) throws IllegalStateException, IOException{
+		if(newfile!=null && newfile.getSize()>0){
+			deleteFile(path, oldFileName);
+			String savedFileName = getSavedImageFileName(newfile);
+			//worship.setMainBibleImageFileName(savedImageFileName);
+			newfile.transferTo(new File(path+File.separator+savedFileName));
+			return savedFileName;
+		}
+		return oldFileName;
+	}
+	
 	@Transactional
 	public void write(String path, Worship worship){
 		File dir = new File(path);
@@ -36,60 +63,38 @@ public class WorshipServiceImpl implements WorshipService {
 			dir.mkdir();
 		
 		try {
-			//Title Image File
-//			MultipartFile titleImageFile = worship.getTitleImageFile();
-//			if(titleImageFile!=null){
-//				String titleImageFileName = titleImageFile.getOriginalFilename();
-//				worship.setTitleImageFileName(titleImageFileName);
-//				titleImageFile.transferTo(new File(path+File.separator+titleImageFileName));
-//			}
 			
-			SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
-			String currentDate = sdf.format(new Date());
+			//Main Bible Image File
+			MultipartFile mainBibleImageFile = worship.getMainBibleImage();
+			worship.setMainBibleImageFileName(writeFile(path, mainBibleImageFile));
+			
+			
+			//Main Video Image File
+			MultipartFile mainVideoImageFile = worship.getMainVideoImage();
+			worship.setMainVideoImageFileName(writeFile(path, mainVideoImageFile));
+			
+			
+			//Video Image File
+			MultipartFile videoImageFile = worship.getVideoImage();
+			worship.setVideoImageFileName(writeFile(path, videoImageFile));
+			
 			//Audio File
 			MultipartFile audioFile = worship.getAudioFile();
-			if(audioFile!=null){
-				String audioFileName = currentDate+"_"+audioFile.getOriginalFilename();
-				worship.setAudioFileName(audioFileName);
-				audioFile.transferTo(new File(path+File.separator+audioFileName));
-			}
+			worship.setAudioFileName(writeFile(path, audioFile));
 			
 			//Text File
 			MultipartFile textFile = worship.getTextFile();
-			if(textFile!=null){
-				String textFileName = currentDate+"_"+textFile.getOriginalFilename();
-				worship.setTextFileName(textFileName);
-				textFile.transferTo(new File(path+File.separator+textFileName));
-			}
+			worship.setTextFileName(writeFile(path, textFile));
 			
 			//Jubo File 1~3
-			MultipartFile[] juboFiles = worship.getJuboFile();
-			if(juboFiles!=null){
-				for(int i=0; i<juboFiles.length;i++){
-					MultipartFile juboFile = juboFiles[i];
-					String juboFileName = null;
-					switch(i){
-					case 0: 
-						juboFileName = currentDate+"_"+juboFile.getOriginalFilename(); 
-						worship.setJuboFileName01(juboFileName);
-						juboFile.transferTo(new File(path+File.separator+juboFileName));
-						break;
-					case 1: 
-						juboFileName = currentDate+"_"+juboFile.getOriginalFilename(); 
-						worship.setJuboFileName02(juboFileName);
-						juboFile.transferTo(new File(path+File.separator+juboFileName));
-						break;
-					case 2: 
-						juboFileName = currentDate+"_"+juboFile.getOriginalFilename(); 
-						worship.setJuboFileName03(juboFileName);
-						juboFile.transferTo(new File(path+File.separator+juboFileName));
-						break;
-					default:
-						log.error("주보파일 개수가 초과하였습니다.");
-						break;
-					}//end switch
-				}//end for
-			}//end if
+			MultipartFile juboFile01 = worship.getJuboFile01();
+			worship.setJuboFileName01(writeFile(path, juboFile01));
+			
+			MultipartFile juboFile02 = worship.getJuboFile02();
+			worship.setJuboFileName01(writeFile(path, juboFile02));
+			
+			MultipartFile juboFile03 = worship.getJuboFile01();
+			worship.setJuboFileName03(writeFile(path, juboFile03));
 			
 			worship.setWdate(new Date());
 			worshipDao.save(worship);
@@ -100,15 +105,86 @@ public class WorshipServiceImpl implements WorshipService {
 		}
 	}
 	
+	
+	
 	@Transactional
 	public void update(String path, Worship worship) {
-		// TODO Auto-generated method stub
-		
+		File dir = new File(path);
+		if(!dir.exists())
+			dir.mkdir();
+		Worship beforeWorship = getWorship(worship.getId());
+		try {
+			//Main Bible Image File
+			MultipartFile mainBibleImageFile = worship.getMainBibleImage();
+			String oldMainBibleImageFileName = beforeWorship.getMainBibleImageFileName();
+			worship.setMainBibleImageFileName(updateFile(path, mainBibleImageFile, oldMainBibleImageFileName));
+			
+			//Main Video Image File
+			worship.setMainVideoImageFileName(updateFile(path, worship.getMainVideoImage(), beforeWorship.getMainVideoImageFileName()));
+			
+			
+			//Video Image File
+			worship.setVideoImageFileName(updateFile(path, worship.getVideoImage(), beforeWorship.getVideoImageFileName()));
+			
+			
+			//Audio File
+			worship.setAudioFileName(updateFile(path, worship.getAudioFile(), beforeWorship.getAudioFileName()));
+			
+			//Text File
+			worship.setAudioFileName(updateFile(path, worship.getTextFile(), beforeWorship.getTextFileName()));
+			
+			
+			//Jubo File 1~3
+			worship.setJuboFileName01(updateFile(path, worship.getJuboFile01(), beforeWorship.getJuboFileName01()));
+			worship.setJuboFileName02(updateFile(path, worship.getJuboFile02(), beforeWorship.getJuboFileName02()));
+			worship.setJuboFileName03(updateFile(path, worship.getJuboFile03(), beforeWorship.getJuboFileName03()));
+			
+			worship.setWdate(new Date());
+			//worshipDao.save(worship);
+			worshipDao.merge(worship);
+		} catch (IllegalStateException e) {
+			log.error("WorshipService.write Error 01. \n"+e.getMessage());
+		} catch (IOException e) {
+			log.error("WorshipService.write Error 02. \n"+e.getMessage());
+		}
 	}
 	
 	@Transactional
 	public Worship getWorship(Integer id) {
 		return worshipDao.getWorship(id);
+	}
+	
+	private void deleteFile(String path, String fileName){
+		if(fileName == null)
+			return;
+		
+		File file = new File(path+File.separator+fileName);
+		if(file!=null && file.exists()){
+			file.delete();
+		}
+	}
+	
+	@Transactional
+	public void delete(String path, Integer id) {
+		Worship w = worshipDao.getWorship(id);
+		//Main Bible Image File
+		deleteFile(path, w.getMainBibleImageFileName());
+		//Main Video Image File
+		deleteFile(path, w.getMainVideoImageFileName());
+		//Video Image File
+		deleteFile(path, w.getVideoImageFileName());
+		//Audio File
+		deleteFile(path, w.getAudioFileName());
+		//Text File
+		deleteFile(path, w.getTextFileName());
+		
+		//Jubo File01
+		deleteFile(path, w.getJuboFileName01());
+		//Jubo File02
+		deleteFile(path, w.getJuboFileName02());
+		//Jubo File03
+		deleteFile(path, w.getJuboFileName03());
+		worshipDao.delete(id);
 	}
 
 }

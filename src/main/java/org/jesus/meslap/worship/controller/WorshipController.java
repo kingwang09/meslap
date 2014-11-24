@@ -1,5 +1,6 @@
 package org.jesus.meslap.worship.controller;
 
+import java.io.File;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -13,6 +14,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -56,7 +58,7 @@ public class WorshipController {
 	public ModelAndView adminWriteLogic(HttpServletRequest request, @ModelAttribute("worship") Worship worship){
 		String path = meslapUtils.getPath(request, Worship.WORSHIP_FOLDER);
 		wService.write(path, worship);
-		return new ModelAndView("redirect:/worship/main.do");
+		return new ModelAndView("redirect:/worship/admin/list.do");
 	}
 	
 	@RequestMapping(value="/admin/update.do", method=RequestMethod.GET)
@@ -72,6 +74,34 @@ public class WorshipController {
 	public ModelAndView adminUpdateLogic(HttpServletRequest request, @ModelAttribute("worship") Worship worship){
 		String path = meslapUtils.getPath(request, Worship.WORSHIP_FOLDER);
 		wService.update(path, worship);
-		return new ModelAndView("redirect:/worship/main.do");
+		return new ModelAndView("redirect:/worship/admin/list.do");
+	}
+	
+	@RequestMapping(value="/admin/delete.do", method=RequestMethod.GET)
+	public ModelAndView adminDelete(HttpServletRequest req,HttpServletResponse resp, @RequestParam Integer id){
+		String path = meslapUtils.getPath(req, Worship.WORSHIP_FOLDER);
+		wService.delete(path, id);
+		return new ModelAndView("redirect:/worship/admin/list.do");
+	}
+	
+	
+	
+	@RequestMapping("/download.do")
+	public ModelAndView download(HttpServletRequest request, @RequestParam String fileName){
+		String path = meslapUtils.getPath(request, Worship.WORSHIP_FOLDER);
+		
+		File downFile = new File(path+File.separator+fileName);
+		ModelAndView mav = new ModelAndView("download");
+		mav.addObject("downloadFile", downFile);
+		return mav;
+	}
+	
+	@RequestMapping(value="/view.do", method=RequestMethod.GET)
+	public ModelAndView view(HttpServletRequest req,HttpServletResponse resp, @RequestParam Integer id){
+		ModelAndView mav = new ModelAndView();
+		Worship worship = wService.getWorship(id);
+		mav.setViewName("/worship/view");
+		mav.addObject("worship",worship);
+		return mav;
 	}
 }

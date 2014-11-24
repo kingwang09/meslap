@@ -22,6 +22,10 @@ public class WorshipDAOImpl implements WorshipDAO {
 		return session;
 	}
 	
+	public void merge(Worship worship) {
+		getSession().merge(worship);
+	}
+	
 	public void save(Worship worship) {
 		getSession().saveOrUpdate(worship);
 	}
@@ -33,5 +37,10 @@ public class WorshipDAOImpl implements WorshipDAO {
 
 	public Worship getWorship(Integer id) {
 		return (Worship) getSession().get(Worship.class, id);
+	}
+
+	public void delete(Integer id) {
+		Worship w = getWorship(id);
+		getSession().delete(w);
 	}
 }
