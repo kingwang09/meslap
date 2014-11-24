@@ -66,4 +66,14 @@
 	</bean>
 	
 	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver" />
+	
+	<!-- Exception Resolver : 로그인 안됨 , 예외 시 보낼 페이지 설정 (tiles 설정페이지에 설정되어 있음)-->
+	<bean id="exceptionResolver" class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+		<property name="exceptionMappings">
+			<props>
+				<prop key="NeedLoginException">error/login</prop>
+				<!-- prop key="java.lang.Exception">errorPage</prop 운영시 해제-->
+			</props>
+		</property>
+	</bean>
 </beans>

@@ -6,6 +6,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.jesus.meslap.annotation.AdminAuth;
 import org.jesus.meslap.entity.Worship;
 import org.jesus.meslap.util.MeslapUtils;
 import org.jesus.meslap.worship.service.WorshipService;
@@ -38,6 +39,8 @@ public class WorshipController {
 		mav.addObject("overMenu","main");
 		return mav;
 	}
+	
+	@AdminAuth
 	@RequestMapping(value="/admin/list.do", method=RequestMethod.GET)
 	public ModelAndView adminList(HttpServletRequest req,HttpServletResponse resp){
 		ModelAndView mav = new ModelAndView();
@@ -47,6 +50,7 @@ public class WorshipController {
 		return mav;
 	}
 	
+	@AdminAuth
 	@RequestMapping(value="/admin/write.do", method=RequestMethod.GET)
 	public ModelAndView adminWrite(HttpServletRequest req,HttpServletResponse resp){
 		ModelAndView mav = new ModelAndView();
@@ -54,6 +58,7 @@ public class WorshipController {
 		return mav;
 	}
 	
+	@AdminAuth
 	@RequestMapping(value="/admin/write.do", method=RequestMethod.POST)
 	public ModelAndView adminWriteLogic(HttpServletRequest request, @ModelAttribute("worship") Worship worship){
 		String path = meslapUtils.getPath(request, Worship.WORSHIP_FOLDER);
@@ -61,6 +66,7 @@ public class WorshipController {
 		return new ModelAndView("redirect:/worship/admin/list.do");
 	}
 	
+	@AdminAuth
 	@RequestMapping(value="/admin/update.do", method=RequestMethod.GET)
 	public ModelAndView adminUpdate(HttpServletRequest req,HttpServletResponse resp, @RequestParam Integer id){
 		ModelAndView mav = new ModelAndView();
@@ -70,6 +76,7 @@ public class WorshipController {
 		return mav;
 	}
 	
+	@AdminAuth
 	@RequestMapping(value="/admin/update.do", method=RequestMethod.POST)
 	public ModelAndView adminUpdateLogic(HttpServletRequest request, @ModelAttribute("worship") Worship worship){
 		String path = meslapUtils.getPath(request, Worship.WORSHIP_FOLDER);
@@ -77,6 +84,7 @@ public class WorshipController {
 		return new ModelAndView("redirect:/worship/admin/list.do");
 	}
 	
+	@AdminAuth
 	@RequestMapping(value="/admin/delete.do", method=RequestMethod.GET)
 	public ModelAndView adminDelete(HttpServletRequest req,HttpServletResponse resp, @RequestParam Integer id){
 		String path = meslapUtils.getPath(req, Worship.WORSHIP_FOLDER);

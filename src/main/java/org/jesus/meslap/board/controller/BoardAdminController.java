@@ -2,6 +2,7 @@ package org.jesus.meslap.board.controller;
 
 import java.util.List;
 
+import org.jesus.meslap.annotation.AdminAuth;
 import org.jesus.meslap.board.service.BoardService;
 import org.jesus.meslap.entity.BoardAdmin;
 import org.slf4j.Logger;
@@ -23,6 +24,7 @@ private Logger log = LoggerFactory.getLogger(getClass());
 	@Autowired
 	private BoardService bService;
 	
+	@AdminAuth
 	@RequestMapping("/list")
 	public ModelAndView list(){
 		log.debug("[BoardAdmin Controller - list] start");
@@ -32,12 +34,14 @@ private Logger log = LoggerFactory.getLogger(getClass());
 		return mav;
 	}
 	
+	@AdminAuth
 	@RequestMapping(value="/create", method=RequestMethod.GET)
 	public ModelAndView create(){
 		log.debug("[BoardAdmin Controller - create] start");
 		return new ModelAndView("/boardAdmin/create");
 	}
 	
+	@AdminAuth
 	@RequestMapping(value="/create", method=RequestMethod.POST)
 	public ModelAndView createLogic(@ModelAttribute("boardAdmin") BoardAdmin boardAdmin){
 		log.debug("[BoardAdmin Controller - createLogic] start");
@@ -48,6 +52,7 @@ private Logger log = LoggerFactory.getLogger(getClass());
 		return new ModelAndView("/boardAdmin/create");
 	}
 	
+	@AdminAuth
 	@RequestMapping(value="/view")
 	public ModelAndView view(@RequestParam String boardCode){
 		log.debug("[BoardAdmin Controller - createLogic] start");
