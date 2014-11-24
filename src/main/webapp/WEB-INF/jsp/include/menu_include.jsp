@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" import="org.jesus.meslap.entity.User"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %> 
 <%String cp = request.getContextPath(); %>
 <script>
 
@@ -133,5 +134,14 @@ $(document).ready(function(){
 	<img class="hoverImages" src="<%=cp %>/images/main/kakao.jpg" imgName="kakao" ext="jpg" />
 	&nbsp;
 	<a href="<%=cp%>/admin/list.do"><i class="fa fa-cogs"></i></a>
+	&nbsp;
+	<%
+		User user = (User)session.getAttribute(User.USER_ATTR); 
+		if(user != null){
+	%>
+		<a href="<%=cp%>/admin/logout.do"><i class="fa fa-sign-out"></i></a>
+	<%
+		}
+	%>
 </div>
 <hr class="separator_top" >

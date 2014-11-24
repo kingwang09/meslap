@@ -3,6 +3,11 @@ package org.jesus.meslap.exception;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+/**
+ * ExceptionHandler 가 잡을 수 있는 건 RuntimeException임.
+ * @author eun
+ *
+ */
 public class NeedLoginException extends RuntimeException{
 	/**
 	 * 

@@ -30,7 +30,7 @@ public class WorshipServiceImpl implements WorshipService {
 	}
 	
 	private String getSavedImageFileName(MultipartFile file){
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmss");
 		String currentDate = sdf.format(new Date());
 		return currentDate+"_"+file.getOriginalFilename();
 	}

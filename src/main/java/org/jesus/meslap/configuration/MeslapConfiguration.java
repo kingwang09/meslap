@@ -2,6 +2,7 @@ package org.jesus.meslap.configuration;
 
 import java.util.Properties;
 
+import javax.annotation.PostConstruct;
 import javax.sql.DataSource;
 
 import org.apache.commons.dbcp.BasicDataSource;
@@ -88,6 +89,7 @@ public class MeslapConfiguration {
         }
     }
 	
+	
 	@Bean(name = "dataSource", destroyMethod="close")
 	public DataSource dataSource() {
 		BasicDataSource dataSource = new BasicDataSource();
@@ -132,5 +134,11 @@ public class MeslapConfiguration {
 	@Bean(name="meslapUtils")
 	public MeslapUtils meslapUtils(){
 		return new MeslapUtils();
+	}
+	
+	
+	@PostConstruct
+	public void init(){
+		
 	}
 }

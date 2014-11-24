@@ -71,7 +71,7 @@
 	<bean id="exceptionResolver" class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
 		<property name="exceptionMappings">
 			<props>
-				<prop key="org.jesus.meslap.exception.NeedLoginException">error/login</prop>
+				<prop key="org.jesus.meslap.exception.NeedLoginException">user/login</prop>
 				<!-- prop key="java.lang.Exception">errorPage</prop 운영시 해제-->
 			</props>
 		</property>
