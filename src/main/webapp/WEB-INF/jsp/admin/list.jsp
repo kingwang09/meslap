@@ -29,8 +29,8 @@
 			<p>Meslap 성전의 게시판을 관리하고, 게시판을 생성/수정/삭제할 수 있습니다. 현재 게시판은 <a href="${cp}/board/bibleStudy/list.do">성경공부자료</a>, <a href="${cp}/board/notice/list.do">공지사항</a> 게시판이 있습니다.</p>
 		</div>
 		<div class="bs-callout bs-callout-danger">
-			<h4 class="h4"><a href="${cp}/boardAdmin/list.do"><i class="fa fa-users"></i> 회원관리</a></h4>
-			<p>Meslap 성전의 성도들을 관리하며, 회원 및 성도들의 권한을 관리합니다.</p>
+			<h4 class="h4"><a href="${cp}/boardAdmin/list.do"><i class="fa fa-users"></i> 계정관리</a></h4>
+			<p>Meslap 성전의 관리자 계정을 관리하며, 로그인 이력 및 패스워드, 개인정보 변경이 가능합니다.</p>
 		</div>
 	</div>
 </div>
