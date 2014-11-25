@@ -8,6 +8,7 @@ import javax.sql.DataSource;
 import org.apache.commons.dbcp.BasicDataSource;
 import org.hibernate.SessionFactory;
 import org.jesus.meslap.util.MeslapUtils;
+import org.jesus.meslap.util.PagingUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
@@ -136,9 +137,8 @@ public class MeslapConfiguration {
 		return new MeslapUtils();
 	}
 	
-	
-	@PostConstruct
-	public void init(){
-		
+	@Bean(name="pagingUtil")
+	public PagingUtil pagingUtil(){
+		return new PagingUtil();
 	}
 }

@@ -2,12 +2,14 @@ package org.jesus.meslap.board.controller;
 
 import java.io.File;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
 import org.jesus.meslap.board.service.BoardService;
 import org.jesus.meslap.entity.Board;
 import org.jesus.meslap.util.MeslapUtils;
+import org.jesus.meslap.util.PagingUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,7 +32,11 @@ public class BoardController {
 	@Autowired
 	private MeslapUtils meslapUtils;
 	@Autowired
+	private PagingUtil pUtil;
+	@Autowired
 	private HttpServletRequest request;
+	
+	private static final Integer BOARD_PAGE_SIZE = 10;
 	
 	private ModelAndView getDefaultMav(String viewName, String boardCode){
 		ModelAndView mav = new ModelAndView(viewName);
@@ -39,12 +45,17 @@ public class BoardController {
 	}
 	
 	@RequestMapping("/{boardCode}/list")
-	public ModelAndView list(@PathVariable String boardCode){
+	public ModelAndView list(@PathVariable String boardCode, @RequestParam(required=false) Integer cPage){
 		log.debug("[Board Controller - list] start");
 		log.debug("	boardCode = "+boardCode);
-		List<Board> boards = bService.getBoardList(boardCode);
+		
+		Integer total = bService.getBoardCount(boardCode);
+		Map pMap = pUtil.getCurrentPaging(BOARD_PAGE_SIZE, total, cPage);
+		
+		List<Board> boards = bService.getBoardList(boardCode, (Integer)pMap.get("fRow"), BOARD_PAGE_SIZE);
 		ModelAndView mav = getDefaultMav("board/list", boardCode);
 		mav.addObject("boards", boards);
+		mav.addObject("pMap",pMap);
 		return mav;
 	}
 	

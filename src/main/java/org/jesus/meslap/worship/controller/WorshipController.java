@@ -2,6 +2,7 @@ package org.jesus.meslap.worship.controller;
 
 import java.io.File;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -9,13 +10,13 @@ import javax.servlet.http.HttpServletResponse;
 import org.jesus.meslap.annotation.AdminAuth;
 import org.jesus.meslap.entity.Worship;
 import org.jesus.meslap.util.MeslapUtils;
+import org.jesus.meslap.util.PagingUtil;
 import org.jesus.meslap.worship.service.WorshipService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -27,24 +28,41 @@ public class WorshipController {
 	
 	private Logger log = LoggerFactory.getLogger(getClass());
 	
+	public static final Integer WORSHIP_PAGE_SIZE = 5;
+	
 	@Autowired
 	private WorshipService wService;
 	@Autowired
 	private MeslapUtils meslapUtils;
+	@Autowired
+	private PagingUtil pUtil;
 	
 	@RequestMapping(value="/main.do")
-	public ModelAndView indexView(HttpServletRequest req,HttpServletResponse resp){
+	public ModelAndView indexView(HttpServletRequest req,HttpServletResponse resp, @RequestParam(required=false) Integer cPage){
 		ModelAndView mav = new ModelAndView();
-		mav.setViewName("/worship/main");
-		mav.addObject("overMenu","main");
+		//mav.setViewName("/worship/main");
+		//mav.addObject("overMenu","main");
+		Worship worship = wService.getRecentWorship();
+		Integer total = wService.getWorshipCount();
+		Map pMap = pUtil.getCurrentPaging(WORSHIP_PAGE_SIZE, total, cPage);
+		
+		List<Worship> worships = wService.getWorships((Integer)pMap.get("fRow"), WORSHIP_PAGE_SIZE);
+		mav.setViewName("/worship/view");
+		mav.addObject("worship", worship);
+		mav.addObject("worships", worships);
+		mav.addObject("pMap", pMap);
 		return mav;
 	}
 	
 	@AdminAuth
 	@RequestMapping(value="/admin/list.do", method=RequestMethod.GET)
-	public ModelAndView adminList(HttpServletRequest req,HttpServletResponse resp){
+	public ModelAndView adminList(HttpServletRequest req,HttpServletResponse resp, @RequestParam(required=false) Integer cPage){
 		ModelAndView mav = new ModelAndView();
-		List<Worship> worships = wService.getWorships();
+		
+		Integer total = wService.getWorshipCount();
+		Map pMap = pUtil.getCurrentPaging(WORSHIP_PAGE_SIZE, total, cPage);
+		
+		List<Worship> worships = wService.getWorships((Integer)pMap.get("fRow"), WORSHIP_PAGE_SIZE);
 		mav.addObject("worships",worships);
 		mav.setViewName("/worship/list");
 		return mav;
@@ -105,11 +123,18 @@ public class WorshipController {
 	}
 	
 	@RequestMapping(value="/view.do", method=RequestMethod.GET)
-	public ModelAndView view(HttpServletRequest req,HttpServletResponse resp, @RequestParam Integer id){
+	public ModelAndView view(HttpServletRequest req,HttpServletResponse resp, @RequestParam Integer id, @RequestParam(required=false) Integer cPage){
 		ModelAndView mav = new ModelAndView();
 		Worship worship = wService.getWorship(id);
+		
+		Integer total = wService.getWorshipCount();
+		Map pMap = pUtil.getCurrentPaging(WORSHIP_PAGE_SIZE, total, cPage);
+		
+		List<Worship> worships = wService.getWorships((Integer)pMap.get("fRow"), WORSHIP_PAGE_SIZE);
 		mav.setViewName("/worship/view");
-		mav.addObject("worship",worship);
+		mav.addObject("worship", worship);
+		mav.addObject("worships", worships);
+		mav.addObject("pMap", pMap);
 		return mav;
 	}
 }

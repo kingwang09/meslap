@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %> 
 <%String cp = request.getContextPath(); %>
 <!DOCTYPE html>
 <html lang="ko">
@@ -26,7 +27,9 @@
              });
 
         });
-
+		function goPage(page){
+			alert(page);
+		}
     </script>
 </head>
 <body>
@@ -63,6 +66,9 @@
     <div style="clear:both;padding-top:15px">
        <pre style="line-height: 2;font-size: 12px;" class="worship">${worship.bible}</pre>
     </div>
+    
+    <br/>
+    
     <div class="row">
     	<div class="col-md-12">
 	    	<div class="pull-right">
@@ -72,37 +78,30 @@
 	        </div>
         </div>
     </div>
-    <div class="media">
-         <a class="pull-left" href="#">
-             <img class="media-object img-rounded" src="<%=cp%>/images/worship/video1.jpg" width="160" height="120"/>
-         </a>
-         <div class="media-body" style="padding-left:25px;padding-top:25px">
-             <div class="h5 media-heading"><b>교회는 거듭난 사람들의 모임이다.</b><span class="label label-default">New</span></div>
-             <p style="word-break: break-all">
-                 마태복음 6장 9절~13절
-                 <div class="pull-right">
-                     <span><a href="#"><img class="hoverImages" imgName="bt_audio" src="<%=cp%>/images/main/bt_audio.jpg"/></a></span>
-                     <span><a href="#"><img class="hoverImages" imgName="bt_ebook" src="<%=cp%>/images/main/bt_ebook.jpg"/></a></span>
-                 </div>
-             </p>
-         </div>
-     </div>
+    <c:forEach var="w" items="${worships}">
+    	<div class="media">
+	         <a class="pull-left" href="#">
+	             <img class="media-object img-rounded" src="<%=cp%>/images/worship/video1.jpg" width="160" height="120"/>
+	         </a>
+	         <div class="media-body" style="padding-left:25px;padding-top:25px">
+	             <div class="h5 media-heading"><b>${w.title}</b>
+	             	<!-- <span class="label label-default">New</span>  -->
+	             </div>
+	             <p style="word-break: break-all">
+	                 ${w.bibleIndex } <br/><small>${w.wdate }</small>
+	                 <div class="pull-right">
+	                     <span><a href="#"><img class="hoverImages" imgName="bt_audio" src="<%=cp%>/images/main/bt_audio.jpg"/></a></span>
+	                     <span><a href="#"><img class="hoverImages" imgName="bt_ebook" src="<%=cp%>/images/main/bt_ebook.jpg"/></a></span>
+	                 </div>
+	             </p>
+	         </div>
+	     </div>
+    </c:forEach>
+    
 </div>
 
-<div class="row">
-	<div class="col-md-12">
-		<div class="pull-right">
-	        <ul class="pagination">
-	            <li><a href="#">&laquo;</a></li>
-	            <li><a href="#">1</a></li>
-	            <li><a href="#">2</a></li>
-	            <li><a href="#">3</a></li>
-	            <li><a href="#">4</a></li>
-	            <li><a href="#">5</a></li>
-	            <li><a href="#">&raquo;</a></li>
-	        </ul>
-	    </div>
-	</div>
+<div style="text-align:center">
+	${pMap.pTag}
 </div>
 <jsp:include page="../include/common_bottom.jsp"></jsp:include>
 </body>

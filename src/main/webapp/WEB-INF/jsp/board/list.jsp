@@ -6,11 +6,21 @@
 <html>
 <head>
 <jsp:include page="../include/common_include.jsp"></jsp:include>
+<script>
+function goPage(page){
+	var form = document.boardForm;
+	form.cPage.value = page;
+	form.submit();
+}
+</script>
 </head>
 <body>
 <jsp:include page="../include/menu_include.jsp"></jsp:include>
 <div class="content" style="height:650px">
-	list Size = ${boards}<br/>
+	<form id="boardForm" name="boardForm" method="get" action="${cp}/board/${boardCode}/list.do">
+		<input type="hidden" name="cPage" value="${pMap.cPage}"/>
+		<input type="hidden" name="boardCode" value="${boardCode}"/>
+	</form>
 	<div class="pull-right">
 		<a href="${cp}/board/${boardCode}/write.do" class="btn btn-default btn-xs"><i class="fa fa-pencil"></i> 글작성</a><br/>	
 	</div>
@@ -45,6 +55,7 @@
 			</c:forEach>
 		</tbody>
 	</table>
+	${pMap.pTag}
 </div>
 <jsp:include page="../include/common_bottom.jsp"></jsp:include>
 </body>

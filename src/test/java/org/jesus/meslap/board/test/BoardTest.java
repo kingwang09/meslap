@@ -27,12 +27,12 @@ public class BoardTest {
 	@Autowired
 	private BoardDAO boardDao;
 	
-	@Test
-	public void listTest(){
-		List<Board> list = boardDao.getBoardList("test");
-		log.debug("list = "+list);
-		System.out.println(list);
-	}
+//	@Test
+//	public void listTest(){
+//		List<Board> list = boardDao.getBoardList("test");
+//		log.debug("list = "+list);
+//		System.out.println(list);
+//	}
 	
 	@Before
 	public void insertTest(){

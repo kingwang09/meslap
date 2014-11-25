@@ -29,8 +29,8 @@ public class BoardServiceImpl implements BoardService {
 	private BoardDAO boardDao;
 	
 	@Transactional(value="transactionManager")
-	public List<Board> getBoardList(String boardCode) {
-		return boardDao.getBoardList(boardCode);
+	public List<Board> getBoardList(String boardCode, Integer fRow, Integer pageSize) {
+		return boardDao.getBoardList(boardCode, fRow, pageSize);
 	}
 	
 	@Transactional(value="transactionManager")
@@ -126,6 +126,11 @@ public class BoardServiceImpl implements BoardService {
 	@Transactional(value="transactionManager")
 	public BoardAdmin getBoardAdmin(String boardCode) {
 		return boardDao.getBoardAdmin(boardCode);
+	}
+
+	@Transactional(value="transactionManager")
+	public Integer getBoardCount(String boardCode) {
+		return boardDao.getBoardCount(boardCode);
 	}
 
 }

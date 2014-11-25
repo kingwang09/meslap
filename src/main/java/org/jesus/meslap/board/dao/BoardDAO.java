@@ -8,11 +8,12 @@ import org.jesus.meslap.entity.BoardFile;
 
 public interface BoardDAO {
 	
-	public List<Board> getBoardList(String boardCode);
+	public List<Board> getBoardList(String boardCode, Integer fRow, Integer pageSize);
 	public void saveBoard(Board board);
 	public Board getBoard(Integer boardId);
 	public void deleteBoard(Integer boardId);
 	public void saveBoardFile(BoardFile boardFile);
+	public Integer getBoardCount(String boardCode);
 	
 	public List<BoardAdmin> getBoardAdminList();
 	public boolean getCheckBoardAdmin(BoardAdmin boardAdmin);

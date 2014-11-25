@@ -25,8 +25,8 @@ public class WorshipServiceImpl implements WorshipService {
 	private WorshipDAO worshipDao;
 	
 	@Transactional
-	public List<Worship> getWorships(){
-		return worshipDao.getWorships();
+	public List<Worship> getWorships(Integer fRow, Integer pageSize){
+		return worshipDao.getWorships(fRow, pageSize);
 	}
 	
 	private String getSavedImageFileName(MultipartFile file){
@@ -185,6 +185,15 @@ public class WorshipServiceImpl implements WorshipService {
 		//Jubo File03
 		deleteFile(path, w.getJuboFileName03());
 		worshipDao.delete(id);
+	}
+	@Transactional
+	public Integer getWorshipCount() {
+		return worshipDao.getWorshipCount();
+	}
+	
+	@Transactional
+	public Worship getRecentWorship() {
+		return worshipDao.getRecentWorship();
 	}
 
 }

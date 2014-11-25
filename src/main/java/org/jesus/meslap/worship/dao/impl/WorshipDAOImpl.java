@@ -5,6 +5,8 @@ import java.util.List;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.criterion.Order;
+import org.hibernate.criterion.Projections;
 import org.jesus.meslap.entity.Worship;
 import org.jesus.meslap.worship.dao.WorshipDAO;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,8 +32,11 @@ public class WorshipDAOImpl implements WorshipDAO {
 		getSession().saveOrUpdate(worship);
 	}
 	
-	public List<Worship> getWorships(){
+	public List<Worship> getWorships(Integer fRow, Integer pageSize){
 		Criteria crit = getSession().createCriteria(Worship.class);
+		crit.addOrder(Order.desc("id"))
+		.setFirstResult(fRow)
+		.setMaxResults(pageSize);
 		return crit.list();
 	}
 
@@ -42,5 +47,19 @@ public class WorshipDAOImpl implements WorshipDAO {
 	public void delete(Integer id) {
 		Worship w = getWorship(id);
 		getSession().delete(w);
+	}
+
+	public Integer getWorshipCount() {
+		Criteria crit = getSession().createCriteria(Worship.class);
+			crit.setProjection(Projections.rowCount());
+		Long count = (Long)crit.uniqueResult();
+		return count.intValue();
+	}
+
+	public Worship getRecentWorship() {
+		Criteria crit = getSession().createCriteria(Worship.class);
+		crit.setProjection(Projections.max("id"));
+		Integer id = (Integer)crit.uniqueResult();
+		return getWorship(id);
 	}
 }

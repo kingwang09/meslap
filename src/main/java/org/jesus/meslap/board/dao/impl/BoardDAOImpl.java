@@ -15,12 +15,21 @@ import java.util.List;
 
 
 
+
+
+
+
+
 import org.apache.xmlbeans.impl.xb.xsdschema.RestrictionDocument.Restriction;
 import org.hibernate.Criteria;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+import org.hibernate.criterion.Criterion;
+import org.hibernate.criterion.Order;
+import org.hibernate.criterion.Projections;
+import org.hibernate.criterion.Restrictions;
 import org.jesus.meslap.board.dao.BoardDAO;
 import org.jesus.meslap.entity.Board;
 import org.jesus.meslap.entity.BoardAdmin;
@@ -43,12 +52,14 @@ public class BoardDAOImpl implements BoardDAO {
 	}
 	
 	@SuppressWarnings("unchecked")
-	public List<Board> getBoardList(String boardCode){
-		Query query = getSession().createQuery("from Board b where b.boardCode=:boardCode");
-		query.setParameter("boardCode", boardCode);
-		List<Board> list = query.list();
-		//tx.commit();
-		return list;
+	public List<Board> getBoardList(String boardCode, Integer fRow, Integer pageSize){
+		Criteria crit = getSession().createCriteria(Board.class);
+		crit.add(Restrictions.eq("boardCode", boardCode))
+			.addOrder(Order.desc("id"))
+			.setFirstResult(fRow)
+			.setMaxResults(pageSize);
+		
+		return crit.list();
 	}
 	
 	public void saveBoard(Board board) {
@@ -98,5 +109,13 @@ public class BoardDAOImpl implements BoardDAO {
 	public BoardAdmin getBoardAdmin(String boardCode){
 		return (BoardAdmin) getSession().get(BoardAdmin.class, boardCode);
 		//Criteria crit = getSession().createCriteria(BoardAdmin.class);
+	}
+
+	public Integer getBoardCount(String boardCode) {
+		Criteria crit = getSession().createCriteria(Board.class);
+		crit.add(Restrictions.eq("boardCode", boardCode));
+		crit.setProjection(Projections.rowCount());
+		Long count = (Long) crit.uniqueResult();
+		return count.intValue();
 	}
 }

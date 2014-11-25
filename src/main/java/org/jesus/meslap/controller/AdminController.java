@@ -32,34 +32,38 @@ public class AdminController {
 		mav.setViewName("/admin/list");
 		return mav;
 	}
-	
-	@RequestMapping(value="/login.do")
+	@RequestMapping(value="/login.do", method=RequestMethod.GET)
+	public ModelAndView loginView(HttpServletRequest request){
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("user/login");
+		return mav;
+	}
+	@RequestMapping(value="/login.do", method=RequestMethod.POST)
 	public ModelAndView loginLogic(HttpServletRequest request, @ModelAttribute("user") User user){
 		ModelAndView mav = new ModelAndView();
 		User userInDb = uService.get(user.getUserId());
-		if(userInDb == null){
-			mav.addObject("mesg","Please Check UserId/Password.");
-		}else{
+		if(userInDb != null){
 			if(userInDb.getPassword().equals(user.getPassword())){
 				HttpSession session = request.getSession();
 				session.setAttribute(User.USER_ATTR, user);
 				String nowUri = (String) session.getAttribute("nowUri");
 				if(nowUri==null)
-					nowUri = "index.do";
+					nowUri = "/admin/list.do";
 				mav.setViewName("redirect:"+nowUri);
 				return mav;
 			}
 		}
-		mav.setViewName("user/login");
+		mav.addObject("mesg","error-1");
+		mav.setViewName("redirect:/admin/login.do");
 		return mav;
 	}
 	
 	@RequestMapping(value="/logout.do")
-	public ModelAndView logoutLogic(HttpServletRequest request, @ModelAttribute("user") User user){
+	public ModelAndView logoutLogic(HttpServletRequest request){
 		ModelAndView mav = new ModelAndView();
 		HttpSession session = request.getSession();
 		session.invalidate();
-		mav.setViewName("user/login");
+		mav.setViewName("redirect:/admin/login.do");
 		return mav;
 	}
 }
