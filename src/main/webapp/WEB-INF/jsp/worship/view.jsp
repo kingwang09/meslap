@@ -17,8 +17,9 @@
 
             $("#juboBtn").magnificPopup({
                     items:[
-                        {src:'<%=cp%>/images/jubo.jpg'},
-                        {src:'<%=cp%>/images/chu.jpg'}
+                        {src:'<%=cp%>/worshipFiles/${worship.juboFileName01}'},
+                        {src:'<%=cp%>/worshipFiles/${worship.juboFileName02}'},
+                        {src:'<%=cp%>/worshipFiles/${worship.juboFileName03}'}
                     ],
                     gallery:{
                         enabled:true

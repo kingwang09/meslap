@@ -34,7 +34,7 @@ public class WorshipDAOImpl implements WorshipDAO {
 	
 	public List<Worship> getWorships(Integer fRow, Integer pageSize){
 		Criteria crit = getSession().createCriteria(Worship.class);
-		crit.addOrder(Order.desc("id"))
+		crit.addOrder(Order.desc("wdate"))
 		.setFirstResult(fRow)
 		.setMaxResults(pageSize);
 		return crit.list();

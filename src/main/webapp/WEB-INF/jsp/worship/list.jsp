@@ -31,19 +31,21 @@ function goPage(page){
 			<tr>
 				<th>카테고리</th>
 				<th>제목</th>
+				<th>예배일자</th>
 				<th>Action</th>
 			</tr>
 		</thead>
 		<tbody>
 			<c:if test="${empty worships}">
 				<tr>
-					<td colspan="3" align="center">현재 말씀이 존재하지 않습니다.</td>
+					<td colspan="4" align="center">현재 말씀이 존재하지 않습니다.</td>
 				</tr>
 			</c:if>	
 			<c:forEach  var="worship" items="${worships}">
 			<tr>
 				<td>${worship.category}</td>
 				<td><a href="${cp}/worship/view.do?id=${worship.id}">${worship.title}</a></td>
+				<td>${worship.wdate }</td>
 				<td>
 					<a href="${cp}/worship/admin/update.do?id=${worship.id}"><i class="glyphicon glyphicon-edit"></i></a>
 					<a href="${cp}/worship/admin/delete.do?id=${worship.id}"><i class="glyphicon glyphicon-trash"></i></a>

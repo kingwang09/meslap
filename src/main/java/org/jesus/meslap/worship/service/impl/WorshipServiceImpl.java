@@ -212,11 +212,11 @@ public class WorshipServiceImpl implements WorshipService {
 		
 		ExcelUtil eUtil = new ExcelUtil(path, fileName);
 		int endRow = eUtil.getLastRowNum();
-		for(int rowIndex=1; rowIndex<endRow;rowIndex++){
+		for(int rowIndex=1; rowIndex<=endRow;rowIndex++){
 			Row row = eUtil.getRow(rowIndex);
 			int lastCellIndex = row.getLastCellNum();
 			Worship worship = new Worship();
-			for(int cellIndex=0;cellIndex<lastCellIndex;cellIndex++){
+			for(int cellIndex=0;cellIndex<=lastCellIndex;cellIndex++){
 				String value = null;
 				value = eUtil.getCellStringValue(rowIndex, cellIndex);
 				switch(cellIndex){
