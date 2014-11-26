@@ -20,12 +20,12 @@
 <jsp:include page="../include/menu_include.jsp"></jsp:include>
 <div class="content">
 	<div class="bs-docs-section" style="text-align:left">
-		<div class="bs-callout bs-callout-info">
 			<h4 class="h4"><a href="${cp}/worship/admin/list.do"><i class="fa fa-book fa-fw"></i> 말씀관리</a></h4>
+		<div class="bs-callout bs-callout-info">
 			<p>사랑과 평안의 목사님 말씀을 관리하며, 매주 올라오는 말씀을 추가/수정/삭제할 수 있습니다.</p>
 		</div>
 		<div class="bs-callout bs-callout-warning">
-			<h4 class="h4"><a href="${cp}/boardAdmin/list.do"><i class="fa fa-folder-open"></i> 게시판관리</a></h4>
+			<h4 class="h4"><i class="fa fa-folder-open"></i> 게시판관리 <small>(<a href="${cp}/board/bibleStudy/list.do">성경공부자료</a>, <a href="${cp}/board/notice/list.do">공지사항</a>)</small></h4>
 			<p>Meslap 성전의 게시판을 관리하고, 게시판을 생성/수정/삭제할 수 있습니다. 현재 게시판은 <a href="${cp}/board/bibleStudy/list.do">성경공부자료</a>, <a href="${cp}/board/notice/list.do">공지사항</a> 게시판이 있습니다.</p>
 		</div>
 		<div class="bs-callout bs-callout-danger">

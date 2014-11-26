@@ -1302,8 +1302,9 @@ pre.worship{
 	margin:0;
 	backgroud-color:none;
 	border:none;
-	overflow:none;
+	overflow:visible;
 	word-wrap:normal;
 	background-color:white;
+	line-height: 2;font-size: 13px;
 		
 }

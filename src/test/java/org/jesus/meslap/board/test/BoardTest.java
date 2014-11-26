@@ -1,5 +1,8 @@
 package org.jesus.meslap.board.test;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -19,13 +22,9 @@ import org.springframework.transaction.annotation.Transactional;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("classpath:META-INF/spring/applicationContext.xml")
 @ActiveProfiles("development")
-@Transactional
 public class BoardTest {
 	
 	private Logger log = LoggerFactory.getLogger(getClass());
-	
-	@Autowired
-	private BoardDAO boardDao;
 	
 //	@Test
 //	public void listTest(){
@@ -34,17 +33,22 @@ public class BoardTest {
 //		System.out.println(list);
 //	}
 	
-	@Before
-	public void insertTest(){
-		log.debug("insert Test DB Data");
-		Board testBoard = new Board();
-		testBoard.setBoardCode("test");
-		testBoard.setTitle("test1");
-		testBoard.setContent("test1 Content");
-		testBoard.setWriter("hejin");
-		testBoard.setWdate(new Date());
-		
-		boardDao.saveBoard(testBoard);
-	}
+//	@Before
+//	public void insertTest(){
+//		log.debug("insert Test DB Data");
+//		Board testBoard = new Board();
+//		testBoard.setBoardCode("test");
+//		testBoard.setTitle("test1");
+//		testBoard.setContent("test1 Content");
+//		testBoard.setWriter("hejin");
+//		testBoard.setWdate(new Date());
+//		
+//		boardDao.saveBoard(testBoard);
+//	}
 	
+	@Test
+	public void test() throws ParseException{
+		DateFormat d = new SimpleDateFormat("yyyyMMdd");
+		System.out.println(d.parse("20140101"));
+	}
 }

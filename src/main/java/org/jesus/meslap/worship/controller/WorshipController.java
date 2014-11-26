@@ -64,6 +64,7 @@ public class WorshipController {
 		
 		List<Worship> worships = wService.getWorships((Integer)pMap.get("fRow"), WORSHIP_PAGE_SIZE);
 		mav.addObject("worships",worships);
+		mav.addObject("pMap",pMap);
 		mav.setViewName("/worship/list");
 		return mav;
 	}
@@ -127,14 +128,33 @@ public class WorshipController {
 		ModelAndView mav = new ModelAndView();
 		Worship worship = wService.getWorship(id);
 		
+		mav.setViewName("/worship/view");
+		mav.addObject("worship", worship);
+		mav.addObject("cPage", cPage);
+		return mav;
+	}
+	
+	@RequestMapping(value="/insideView.do", method=RequestMethod.GET)
+	public ModelAndView insideView(HttpServletRequest req,HttpServletResponse resp, @RequestParam(required=false) Integer cPage){
+		ModelAndView mav = new ModelAndView();
+		
 		Integer total = wService.getWorshipCount();
 		Map pMap = pUtil.getCurrentPaging(WORSHIP_PAGE_SIZE, total, cPage);
 		
 		List<Worship> worships = wService.getWorships((Integer)pMap.get("fRow"), WORSHIP_PAGE_SIZE);
-		mav.setViewName("/worship/view");
-		mav.addObject("worship", worship);
+		mav.setViewName("/worship/insideView");
 		mav.addObject("worships", worships);
 		mav.addObject("pMap", pMap);
+		return mav;
+	}
+	
+	@AdminAuth
+	@RequestMapping(value="/admin/import.do", method=RequestMethod.GET)
+	public ModelAndView importWorships(HttpServletRequest request,HttpServletResponse resp){
+		ModelAndView mav = new ModelAndView();
+		String path = meslapUtils.getPath(request, Worship.WORSHIP_IMPORT_FOLDER);
+		wService.importExcelToDB(path, "worships.xls");
+		mav.setViewName("redirect:/worship/admin/list.do");
 		return mav;
 	}
 }

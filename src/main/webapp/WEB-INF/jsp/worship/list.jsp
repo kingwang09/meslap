@@ -6,14 +6,26 @@
 <html>
 <head>
 	<jsp:include page="../include/common_include.jsp"></jsp:include>
+<script>
+function goPage(page){
+		var form = document.worshipForm;
+		form.cPage.value = page;
+		form.submit();
+}
+</script>
 </head>
 <body>
 <jsp:include page="../include/menu_include.jsp"></jsp:include>
 <div class="content">
-	list Size = ${worships}<br/>
+	<form name="worshipForm" id="worshipForm" method="get" action="${cp }/worship/admin/list.do">
+		<input type="hidden" name="cPage" value="${pMap.cPage }" />
+	</form>
 	<div class="pull-right">
-		<a href="${cp}/worship/admin/write.do" class="btn btn-default btn-xs"><i class="fa fa-pencil"></i> 말씀 등록</a><br/>	
+		<a href="${cp}/worship/admin/write.do" class="btn btn-default btn-xs"><i class="fa fa-pencil"></i> 말씀 등록</a>
+		&nbsp;	
+		<a href="${cp}/worship/admin/import.do" class="btn btn-default btn-xs"><i class="fa fa-arrow-circle-o-down"></i> 말씀 일괄 등록</a>
 	</div>
+	<br/>
 	<table class="table table-condense">
 		<thead>
 			<tr>
@@ -40,6 +52,7 @@
 			</c:forEach>
 		</tbody>	
 	</table>
+	${pMap.pTag }
 </div>
 <jsp:include page="../include/common_bottom.jsp"></jsp:include>
 </body>

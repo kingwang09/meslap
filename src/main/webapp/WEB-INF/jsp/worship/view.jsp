@@ -27,9 +27,6 @@
              });
 
         });
-		function goPage(page){
-			alert(page);
-		}
     </script>
 </head>
 <body>
@@ -37,6 +34,10 @@
 	<jsp:include page="../include/worship_sub_title.jsp"></jsp:include>
 
 <div class="worship-content">
+	<form id="worshipForm" name="worshipForm" action="<%=cp%>/worship/view.do">
+		<input type="hidden" name="id" value="${worship.id}" />
+		<input type="hidden" name="cPage" value="" />
+	</form>
 	<div class="worship-body-left">
 		<!-- <iframe width="100%" height="360" src="//www.youtube.com/embed/E-GSaWJMKaQ?feature=player_detailpage" frameborder="0" allowfullscreen></iframe>  -->
 		<iframe width="100%" height="360" src="//www.youtube.com/embed/${worship.youtubeUrl}?feature=player_detailpage&wmode=opaque" frameborder="0" allowfullscreen></iframe>
@@ -53,7 +54,7 @@
 		<div style="padding-top:25px">
 			<div class="h5" style="width:100px;background-color:blue;color:white">한송 암송구절</div>
             <p style="word-wrap: break-word;">${worship.recitationBible}</p>
-            <small>${worship.recitationBibleIndex}</small>
+            ${worship.recitationBibleIndex}
 		</div>
 		<div style="padding-top:25px">
              <a href="<%=cp%>/worship/download.do?fileName=${worship.audioFileName}"><img class="hoverImages" imgName="top_bt_audio" src="<%=cp%>/images/main/top_bt_audio.jpg"/></a>
@@ -64,11 +65,17 @@
   	
     <!-- 말씀 Row -->
     <div style="clear:both;padding-top:15px">
-       <pre style="line-height: 2;font-size: 12px;" class="worship">${worship.bible}</pre>
+       <pre class="worship">${worship.bible}</pre>
     </div>
     
     <br/>
     
+    
+</div>
+<!-- iFrame start-->
+<iframe src="<%=cp%>/worship/insideView.do?cPage=${cPage}" width="100%" height="900px" frameborder="no"></iframe>
+<!-- 
+<div class="worship-content">
     <div class="row">
     	<div class="col-md-12">
 	    	<div class="pull-right">
@@ -84,8 +91,7 @@
 	             <img class="media-object img-rounded" src="<%=cp%>/images/worship/video1.jpg" width="160" height="120"/>
 	         </a>
 	         <div class="media-body" style="padding-left:25px;padding-top:25px">
-	             <div class="h5 media-heading"><b>${w.title}</b>
-	             	<!-- <span class="label label-default">New</span>  -->
+	             <div class="h5 media-heading"><b><a href="<%=cp%>/worship/view.do?id=${w.id}&cPage=${pMap.cPage}">${w.title}</a></b>
 	             </div>
 	             <p style="word-break: break-all">
 	                 ${w.bibleIndex } <br/><small>${w.wdate }</small>
@@ -97,12 +103,14 @@
 	         </div>
 	     </div>
     </c:forEach>
-    
+	<div style="text-align:center">
+		${pMap.pTag}
+	</div>
 </div>
+-->
+<!-- iFrame start-->
 
-<div style="text-align:center">
-	${pMap.pTag}
-</div>
+
 <jsp:include page="../include/common_bottom.jsp"></jsp:include>
 </body>
 </html>

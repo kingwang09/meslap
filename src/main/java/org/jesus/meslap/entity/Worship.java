@@ -19,6 +19,7 @@ import org.springframework.web.multipart.MultipartFile;
 @Table(name="CMM_WORSHIP")
 public class Worship {
 	public static final String WORSHIP_FOLDER = "worshipFiles";
+	public static final String WORSHIP_IMPORT_FOLDER = "worshipImport";
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
@@ -171,4 +172,12 @@ public class Worship {
 //	@Transient
 //	@Getter @Setter
 //	private MultipartFile titleImageFile; 
+	
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		StringBuilder sb = new StringBuilder();
+		sb.append("Worship("+id+")["+title+"]");
+		return sb.toString();
+	}
 }

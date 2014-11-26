@@ -2,11 +2,16 @@ package org.jesus.meslap.worship.service.impl;
 
 import java.io.File;
 import java.io.IOException;
+import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import org.apache.poi.ss.usermodel.Row;
 import org.jesus.meslap.entity.Worship;
+import org.jesus.meslap.util.ExcelUtil;
 import org.jesus.meslap.worship.dao.WorshipDAO;
 import org.jesus.meslap.worship.service.WorshipService;
 import org.slf4j.Logger;
@@ -194,6 +199,87 @@ public class WorshipServiceImpl implements WorshipService {
 	@Transactional
 	public Worship getRecentWorship() {
 		return worshipDao.getRecentWorship();
+	}
+	
+	@Transactional
+	public void importExcelToDB(String path, String fileName){
+		// TODO Auto-generated method stub
+		List<Worship> importWorships = new ArrayList<Worship>();
+		DateFormat sdf = new SimpleDateFormat("yyyyMMdd");
+		final int DATE_IDX = 0,CATEGORY_IDX = 1, TITLE_IDX = 2, BIBLE_INDEX_IDX = 3, BIBLE_IDX=4, REPEAT_INDEX_IDX=5, 
+				REPEAT_IDX=6, JUBO01_IDX=7,JUBO02_IDX=8,JUBO03_IDX=9,YOUTUBE_IDX=10,
+				AUDIO_IDX=11, TEXT_IDX=12, VIDEO_IDX=13, MAIN_VIDEO_IDX=14, MAIN_BIBLE_IDX=15;
+		
+		ExcelUtil eUtil = new ExcelUtil(path, fileName);
+		int endRow = eUtil.getLastRowNum();
+		for(int rowIndex=1; rowIndex<endRow;rowIndex++){
+			Row row = eUtil.getRow(rowIndex);
+			int lastCellIndex = row.getLastCellNum();
+			Worship worship = new Worship();
+			for(int cellIndex=0;cellIndex<lastCellIndex;cellIndex++){
+				String value = null;
+				value = eUtil.getCellStringValue(rowIndex, cellIndex);
+				switch(cellIndex){
+					case DATE_IDX : 
+						//Date date = sdf.parse(value);
+						Date date = eUtil.getCellDateValue(rowIndex,cellIndex);
+						worship.setWdate(date);
+						break;
+					case CATEGORY_IDX :
+						worship.setCategory(value);
+						break;
+					case TITLE_IDX :
+						worship.setTitle(value);
+						break;
+					case BIBLE_INDEX_IDX :
+						worship.setBibleIndex(value);
+						break;
+					case BIBLE_IDX :
+						worship.setBible(value);
+						break;
+					case REPEAT_INDEX_IDX :
+						worship.setRecitationBibleIndex(value);
+						break;
+					case REPEAT_IDX :
+						worship.setRecitationBible(value);
+						break;
+					case JUBO01_IDX :
+						worship.setJuboFileName01(value);
+						break;
+					case JUBO02_IDX :
+						worship.setJuboFileName02(value);
+						break;
+					case JUBO03_IDX :
+						worship.setJuboFileName03(value);
+						break;
+					case YOUTUBE_IDX :
+						worship.setYoutubeUrl(value);
+						break;
+					case AUDIO_IDX :
+						worship.setAudioFileName(value);
+						break;
+					case TEXT_IDX :
+						worship.setTextFileName(value);
+						break;
+					case VIDEO_IDX :
+						worship.setVideoImageFileName(value);
+						break;
+					case MAIN_VIDEO_IDX :
+						worship.setMainVideoImageFileName(value);
+						break;
+					case MAIN_BIBLE_IDX :
+						worship.setMainBibleImageFileName(value);
+						break;
+						
+				}
+			}//end Cell for
+			importWorships.add(worship);//dev
+		}
+		log.info("Import worships : "+importWorships.size());
+		for(Worship w : importWorships){
+			log.debug(w.toString());
+			worshipDao.save(w);
+		}
 	}
 
 }
