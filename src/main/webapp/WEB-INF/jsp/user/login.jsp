@@ -14,11 +14,13 @@
 		<div class="alert alert-danger" role="alert">${mesg}</div>
 	</c:if>
 	<form class="form-signin" name="user" role="form" method="post" action="${cp}/admin/login.do">
-        <div class="h2 form-signin-heading">Please sign in</div>
-        <label for="inputUserId" class="sr-only">UserId</label>
-        <input type="text" name="userId" id="inputUserId" class="form-control" placeholder="UserId" required autofocus>
-        <label for="inputPassword" class="sr-only">Password</label>
-        <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required>
+        <div class="h2 form-signin-heading">
+        	<img src="${cp}/images/admin_icon.jpg" alt="Meslap" class="img-circle" style="width:140px;height:140px">
+        </div>
+        <label for="inputUserId" class="sr-only">관리자 아이디</label>
+        <input type="text" name="userId" id="inputUserId" class="form-control" placeholder="관리자 아이디" required autofocus>
+        <label for="inputPassword" class="sr-only">비밀번호</label>
+        <input type="password" name="password" id="inputPassword" class="form-control" placeholder="관리자 패스워드" required>
         <!-- 
         <div class="checkbox">
           <label>
@@ -26,7 +28,7 @@
           </label>
         </div>
          -->
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">관리자 로그인</button>
       </form>
 </div>
 <jsp:include page="../include/common_bottom.jsp"></jsp:include>

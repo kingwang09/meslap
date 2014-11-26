@@ -7,12 +7,12 @@
     <jsp:include page="../include/common_include.jsp"></jsp:include>    
     <script>
         $(document).ready(function(){
-           $(".media").on("mouseenter",function(){
-             $(this).css({backgroundColor:'#ECECEC'});
-           });
-            $(".media").on("mouseleave",function(){
-                $(this).css({backgroundColor:'white'});
-            });
+           //$(".media").on("mouseenter",function(){
+           //  $(this).css({backgroundColor:'#ECECEC'});
+           //});
+           // $(".media").on("mouseleave",function(){
+           //     $(this).css({backgroundColor:'white'});
+           // });
 
 
             $("#juboBtn").magnificPopup({
@@ -31,9 +31,9 @@
         
         function viewPage(id,recentId){
         	if(id==recentId){
-        		alert("현재 보시는 말씀이 마지막 말씀입니다.");
+        		swal("알림","현재 보시는 화면이 마지막 말씀입니다.","info");
         	}else if(id<=0){
-        		alert("현재 보시는 말씀이 처음 말씀입니다.");
+        		swal("알림","현재 보시는 화면이 처음 말씀입니다.","info");
         	}else{
         		var form = document.worshipForm;
             	form.id.value = id;
@@ -87,40 +87,6 @@
 </div>
 <!-- iFrame start-->
 <iframe src="<%=cp%>/worship/insideView.do?cPage=${cPage}" width="100%" height="900px" frameborder="no"></iframe>
-<!-- 
-<div class="worship-content">
-    <div class="row">
-    	<div class="col-md-12">
-	    	<div class="pull-right">
-	            <select class="form-control">
-	                <option>주제별 설교보기</option>
-	            </select>
-	        </div>
-        </div>
-    </div>
-    <c:forEach var="w" items="${worships}">
-    	<div class="media">
-	         <a class="pull-left" href="#">
-	             <img class="media-object img-rounded" src="<%=cp%>/images/worship/video1.jpg" width="160" height="120"/>
-	         </a>
-	         <div class="media-body" style="padding-left:25px;padding-top:25px">
-	             <div class="h5 media-heading"><b><a href="<%=cp%>/worship/view.do?id=${w.id}&cPage=${pMap.cPage}">${w.title}</a></b>
-	             </div>
-	             <p style="word-break: break-all">
-	                 ${w.bibleIndex } <br/><small>${w.wdate }</small>
-	                 <div class="pull-right">
-	                     <span><a href="#"><img class="hoverImages" imgName="bt_audio" src="<%=cp%>/images/main/bt_audio.jpg"/></a></span>
-	                     <span><a href="#"><img class="hoverImages" imgName="bt_ebook" src="<%=cp%>/images/main/bt_ebook.jpg"/></a></span>
-	                 </div>
-	             </p>
-	         </div>
-	     </div>
-    </c:forEach>
-	<div style="text-align:center">
-		${pMap.pTag}
-	</div>
-</div>
--->
 <!-- iFrame start-->
 
 

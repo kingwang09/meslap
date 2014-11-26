@@ -8,8 +8,26 @@
 <script>
 function goPage(page){
 	var form = document.boardForm;
+	form.action = "${cp}/board/${boardCode}/list.do";
 	form.cPage.value = page;
 	form.submit();
+}
+function deleteBoard(boardCode, id){
+	swal({
+		title:'정말 삭제하시겠습니까?',
+		text:'삭제하시면 게시물을 다시 복구할 수 없습니다!',
+		type:'warning',
+		showCancelButton:true,
+		cancelButtonText:'삭제 취소',
+		confirmButtonText:'삭제 완료',
+		closeOnConfirm:false
+	},function(isConfirm){
+		if(isConfirm){
+			var form = document.boardForm;
+			form.action = "${cp}/board/"+boardCode+"/"+id+"/admin/delete.do";
+			form.submit();
+		}
+	});
 }
 </script>
 </head>
@@ -30,7 +48,7 @@ function goPage(page){
 		if(user != null){
 	%>
 	<div class="pull-right">
-		<a href="${cp}/board/${boardCode}/write.do" class="btn btn-default btn-xs"><i class="fa fa-pencil"></i> 글작성</a><br/>	
+		<a href="${cp}/board/${boardCode}/admin/write.do" class="btn btn-default btn-xs"><i class="fa fa-pencil"></i> 글작성</a><br/>	
 	</div>
 	<%	} %>
 	<table class="table table-condensed">
@@ -60,8 +78,8 @@ function goPage(page){
 				<td>${board.wdate}</td>
 				<%if(user!=null){ %>
 				<td>
-					<a href="${cp}/board/${board.boardCode}/${board.id}/update.do" class="btn btn-default btn-xs"><i class="fa fa-pencil-square-o"></i> 수정</a>
-					<a href="${cp}/board/${board.boardCode}/${board.id}/delete.do" class="btn btn-default btn-xs"><i class="fa fa-times"></i> 삭제</a>
+					<a href="${cp}/board/${board.boardCode}/${board.id}/admin/update.do" class="btn btn-default btn-xs"><i class="fa fa-pencil-square-o"></i> 수정</a>
+					<a href="javascript:deleteBoard('${board.boardCode }','${board.id}')" class="btn btn-default btn-xs"><i class="fa fa-times"></i> 삭제</a>
 				</td>
 				<%} %>
 			</tr>

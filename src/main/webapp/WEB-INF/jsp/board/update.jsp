@@ -17,7 +17,7 @@ function goList(){
 function write(){
 	//validation
 	var form = document.boardForm;
-	form.action = "${cp}/board/${boardCode}/${board.id}/update.do";
+	form.action = "${cp}/board/${boardCode}/${board.id}/admin/update.do";
 	form.method = "post";
 	form.submit();
 }
@@ -27,13 +27,13 @@ function write(){
 <jsp:include page="../include/menu_include.jsp"></jsp:include>
 <br/>
 <div class="content" style="text-align:left">
-<form id="boardForm" name="boardForm" action="${cp}/board/${boardCode}/${board.id}/update.do" method="post" enctype="multipart/form-data">
+<form id="boardForm" name="boardForm" action="${cp}/board/${boardCode}/${board.id}/admin/update.do" method="post" enctype="multipart/form-data">
 	<input type="hidden" name="boardCode" value="${boardCode}"/>
 	<input type="hidden" name="id" value="${board.id}"/>
 	<div class="input-group input-group-sm" style="z-index:2">
 		<span class="input-group-addon"><i class="fa fa-check-circle-o"></i></span>
 		<select class="form-control">
-			<option>test</option>
+			<option>없음</option>
 		</select>
 		<input type="text" name="category" class="form-control" placeholder="카테고리" value="${board.category}"/>
 	</div>

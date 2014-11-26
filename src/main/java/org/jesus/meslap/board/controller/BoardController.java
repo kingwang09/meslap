@@ -6,6 +6,7 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.jesus.meslap.annotation.AdminAuth;
 import org.jesus.meslap.board.service.BoardService;
 import org.jesus.meslap.entity.Board;
 import org.jesus.meslap.util.MeslapUtils;
@@ -59,14 +60,15 @@ public class BoardController {
 		return mav;
 	}
 	
-	@RequestMapping(value="/{boardCode}/write",method=RequestMethod.GET)
+	@AdminAuth
+	@RequestMapping(value="/{boardCode}/admin/write",method=RequestMethod.GET)
 	public ModelAndView write(@PathVariable String boardCode){
 		log.debug("[Board Controller - write(GET)] start");
 		log.debug("	boardCode = "+boardCode);
 		return getDefaultMav("board/write", boardCode);
 	}
-	
-	@RequestMapping(value="/{boardCode}/write",method=RequestMethod.POST)
+	@AdminAuth
+	@RequestMapping(value="/{boardCode}/admin/write",method=RequestMethod.POST)
 	public ModelAndView writeLogic(@ModelAttribute("board") Board board){
 		log.debug("[Board Controller - write(POST)] start");
 		log.debug("	board = "+board);
@@ -78,7 +80,8 @@ public class BoardController {
 		return getDefaultMav("redirect:/board/"+board.getBoardCode()+"/list.do", board.getBoardCode());
 	}
 	
-	@RequestMapping(value="/{boardCode}/{boardId}/update",method=RequestMethod.GET)
+	@AdminAuth
+	@RequestMapping(value="/{boardCode}/{boardId}/admin/update",method=RequestMethod.GET)
 	public ModelAndView update(@PathVariable String boardCode, @PathVariable Integer boardId){
 		log.debug("[Board Controller - update(GET)] start");
 		log.debug("	boardCode = "+boardCode);
@@ -89,7 +92,8 @@ public class BoardController {
 		return mav; 
 	}
 	
-	@RequestMapping(value="/{boardCode}/{boardId}/update",method=RequestMethod.POST)
+	@AdminAuth
+	@RequestMapping(value="/{boardCode}/{boardId}/admin/update",method=RequestMethod.POST)
 	public ModelAndView updateLogic(@ModelAttribute("board") Board board){
 		log.debug("[Board Controller - update(POST)] start");
 		log.debug("	board = "+board);
@@ -110,7 +114,8 @@ public class BoardController {
 		return mav;
 	}
 	
-	@RequestMapping("/{boardCode}/{boardId}/delete")
+	@AdminAuth
+	@RequestMapping("/{boardCode}/{boardId}/admin/delete")
 	public ModelAndView delete(@PathVariable String boardCode, @PathVariable Integer boardId){
 		log.debug("[Board Controller - delete] start");
 		log.debug("	boardCode = "+boardCode);

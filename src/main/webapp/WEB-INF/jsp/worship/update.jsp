@@ -19,28 +19,28 @@ function doSubmit(){
 	<form action="<%=cp %>/worship/admin/update.do" id="worshipForm" name="worshipForm" method="post" enctype="multipart/form-data" class="form-horizontal" role="form">
 		<input type="hidden" name="id" value="${worship.id }" />
 		<div class="form-group">
-			<label for="mainBibleImage" class="col-sm-2 control-label">Main Bible 이미지</label>
+			<label for="mainBibleImage" class="col-sm-2 control-label">메인 말씀 이미지</label>
 			<div class="col-sm-10">
 				<input type="file" name="mainBibleImage" id="mainBibleImage" class="form-control"/>
 				<span class="help-block">기존 파일 : ${worship.mainBibleImageFileName}. 파일을 선택하실 경우, 새로운 파일로 대체 됩니다.</span>
 			</div>
 		</div>
 		<div class="form-group">
-			<label for="mainVideoImage" class="col-sm-2 control-label">Main Video 이미지</label>
+			<label for="mainVideoImage" class="col-sm-2 control-label">메인 말씀 동영상 이미지</label>
 			<div class="col-sm-10">
 				<input type="file" name="mainVideoImage" id="mainVideoImage" class="form-control"/>
 				<span class="help-block">기존 파일 : ${worship.mainVideoImageFileName}. 파일을 선택하실 경우, 새로운 파일로 대체 됩니다.</span>
 			</div>
 		</div>
 		<div class="form-group">
-			<label for="videoImage" class="col-sm-2 control-label">Video 이미지</label>
+			<label for="videoImage" class="col-sm-2 control-label">말씀 동영상 이미지</label>
 			<div class="col-sm-10">
 				<input type="file" name="videoImage" id="videoImage" class="form-control"/>
 				<span class="help-block">기존 파일 : ${worship.videoImageFileName}. 파일을 선택하실 경우, 새로운 파일로 대체 됩니다.</span>
 			</div>
 		</div>
 		<div class="form-group">
-			<label for="videoImage" class="col-sm-2 control-label">Youtube URL</label>
+			<label for="videoImage" class="col-sm-2 control-label">유투브 URL</label>
 			<div class="col-sm-10">
 				<input type="text" name="youtubeUrl" id="youtubeUrl" class="form-control" value="${worship.youtubeUrl}"/>
 			</div>

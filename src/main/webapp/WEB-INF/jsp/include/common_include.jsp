@@ -10,6 +10,7 @@
 <link rel="stylesheet" href="<%=cp %>/frameworks/bootstrap/css/bootstrap.css">
 <link rel="stylesheet" href="<%=cp %>/frameworks/fontawsome/css/font-awesome.css">
 <link rel="stylesheet" href="<%=cp %>/frameworks/jquery-magnific/magnific-popup.css">
+<link rel="stylesheet" href="<%=cp %>/frameworks/sweet-alert/sweet-alert.css">
 <link rel="stylesheet" type="text/css" href="<%=cp %>/css/default.css?v=1">
 
 <!-- 나눔고딕폰트 -->
@@ -18,6 +19,7 @@
 <script src="<%=cp %>/frameworks/jquery/jquery-1.11.1.js"></script>
 <script src="<%=cp %>/frameworks/bootstrap/js/bootstrap.js"></script>
 <script src="<%=cp %>/frameworks/jquery-magnific/jquery.magnific-popup.js"></script>
+<script src="<%=cp %>/frameworks/sweet-alert/sweet-alert.min.js"></script>
 <!-- include/common_include.jsp end --> 
 <style>
     body{

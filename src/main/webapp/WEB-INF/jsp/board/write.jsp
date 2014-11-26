@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" import="org.jesus.meslap.entity.User"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %> 
-<%@ page session="false" %> 
 <c:set var="cp" value="${pageContext.request.contextPath}" scope="request"></c:set>
 <html>
 <head>
@@ -17,7 +16,7 @@ function goList(){
 function write(){
 	//validation
 	var form = document.boardForm;
-	form.action = "${cp}/board/${boardCode}/write.do";
+	form.action = "${cp}/board/${boardCode}/admin/write.do";
 	form.method = "post";
 	form.submit();
 }
@@ -27,26 +26,33 @@ function write(){
 <jsp:include page="../include/menu_include.jsp"></jsp:include>
 <br/>
 <div class="content">
-<form id="boardForm" name="boardForm" action="${cp}/board/${boardCode}/write.do" method="post" enctype="multipart/form-data">
+<form id="boardForm" name="boardForm" action="${cp}/board/${boardCode}/admin/write.do" method="post" enctype="multipart/form-data">
 	<input type="hidden" name="boardCode" value="${boardCode}"/>
 	<div class="input-group input-group-sm" style="z-index:2">
-		<span class="input-group-addon"><i class="fa fa-check-circle-o"></i></span>
+		<span class="input-group-addon">
+			<span style="width:120px"><i class="fa fa-check-circle-o"></i> 카테고리</span>
+		</span>
 		<select class="form-control">
-			<option>test</option>
+			<option>없음</option>
 		</select>
-		<input type="text" name="category" class="form-control" placeholder="분류"/>
+		<input type="text" name="category" class="form-control" placeholder="분류를 선택하거나, 직접입력해주세요."/>
 	</div>
 	<div class="input-group input-group-sm" style="z-index:2">
-		<span class="input-group-addon"><i class="fa fa-check-circle"></i></span>
-		<input type="text" name="title" class="form-control" placeholder="글제목"/>
+		<span class="input-group-addon">
+			<span style="width:120px"><i class="fa fa-check-circle"></i> 제목</span>
+		</span>
+		<input type="text" name="title" class="form-control" placeholder="글 제목을 입력해주세요."/>
 	</div>
-	<textarea name="content" class="form-control" placeholder="내용" style="height:400px"></textarea>
+	<textarea name="content" class="form-control" placeholder="내용을 입력해주세요." style="height:400px"></textarea>
 	<div class="input-group input-group-sm">
-		<span class="input-group-addon"><i class="fa fa-check-circle"></i></span>
-		<input type="text" name="writer" class="form-control" placeholder="작성자(자동)" />
+		<span class="input-group-addon"><i class="fa fa-check-circle"></i> 작성자</span>
+		<% 
+			User user = (User)session.getAttribute(User.USER_ATTR); 
+		%>
+		<input type="text" name="writer" class="form-control" placeholder="작성자(자동)" value="<%=user.getUserId()%>"/>
 	</div>
 	<div class="input-group input-group-sm">
-		<span class="input-group-addon"><i class="fa fa-check-circle-o"></i></span>
+		<span class="input-group-addon"><i class="fa fa-check-circle-o"></i> 첨부파일</span>
 		<input type="file" name="logicalFiles" class="form-control" placeholder="파일을 첨부해주세요."/>
 	</div>
 	<br/>

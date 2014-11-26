@@ -21,25 +21,25 @@ function doSubmit(){
 <div class="content">
 	<form action="<%=cp %>/worship/admin/write.do" id="worshipForm" name="worshipForm" method="post" enctype="multipart/form-data" class="form-horizontal" role="form">
 		<div class="form-group">
-			<label for="mainBibleImage" class="col-sm-2 control-label">Main Bible 이미지</label>
+			<label for="mainBibleImage" class="col-sm-2 control-label">메인 말씀 이미지</label>
 			<div class="col-sm-10">
 				<input type="file" name="mainBibleImage" id="mainBibleImage" class="form-control"/>
 			</div>
 		</div>
 		<div class="form-group">
-			<label for="mainVideoImage" class="col-sm-2 control-label">Main Video 이미지</label>
+			<label for="mainVideoImage" class="col-sm-2 control-label">메인 말씀 동영상 이미지</label>
 			<div class="col-sm-10">
 				<input type="file" name="mainVideoImage" id="mainVideoImage" class="form-control"/>
 			</div>
 		</div>
 		<div class="form-group">
-			<label for="videoImage" class="col-sm-2 control-label">Video 이미지</label>
+			<label for="videoImage" class="col-sm-2 control-label">말씀 동영상 이미지</label>
 			<div class="col-sm-10">
 				<input type="file" name="videoImage" id="videoImage" class="form-control"/>
 			</div>
 		</div>
 		<div class="form-group">
-			<label for="videoImage" class="col-sm-2 control-label">Youtube URL</label>
+			<label for="videoImage" class="col-sm-2 control-label">유투브 URL</label>
 			<div class="col-sm-10">
 				<input type="text" name="youtubeUrl" id="youtubeUrl" class="form-control"/>
 			</div>
@@ -48,7 +48,9 @@ function doSubmit(){
 			<label for="videoImage" class="col-sm-2 control-label">카테고리</label>
 			<div class="col-sm-10">
 				<!-- 기존 등록된 카테고리 Distinct 목록 -->
-				<select></select>
+				<select class="form-control">
+					<option>없음</option>
+				</select>
 				<input type="text" name="category" class="form-control"/>
 			</div>
 		</div>

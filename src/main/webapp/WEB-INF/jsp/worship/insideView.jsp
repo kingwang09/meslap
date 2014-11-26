@@ -4,6 +4,14 @@
 <head>
 <jsp:include page="../include/common_include.jsp"></jsp:include>
 <script>
+$(document).ready(function(){
+    $(".media").on("mouseenter",function(){
+      $(this).css({backgroundColor:'#ECECEC'});
+    });
+     $(".media").on("mouseleave",function(){
+         $(this).css({backgroundColor:'white'});
+     });
+});
 function viewPage(id){
 	var form = parent.document.worshipForm;
 	form.cPage.value = "${pMap.cPage}";
@@ -31,19 +39,19 @@ function goPage(page){
     <c:forEach var="w" items="${worships}">
     	<div class="media">
 	         <a class="pull-left" href="#">
-	             <img class="media-object img-rounded" src="<%=cp%>/images/worship/video1.jpg" width="160" height="120"/>
+	             <img class="media-object img-rounded" src="<%=cp%>/images/worship/video1.jpg" width="160" height="100"/>
 	         </a>
 	         <div class="media-body" style="padding-left:25px;padding-top:25px">
 	             <div class="h5 media-heading"><b><a href="javascript:viewPage('${w.id }')">${w.title}</a></b>
 	             	<!-- <span class="label label-default">New</span>  -->
 	             </div>
-	             <p style="word-break: break-all">
+	             <div style="word-break: break-all">
 	                 ${w.bibleIndex } <br/><small>${w.wdateStr }</small>
 	                 <div class="pull-right">
 	                     <span><a href="#"><img class="hoverImages" imgName="bt_audio" src="<%=cp%>/images/main/bt_audio.jpg"/></a></span>
 	                     <span><a href="#"><img class="hoverImages" imgName="bt_ebook" src="<%=cp%>/images/main/bt_ebook.jpg"/></a></span>
 	                 </div>
-	             </p>
+	             </div>
 	         </div>
 	     </div>
     </c:forEach>

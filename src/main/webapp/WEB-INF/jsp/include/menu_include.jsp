@@ -108,12 +108,12 @@ $(document).ready(function(){
 	<!-- News -->
 	<div class="site-navigation-item site-navigation-news-meslap" style="padding-right:30px">
 	    <span class="site-navigation-news-meslap">
-	        <a href="<%=cp%>/news.do"><img class="mainMenu hoverImages" src="<%=cp %>/images/main/main_menu_news_meslap.jpg" imgName="main_menu_news_meslap" alt="NewsMeslap" menuId="newsMenu" /></a>
+	        <a href="<%=cp%>/board/notice/list.do"><img class="mainMenu hoverImages" src="<%=cp %>/images/main/main_menu_news_meslap.jpg" imgName="main_menu_news_meslap" alt="NewsMeslap" menuId="newsMenu" /></a>
 	    </span>
 	    <div class="main-dropdown site-navigation-dropdown-news-meslap" id="newsMenu">            
 	        <img src="<%=cp %>/images/main/roll_news_meslap.jpg" usemap="#news_map"/>
 	        <map name="news_map">
-	            <area shape="rect" coords="186,124,252,154" href="<%=cp %>/board/test/list.do" alt="replay_movie">
+	            <area shape="rect" coords="186,124,252,154" href="<%=cp %>/board/notice/list.do" alt="replay_movie">
 	        </map>
 	    </div>
 	</div>
