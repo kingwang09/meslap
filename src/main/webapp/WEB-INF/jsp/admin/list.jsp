@@ -20,8 +20,8 @@
 <jsp:include page="../include/menu_include.jsp"></jsp:include>
 <div class="content">
 	<div class="bs-docs-section" style="text-align:left">
-			<h4 class="h4"><a href="${cp}/worship/admin/list.do"><i class="fa fa-book fa-fw"></i> 말씀관리</a></h4>
 		<div class="bs-callout bs-callout-info">
+			<h4 class="h4"><a href="${cp}/worship/admin/list.do"><i class="fa fa-book fa-fw"></i> 말씀관리</a></h4>
 			<p>사랑과 평안의 목사님 말씀을 관리하며, 매주 올라오는 말씀을 추가/수정/삭제할 수 있습니다.</p>
 		</div>
 		<div class="bs-callout bs-callout-warning">
