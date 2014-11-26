@@ -12,5 +12,6 @@ public interface WorshipDAO {
 	public void delete(Integer id);
 	public Integer getWorshipCount();
 	public Worship getRecentWorship();
+	public Integer getRecentWorshipId();
 	
 }

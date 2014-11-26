@@ -11,6 +11,8 @@ function viewPage(id){
 	form.submit();
 }
 function goPage(page){
+	var form = parent.document.worshipForm;
+	form.cPage.value = page;
 	location.href="<%=cp%>/worship/insideView.do?cPage="+page;
 }
 </script>
@@ -36,7 +38,7 @@ function goPage(page){
 	             	<!-- <span class="label label-default">New</span>  -->
 	             </div>
 	             <p style="word-break: break-all">
-	                 ${w.bibleIndex } <br/><small>${w.wdate }</small>
+	                 ${w.bibleIndex } <br/><small>${w.wdateStr }</small>
 	                 <div class="pull-right">
 	                     <span><a href="#"><img class="hoverImages" imgName="bt_audio" src="<%=cp%>/images/main/bt_audio.jpg"/></a></span>
 	                     <span><a href="#"><img class="hoverImages" imgName="bt_ebook" src="<%=cp%>/images/main/bt_ebook.jpg"/></a></span>

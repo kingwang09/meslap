@@ -1,5 +1,6 @@
 package org.jesus.meslap.entity;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -172,6 +173,13 @@ public class Worship {
 //	@Transient
 //	@Getter @Setter
 //	private MultipartFile titleImageFile; 
+	
+	public String getWdateStr(){
+		if(wdate==null)
+			return "";
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		return sdf.format(wdate);
+	}
 	
 	@Override
 	public String toString() {

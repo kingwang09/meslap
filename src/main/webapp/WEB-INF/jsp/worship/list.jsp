@@ -12,6 +12,11 @@ function goPage(page){
 		form.cPage.value = page;
 		form.submit();
 }
+function doImport(){
+	if(confirm("말씀 일괄등록 하시겠습니까?")){
+		location.href="${cp}/worship/admin/import.do";
+	}
+}
 </script>
 </head>
 <body>
@@ -23,7 +28,7 @@ function goPage(page){
 	<div class="pull-right">
 		<a href="${cp}/worship/admin/write.do" class="btn btn-default btn-xs"><i class="fa fa-pencil"></i> 말씀 등록</a>
 		&nbsp;	
-		<a href="${cp}/worship/admin/import.do" class="btn btn-default btn-xs"><i class="fa fa-arrow-circle-o-down"></i> 말씀 일괄 등록</a>
+		<a href="javascript:doImport()" class="btn btn-default btn-xs"><i class="fa fa-arrow-circle-o-down"></i> 말씀 일괄 등록</a>
 	</div>
 	<br/>
 	<table class="table table-condense">
@@ -45,7 +50,7 @@ function goPage(page){
 			<tr>
 				<td>${worship.category}</td>
 				<td><a href="${cp}/worship/view.do?id=${worship.id}">${worship.title}</a></td>
-				<td>${worship.wdate }</td>
+				<td>${worship.wdateStr }</td>
 				<td>
 					<a href="${cp}/worship/admin/update.do?id=${worship.id}"><i class="glyphicon glyphicon-edit"></i></a>
 					<a href="${cp}/worship/admin/delete.do?id=${worship.id}"><i class="glyphicon glyphicon-trash"></i></a>

@@ -281,5 +281,10 @@ public class WorshipServiceImpl implements WorshipService {
 			worshipDao.save(w);
 		}
 	}
+	
+	@Transactional
+	public Integer getRecentWorshipId() {
+		return worshipDao.getRecentWorshipId();
+	}
 
 }

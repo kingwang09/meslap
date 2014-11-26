@@ -37,22 +37,6 @@ public class WorshipController {
 	@Autowired
 	private PagingUtil pUtil;
 	
-	@RequestMapping(value="/main.do")
-	public ModelAndView indexView(HttpServletRequest req,HttpServletResponse resp, @RequestParam(required=false) Integer cPage){
-		ModelAndView mav = new ModelAndView();
-		//mav.setViewName("/worship/main");
-		//mav.addObject("overMenu","main");
-		Worship worship = wService.getRecentWorship();
-		Integer total = wService.getWorshipCount();
-		Map pMap = pUtil.getCurrentPaging(WORSHIP_PAGE_SIZE, total, cPage);
-		
-		List<Worship> worships = wService.getWorships((Integer)pMap.get("fRow"), WORSHIP_PAGE_SIZE);
-		mav.setViewName("/worship/view");
-		mav.addObject("worship", worship);
-		mav.addObject("worships", worships);
-		mav.addObject("pMap", pMap);
-		return mav;
-	}
 	
 	@AdminAuth
 	@RequestMapping(value="/admin/list.do", method=RequestMethod.GET)
@@ -124,12 +108,16 @@ public class WorshipController {
 	}
 	
 	@RequestMapping(value="/view.do", method=RequestMethod.GET)
-	public ModelAndView view(HttpServletRequest req,HttpServletResponse resp, @RequestParam Integer id, @RequestParam(required=false) Integer cPage){
+	public ModelAndView view(HttpServletRequest req,HttpServletResponse resp, @RequestParam(required=false) Integer id, @RequestParam(required=false) Integer cPage){
 		ModelAndView mav = new ModelAndView();
+		Integer recentWorshipId = wService.getRecentWorshipId(); 
+		if(id==null)
+			id = recentWorshipId;
 		Worship worship = wService.getWorship(id);
 		
 		mav.setViewName("/worship/view");
 		mav.addObject("worship", worship);
+		mav.addObject("recentWorshipId", recentWorshipId);
 		mav.addObject("cPage", cPage);
 		return mav;
 	}

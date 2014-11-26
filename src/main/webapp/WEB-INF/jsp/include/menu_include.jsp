@@ -81,7 +81,7 @@ $(document).ready(function(){
 	<!-- Worship -->
 	<div class="site-navigation-item site-navigation-worship-meslap">
 	    <span class="site-navigation-worship-meslap">
-	        <a href="<%=cp%>/worship/main.do"><img class="mainMenu hoverImages" src="<%=cp %>/images/main/main_menu_worship_meslap.jpg" imgName="main_menu_worship_meslap" alt="WorshipMeslap" menuId="worshipMenu"/></a>
+	        <a href="<%=cp%>/worship/view.do"><img class="mainMenu hoverImages" src="<%=cp %>/images/main/main_menu_worship_meslap.jpg" imgName="main_menu_worship_meslap" alt="WorshipMeslap" menuId="worshipMenu"/></a>
 	    </span>
 	    <div class="main-dropdown site-navigation-dropdown-worship-meslap" id="worshipMenu">            
 	        <img src="<%=cp %>/images/main/roll_worship_meslap.jpg" usemap="#worship_map"/>

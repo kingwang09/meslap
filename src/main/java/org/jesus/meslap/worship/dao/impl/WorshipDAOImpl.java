@@ -55,11 +55,16 @@ public class WorshipDAOImpl implements WorshipDAO {
 		Long count = (Long)crit.uniqueResult();
 		return count.intValue();
 	}
-
-	public Worship getRecentWorship() {
+	
+	public Integer getRecentWorshipId(){
 		Criteria crit = getSession().createCriteria(Worship.class);
 		crit.setProjection(Projections.max("id"));
 		Integer id = (Integer)crit.uniqueResult();
+		return id;
+	}
+	
+	public Worship getRecentWorship() {
+		Integer id = getRecentWorshipId();
 		return getWorship(id);
 	}
 }

@@ -15,4 +15,5 @@ public interface WorshipService {
 	public void delete(String path, Integer id);
 	public Worship getRecentWorship();
 	public void importExcelToDB(String path, String fileName);
+	public Integer getRecentWorshipId();
 }
