@@ -19,4 +19,5 @@ public interface BoardDAO {
 	public boolean getCheckBoardAdmin(BoardAdmin boardAdmin);
 	public void createBoard(BoardAdmin boardAdmin);
 	public BoardAdmin getBoardAdmin(String boardCode);
+	public List<String> getCategorys();
 }

@@ -29,6 +29,7 @@ function deleteBoard(boardCode, id){
 		}
 	});
 }
+
 </script>
 </head>
 <body>
@@ -75,7 +76,7 @@ function deleteBoard(boardCode, id){
 				<td>${board.category}</td>
 				<td><a href="${cp}/board/${board.boardCode}/${board.id}/view.do">${board.title}</a></td>
 				<td>${board.writer}</td>
-				<td>${board.wdate}</td>
+				<td>${board.wdateStr}</td>
 				<%if(user!=null){ %>
 				<td>
 					<a href="${cp}/board/${board.boardCode}/${board.id}/admin/update.do" class="btn btn-default btn-xs"><i class="fa fa-pencil-square-o"></i> 수정</a>

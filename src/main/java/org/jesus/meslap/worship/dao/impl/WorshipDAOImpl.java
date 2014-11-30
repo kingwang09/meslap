@@ -67,4 +67,10 @@ public class WorshipDAOImpl implements WorshipDAO {
 		Integer id = getRecentWorshipId();
 		return getWorship(id);
 	}
+
+	public List<String> getCategorys() {
+		Criteria crit = getSession().createCriteria(Worship.class);
+		crit.setProjection(Projections.distinct(Projections.property("category")));
+		return crit.list();
+	}
 }

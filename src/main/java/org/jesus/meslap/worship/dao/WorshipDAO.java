@@ -13,5 +13,6 @@ public interface WorshipDAO {
 	public Integer getWorshipCount();
 	public Worship getRecentWorship();
 	public Integer getRecentWorshipId();
+	public List<String> getCategorys();
 	
 }

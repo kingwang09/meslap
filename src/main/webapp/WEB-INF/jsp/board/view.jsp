@@ -17,12 +17,12 @@
 	    <pre style="height:400px">${board.content}</pre>
 	    <div style="text-align:right">
 	    	<span>
-	    		<a href="${cp}/board/${boardCode}/${board.id}/download.do?filePath=${board.filePath}&fileName=${board.fileName}" title="${board.filePath}" class="btn btn-default btn-xs">
+	    		<a href="${cp}/board/${boardCode}/${board.id}/download.do?filePath=${board.filePath}&fileName=${board.fileName}" title="${board.filePath}">
 	    		<i class="fa fa-file-archive-o"></i> <!-- 확장자에따라 아이콘 변경. -->
 	    		${board.fileName}
 	    		</a>
 	    	</span>
-	    	<small>${board.wdate} - ${board.writer }</small>
+	    	<small>${board.wdateStr} - ${board.writer }</small>
 	    </div>
 	  </div>
 	</div>

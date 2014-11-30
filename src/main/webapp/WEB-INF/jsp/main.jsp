@@ -67,7 +67,7 @@
 			</a>
  		</li>
  		<li class="init-li">
- 			<a href="<%=cp %>/worship/main.do" style="padding-right:10px">
+ 			<a href="<%=cp %>/worship/view.do" style="padding-right:10px">
 	            <img src="<%=cp %>/images/body_menu_worship.gif" alt="Worship" />
 	        </a>
  		</li>
@@ -77,7 +77,7 @@
 	        </a>
  		</li>
  		<li class="init-li">
- 			<a href="<%=cp %>/news.do">
+ 			<a href="<%=cp %>/board/notice/list.do">
 	            <img src="<%=cp %>/images/body_menu_news.gif" alt="News" />
 	        </a>
  		</li>
@@ -103,7 +103,7 @@
 	       
 		   <img src="<%=cp %>/images/worship_time_table.gif" alt="WorshipTimeTable" style="float:left;padding-bottom:10px"/>
 	       
-	       <a href="/" class="block-products-list-item-icon" style="float:left">
+	       <a href="<%=cp %>/about/road.do" class="block-products-list-item-icon" style="float:left">
 	           <img src="<%=cp %>/images/location.gif" alt="Location" />
 	       </a>
 		</div>

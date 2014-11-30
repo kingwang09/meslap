@@ -57,7 +57,9 @@ public class WorshipController {
 	@RequestMapping(value="/admin/write.do", method=RequestMethod.GET)
 	public ModelAndView adminWrite(HttpServletRequest req,HttpServletResponse resp){
 		ModelAndView mav = new ModelAndView();
+		List<String> categorys = wService.getCateogrys();
 		mav.setViewName("/worship/write");
+		mav.addObject("categorys", categorys);
 		return mav;
 	}
 	
@@ -74,8 +76,10 @@ public class WorshipController {
 	public ModelAndView adminUpdate(HttpServletRequest req,HttpServletResponse resp, @RequestParam Integer id){
 		ModelAndView mav = new ModelAndView();
 		Worship worship = wService.getWorship(id);
+		List<String> categorys = wService.getCateogrys();
 		mav.setViewName("/worship/update");
 		mav.addObject("worship",worship);
+		mav.addObject("categorys", categorys);
 		return mav;
 	}
 	
@@ -130,9 +134,11 @@ public class WorshipController {
 		Map pMap = pUtil.getCurrentPaging(WORSHIP_PAGE_SIZE, total, cPage);
 		
 		List<Worship> worships = wService.getWorships((Integer)pMap.get("fRow"), WORSHIP_PAGE_SIZE);
+		List<String> categorys = wService.getCateogrys();
 		mav.setViewName("/worship/insideView");
 		mav.addObject("worships", worships);
 		mav.addObject("pMap", pMap);
+		mav.addObject("categorys", categorys);
 		return mav;
 	}
 	

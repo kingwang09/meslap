@@ -132,5 +132,10 @@ public class BoardServiceImpl implements BoardService {
 	public Integer getBoardCount(String boardCode) {
 		return boardDao.getBoardCount(boardCode);
 	}
+	
+	@Transactional(value="transactionManager")
+	public List<String> getCategorys() {
+		return boardDao.getCategorys();
+	}
 
 }

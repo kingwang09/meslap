@@ -18,5 +18,6 @@ public interface BoardService {
 	public List<BoardAdmin> getBoardAdminList();
 	public boolean createBoard(BoardAdmin boardAdmin);
 	public BoardAdmin getBoardAdmin(String boardCode);
+	public List<String> getCategorys();
 	
 }

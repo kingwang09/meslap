@@ -11,6 +11,28 @@ $(document).ready(function(){
      $(".media").on("mouseleave",function(){
          $(this).css({backgroundColor:'white'});
      });
+     
+     var changeImage = function(obj, hover){
+ 		//console.log(obj);
+ 		var imgName = $(obj).attr("imgName");
+ 		var ext = $(obj).attr("ext");//확장자
+ 		
+ 		ext = ext ? ext : "jpg";
+ 		imgName = hover? imgName+"_hover." : imgName+".";
+ 		
+ 		var imgFullName = "<%=cp%>/images/main/"+imgName+ext;
+ 		$(obj).attr("src",imgFullName);
+ 	};
+ 	
+ 	$(".hoverImages").hover(
+ 			function(){
+ 				//console.log(this);
+ 				changeImage(this, true);
+ 			},
+ 			function(){
+ 				changeImage(this, false);
+ 			}
+ 	);
 });
 function viewPage(id){
 	var form = parent.document.worshipForm;
@@ -26,12 +48,15 @@ function goPage(page){
 </script>
 </head>
 <!-- iFrame start-->
-<div class="worship-content">
+<div class="worship-content" style="padding-left:25px">
     <div class="row">
     	<div class="col-md-12">
 	    	<div class="pull-right">
 	            <select class="form-control">
 	                <option>주제별 설교보기</option>
+	                <c:forEach var="category" items="${categorys}">
+	                	<option value="${category }">${category }</option>
+	                </c:forEach>
 	            </select>
 	        </div>
         </div>
@@ -47,9 +72,13 @@ function goPage(page){
 	             </div>
 	             <div style="word-break: break-all">
 	                 ${w.bibleIndex } <br/><small>${w.wdateStr }</small>
-	                 <div class="pull-right">
-	                     <span><a href="#"><img class="hoverImages" imgName="bt_audio" src="<%=cp%>/images/main/bt_audio.jpg"/></a></span>
-	                     <span><a href="#"><img class="hoverImages" imgName="bt_ebook" src="<%=cp%>/images/main/bt_ebook.jpg"/></a></span>
+	                 <div class="pull-right" style="padding-right:15px">
+	                 	 <c:if test="${!empty w.audioFileName}">
+	                     	<span><a href="<%=cp%>/worship/download.do?fileName=${w.audioFileName}"><img class="hoverImages" imgName="bt_audio" src="<%=cp%>/images/main/bt_audio.jpg"/></a></span>
+	                     </c:if>
+	                     <c:if test="${!empty w.textFileName}">
+	                     	<span><a href="<%=cp%>/worship/download.do?fileName=${w.textFileName}"><img class="hoverImages" imgName="bt_ebook" src="<%=cp%>/images/main/bt_ebook.jpg"/></a></span>
+	                     </c:if>
 	                 </div>
 	             </div>
 	         </div>

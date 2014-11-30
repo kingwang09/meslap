@@ -16,4 +16,5 @@ public interface WorshipService {
 	public Worship getRecentWorship();
 	public void importExcelToDB(String path, String fileName);
 	public Integer getRecentWorshipId();
+	public List<String> getCateogrys();
 }

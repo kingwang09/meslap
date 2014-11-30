@@ -1,6 +1,7 @@
 package org.jesus.meslap.entity;
 
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Set;
@@ -67,6 +68,12 @@ public class Board implements Serializable{
 	@Getter @Setter
 	private String category;
 	
+	public String getWdateStr(){
+		if(wdate==null)
+			return "";
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		return sdf.format(wdate);
+	}
 	
 	@Override
 	public String toString() {

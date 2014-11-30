@@ -8,11 +8,20 @@
 <body>
 <jsp:include page="../include/menu_include.jsp"></jsp:include>
 <div class="subTitle">
-	<img src="<%=cp %>/images/about/about_submenu01.jpg" />
+	<img src="<%=cp %>/images/about/about_submenu01.jpg" usemap="#about_sub_map"/>
+	<map name="about_sub_map">
+    	<area shape="rect" coords="0,56,35,76" href="<%=cp %>/about/gospel.do" alt="replay_movie">
+        <area shape="rect" coords="41,56,99,76" href="<%=cp %>/about/intro.do" alt="replay_movie">
+        <area shape="rect" coords="106,56,164,76" href="<%=cp %>/about/members.do" alt="replay_audio">
+        <area shape="rect" coords="170,56,229,76" href="<%=cp %>/about/times.do" alt="replay_audio">
+        <area shape="rect" coords="235,56,296,76" href="<%=cp %>/about/road.do" alt="replay_audio">
+    </map>
 </div>
 <div class="line_1px"></div>
-<div style="height:400px">
-	복음페이지
+<div class="content">
+	<img src="<%=cp %>/images/about/goodnews1.jpg" />
+	
+	<img src="<%=cp %>/images/about/goodnews2.jpg" />
 </div>
 <jsp:include page="../include/common_bottom.jsp"></jsp:include>
 </body>

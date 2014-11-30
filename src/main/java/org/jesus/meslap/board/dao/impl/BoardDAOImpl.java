@@ -20,6 +20,7 @@ import java.util.List;
 
 
 
+
 import org.apache.xmlbeans.impl.xb.xsdschema.RestrictionDocument.Restriction;
 import org.hibernate.Criteria;
 import org.hibernate.Query;
@@ -117,5 +118,11 @@ public class BoardDAOImpl implements BoardDAO {
 		crit.setProjection(Projections.rowCount());
 		Long count = (Long) crit.uniqueResult();
 		return count.intValue();
+	}
+
+	public List<String> getCategorys() {
+		Criteria crit = getSession().createCriteria(Board.class);
+		crit.setProjection(Projections.distinct(Projections.property("category")));
+		return crit.list();
 	}
 }

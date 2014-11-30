@@ -286,5 +286,10 @@ public class WorshipServiceImpl implements WorshipService {
 	public Integer getRecentWorshipId() {
 		return worshipDao.getRecentWorshipId();
 	}
+	
+	@Transactional
+	public List<String> getCateogrys() {
+		return worshipDao.getCategorys();
+	}
 
 }

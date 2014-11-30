@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %> 
 <%String cp = request.getContextPath(); %>
 <!DOCTYPE html>
 <html lang="ko">
@@ -49,7 +50,14 @@ function doSubmit(){
 			<div class="col-sm-10">
 				<!-- 기존 등록된 카테고리 Distinct 목록 -->
 				<select class="form-control">
-					<option>없음</option>
+					<c:forEach var="category" items="${categorys }">
+						<option value="${category }">
+							<c:if test="${empty category}">
+								없음
+							</c:if>
+							${category}
+						</option>
+					</c:forEach>
 				</select>
 				<input type="text" name="category" class="form-control"/>
 			</div>

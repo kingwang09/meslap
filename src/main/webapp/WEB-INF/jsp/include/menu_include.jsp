@@ -73,8 +73,8 @@ $(document).ready(function(){
 	        	<area shape="rect" coords="187,125,225,154" href="<%=cp %>/about/gospel.do" alt="replay_movie">
 	            <area shape="rect" coords="232,125,290,154" href="<%=cp %>/about/intro.do" alt="replay_movie">
 	            <area shape="rect" coords="297,125,354,154" href="<%=cp %>/about/members.do" alt="replay_audio">
-	            <area shape="rect" coords="323,125,381,154" href="<%=cp %>/about/times.do" alt="replay_audio">
-	            <area shape="rect" coords="361,125,419,154" href="<%=cp %>/about/road.do" alt="replay_audio">
+	            <area shape="rect" coords="361,125,419,154" href="<%=cp %>/about/times.do" alt="replay_audio">
+	            <area shape="rect" coords="427,125,492,154" href="<%=cp %>/about/road.do" alt="replay_audio">
 	        </map>
 	    </div>
 	</div>
@@ -86,9 +86,8 @@ $(document).ready(function(){
 	    <div class="main-dropdown site-navigation-dropdown-worship-meslap" id="worshipMenu">            
 	        <img src="<%=cp %>/images/main/roll_worship_meslap.jpg" usemap="#worship_map"/>
 	        <map name="worship_map">
-	            <area shape="rect" coords="187,124,251,154" href="<%=cp%>/worship/main.do" alt="replay_movie">
-	            <area shape="rect" coords="259,124,294,154" href="/" alt="replay_audio">
-	            <area shape="rect" coords="301,124,388,154" href="/" alt="replay_audio">
+	            <area shape="rect" coords="186,124,251,154" href="<%=cp%>/worship/view.do" alt="replay_movie">
+	            <area shape="rect" coords="259,124,347,154" href="<%=cp%>/board/bibleStudy/list.do" alt="replay_audio">
 	        </map>
 	    </div>
 	</div>

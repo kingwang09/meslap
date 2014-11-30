@@ -1285,16 +1285,20 @@ div.subTitle{
 div.content{
 	margin:0 auto;width:990px;
 	text-align:center;
+	padding-top:12px;
 }
 div.worship-body-left{
 	width:600px;float:left;
+	padding-left:25px;
 }
 div.worship-body-right{
-	float:right;width:360px;
+	float:left;width:260px;
+	padding-left:32px;
 }
 div.worship-content{
-	margin:0 auto;width:990px;
-	padding-top:15px;
+	margin:0 auto;
+	width:949px;
+	padding-top:25px;
 }
 pre.worship{
 	font-family: 'Nanum Gothic', sans-serif;

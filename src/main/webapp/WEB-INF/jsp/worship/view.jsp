@@ -44,8 +44,18 @@
 </head>
 <body>
 	<jsp:include page="../include/menu_include.jsp"></jsp:include>
-	<jsp:include page="../include/worship_sub_title.jsp"></jsp:include>
 
+<div class="subTitle">
+	<img src="<%=cp %>/images/worship/worship_submenu01.jpg" usemap="#worship_sub_map"/>
+	<map name="worship_sub_map">
+    	<area shape="rect" coords="0,56,35,76" href="<%=cp %>/about/gospel.do" alt="replay_movie">
+        <area shape="rect" coords="41,56,99,76" href="<%=cp %>/about/intro.do" alt="replay_movie">
+        <area shape="rect" coords="106,56,164,76" href="<%=cp %>/about/members.do" alt="replay_audio">
+        <area shape="rect" coords="170,56,229,76" href="<%=cp %>/about/times.do" alt="replay_audio">
+        <area shape="rect" coords="235,56,296,76" href="<%=cp %>/about/road.do" alt="replay_audio">
+    </map>
+</div>
+<div class="line_1px"></div>
 <div class="worship-content">
 	<form id="worshipForm" name="worshipForm" action="<%=cp%>/worship/view.do">
 		<input type="hidden" name="id" value="${worship.id}" />
@@ -70,14 +80,18 @@
             ${worship.recitationBibleIndex}
 		</div>
 		<div style="padding-top:25px">
+			<c:if test="${!empty worship.audioFileName}">
              <a href="<%=cp%>/worship/download.do?fileName=${worship.audioFileName}"><img class="hoverImages" imgName="top_bt_audio" src="<%=cp%>/images/main/top_bt_audio.jpg"/></a>
+            </c:if>
+            <c:if test="${!empty worship.textFileName}">
              <a href="<%=cp%>/worship/download.do?fileName=${worship.textFileName}"><img class="hoverImages" imgName="top_bt_ebook" src="<%=cp%>/images/main/top_bt_ebook.jpg"/></a>
+            </c:if>
              <a href="#" id="juboBtn"><img class="hoverImages" imgName="top_bt_paper" src="<%=cp%>/images/main/top_bt_paper.jpg" /></a>
          </div>
 	</div>
   	
     <!-- 말씀 Row -->
-    <div style="clear:both;padding-top:15px">
+    <div style="clear:both;padding-top:15px;padding-left:25px">
        <pre class="worship">${worship.bible}</pre>
     </div>
     
@@ -86,7 +100,7 @@
     
 </div>
 <!-- iFrame start-->
-<iframe src="<%=cp%>/worship/insideView.do?cPage=${cPage}" width="100%" height="900px" frameborder="no"></iframe>
+<iframe src="<%=cp%>/worship/insideView.do?cPage=${cPage}" width="100%" height="780px" frameborder="no"></iframe>
 <!-- iFrame start-->
 
 
