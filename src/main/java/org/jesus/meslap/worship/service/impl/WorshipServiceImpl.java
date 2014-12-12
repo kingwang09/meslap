@@ -101,6 +101,16 @@ public class WorshipServiceImpl implements WorshipService {
 			MultipartFile juboFile03 = worship.getJuboFile01();
 			worship.setJuboFileName03(writeFile(path, juboFile03));
 			
+			//Main Image
+			MultipartFile mainWorship = worship.getMainWorshipFile();
+			worship.setMainWorshipFileName(writeFile(path, mainWorship));
+			
+			MultipartFile subWorship = worship.getSubWorshipFile();
+			worship.setSubWorshipFileName(writeFile(path, subWorship));
+			
+			MultipartFile titleWorship = worship.getTitleWorshipFile();
+			worship.setTitleWorshipFileName(writeFile(path, titleWorship));
+			
 			worship.setWdate(new Date());
 			worshipDao.save(worship);
 		} catch (IllegalStateException e) {
@@ -143,6 +153,11 @@ public class WorshipServiceImpl implements WorshipService {
 			worship.setJuboFileName01(updateFile(path, worship.getJuboFile01(), beforeWorship.getJuboFileName01()));
 			worship.setJuboFileName02(updateFile(path, worship.getJuboFile02(), beforeWorship.getJuboFileName02()));
 			worship.setJuboFileName03(updateFile(path, worship.getJuboFile03(), beforeWorship.getJuboFileName03()));
+			
+			//Main
+			worship.setMainWorshipFileName(updateFile(path, worship.getMainWorshipFile(), beforeWorship.getMainWorshipFileName()));
+			worship.setSubWorshipFileName(updateFile(path, worship.getSubWorshipFile(), beforeWorship.getSubWorshipFileName()));
+			worship.setTitleWorshipFileName(updateFile(path, worship.getTitleWorshipFile(), beforeWorship.getTitleWorshipFileName()));
 			
 			worship.setWdate(new Date());
 			//worshipDao.save(worship);
@@ -189,6 +204,10 @@ public class WorshipServiceImpl implements WorshipService {
 		deleteFile(path, w.getJuboFileName02());
 		//Jubo File03
 		deleteFile(path, w.getJuboFileName03());
+		
+		deleteFile(path, w.getMainWorshipFileName());
+		deleteFile(path, w.getSubWorshipFileName());
+		deleteFile(path, w.getTitleWorshipFileName());
 		worshipDao.delete(id);
 	}
 	@Transactional

@@ -1,11 +1,14 @@
 package org.jesus.meslap.sim.test;
 
+import java.util.HashMap;
+import java.util.Map;
+import java.util.StringTokenizer;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.springframework.transaction.annotation.Transactional;
 
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -16,9 +19,19 @@ public class SimTest {
 	
 	@Test
 	public void replaceTest(){
-		String test = "Vmware, Inc.";
-		//test = test.replaceAll(",", " ");
-		test = test.replaceAll(",", " ");
-		System.out.println(test);
+		String test = "network.checkpoint.fw_session";
+		StringTokenizer token = new StringTokenizer(test,".");
+		String parent = "";
+		String name = "";
+		Map<String,String> map = new HashMap<String,String>();
+		while(token.hasMoreTokens()){
+			name += token.nextToken()+".";
+			if(!map.containsKey(name)){
+				map.put(name, parent);
+			}
+			parent=name;
+		}
+		
+		System.out.println(map);
 	}
 }

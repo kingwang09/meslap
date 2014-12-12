@@ -19,9 +19,18 @@
 </div>
 <div class="line_1px"></div>
 <div class="content">
-	<img src="<%=cp %>/images/about/goodnews1.jpg" />
-	
-	<img src="<%=cp %>/images/about/goodnews2.jpg" />
+	<div>
+		<img src="<%=cp %>/images/about/goodnews1.jpg" />
+	</div>
+	<br/>
+	<div style="width:892px;height:514px;padding-left:25px;padding-left:45px;">
+		<iframe width="892" height="514" src="//www.youtube.com/embed/KGlx11BxF24" frameborder="0" allowfullscreen></iframe>
+	</div>
+	<br/>
+	<div>
+		<img src="<%=cp %>/images/about/goodnews2.jpg" />
+	</div>
+	<br/>
 </div>
 <jsp:include page="../include/common_bottom.jsp"></jsp:include>
 </body>

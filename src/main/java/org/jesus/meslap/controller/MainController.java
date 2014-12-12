@@ -25,9 +25,11 @@ public class MainController {
 		log.debug("MainController - Main Method!!");
 		ModelAndView mav = new ModelAndView();
 		Integer recentWorshipId = wService.getRecentWorshipId();
-		Worship worship = wService.getWorship(recentWorshipId);
+		if(recentWorshipId!=null){
+			Worship worship = wService.getWorship(recentWorshipId);
+			mav.addObject("recentWorship", worship);
+		}
 		mav.setViewName("/main");
-		mav.addObject("recentWorship", worship);
 		return mav;
 	}
 	

@@ -54,7 +54,7 @@ public class BoardController {
 		Map pMap = pUtil.getCurrentPaging(BOARD_PAGE_SIZE, total, cPage);
 		
 		List<Board> boards = bService.getBoardList(boardCode, (Integer)pMap.get("fRow"), BOARD_PAGE_SIZE);
-		ModelAndView mav = getDefaultMav("board/list", boardCode);
+		ModelAndView mav = getDefaultMav("board/"+boardCode+"/list", boardCode);
 		mav.addObject("boards", boards);
 		mav.addObject("pMap",pMap);
 		return mav;

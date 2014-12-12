@@ -3,7 +3,9 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %> 
 <%String cp = request.getContextPath(); %>
 <script>
-
+function newPopup(){
+	window.open('http://wowccm.net/player/autoplayer10.htm', 'music', 'height=200,width=150');
+}
 $(document).ready(function(){
 	var changeImage = function(obj, hover){
 		//console.log(obj);
@@ -51,7 +53,7 @@ $(document).ready(function(){
 </div>
 <!-- 상단 메인 메뉴 -->
 <!-- Meslap Logo -->
-<div style="text-align:center">
+<div style="margin:0 auto;width:1000px;">
 	<div class="site-navigation-item">
 	    <a href="<%=cp%>/index.do"><img src="<%=cp %>/images/main/meslap_logo.jpg" alt="MeslapLogo" /></a>
 	</div>
@@ -125,13 +127,16 @@ $(document).ready(function(){
 	<div class="site-navigation-item site-navigation-facebook">
 	</div>
 	-->
-	<img class="hoverImages" src="<%=cp %>/images/main/facebook.jpg" imgName="facebook" ext="jpg" style="padding-right:13px"/>
+	<a href="https://www.facebook.com/meslap3" target="_new"><img class="hoverImages" src="<%=cp %>/images/main/facebook.jpg" imgName="facebook" ext="jpg" style="padding-right:13px"/></a>
 	<!-- kakao music 
 	<div class="site-navigation-item site-navigation-kakaomusic">
+	
+	http://wowccm.net/wow_winme/play01.html
 	</div>
 	-->
-	<img class="hoverImages" src="<%=cp %>/images/main/kakao.jpg" imgName="kakao" ext="jpg" />
+	<a href="javascript:newPopup();"><img class="hoverImages" src="<%=cp %>/images/main/kakao.jpg" imgName="kakao" ext="jpg" /></a>
 	&nbsp;
+	<!-- 
 	<a href="<%=cp%>/admin/list.do"><i class="fa fa-cogs"></i></a>
 	&nbsp;
 	<%
@@ -142,5 +147,6 @@ $(document).ready(function(){
 	<%
 		}
 	%>
+	 -->
 </div>
 <hr class="separator_top" >

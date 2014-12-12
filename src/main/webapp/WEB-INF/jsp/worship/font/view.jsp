@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <jsp:include page="../include/common_include.jsp"></jsp:include>    
+    <jsp:include page="../../include/common_include.jsp"></jsp:include>    
     <script>
         $(document).ready(function(){
            //$(".media").on("mouseenter",function(){
@@ -43,7 +43,7 @@
     </script>
 </head>
 <body>
-	<jsp:include page="../include/menu_include.jsp"></jsp:include>
+	<jsp:include page="../../include/menu_include.jsp"></jsp:include>
 
 <div class="subTitle">
 	<img src="<%=cp %>/images/worship/worship_submenu01.jpg" usemap="#worship_sub_map"/>
@@ -67,74 +67,40 @@
 		<a href="javascript:viewPage('${worship.id-1}','${recentWorshipId+1 }')" style="padding-right:30px"><img src="<%=cp%>/images/worship/left.jpg" /></a>
 		<a href="javascript:viewPage('${worship.id+1}','${recentWorshipId+1 }')"><img src="<%=cp%>/images/worship/right.jpg" /></a>
 		<div style="padding-top:34px">
-			<img src="<%=cp %>/worshipFiles/${worship.mainWorshipFileName}"/>
-		<div>
+			<div class="h4"><b>${worship.title}</b></div> <!-- Title 말씀제목 -->
+			<div class="h5"><b>${worship.bibleIndex}</b></div> <!-- sub 말씀구절 -->
+			<small>${worship.wdateStr}</small>     <!-- 날짜 -->
+		</div>
+		<div style="padding-top:25px">
+			<div class="h5" style="width:100px;background-color:rgb(74, 104, 255);color:white;font-size:16px;height:25px">한송 암송구절</div>
+            <p style="word-wrap: break-word;">${worship.recitationBible}</p>
+            ${worship.recitationBibleIndex}
+		</div>
+		<div style="padding-top:25px">
+			<c:if test="${!empty worship.audioFileName}">
              <a href="<%=cp%>/worship/download.do?fileName=${worship.audioFileName}"><img class="hoverImages" imgName="top_bt_audio" src="<%=cp%>/images/main/top_bt_audio.jpg"/></a>
+            </c:if>
+            <c:if test="${!empty worship.textFileName}">
              <a href="<%=cp%>/worship/download.do?fileName=${worship.textFileName}"><img class="hoverImages" imgName="top_bt_ebook" src="<%=cp%>/images/main/top_bt_ebook.jpg"/></a>
+            </c:if>
              <a href="#" id="juboBtn"><img class="hoverImages" imgName="top_bt_paper" src="<%=cp%>/images/main/top_bt_paper.jpg" /></a>
          </div>
 	</div>
-</div>
-<div class="worship-content">  	
+  	
     <!-- 말씀 Row -->
-    <div style="clear:both;padding-left:25px">
-    	<img src="<%=cp %>/worshipFiles/${worship.subWorshipFileName}"/>
+    <div style="clear:both;padding-top:15px;padding-left:25px">
+       <pre class="worship">${worship.bible}</pre>
     </div>
     
     <br/>
     
     
 </div>
-
-<div class="worship-content" style="padding-left:25px;padding-top:0px">
-	<!-- 
-	<div style="padding-bottom:10px">
-	            <select class="form-control" style="width:150px;float:right">
-	                <option>주제별 설교보기</option>
-	                <c:forEach var="category" items="${categorys}">
-	                	<option value="${category }">${category }</option>
-	                </c:forEach>
-	            </select>
-    </div>
-     -->
-	<c:forEach var="w" items="${worships}">
-  	<div class="media" style="border:1px solid #e7e7e7">
-        <a class="pull-left" href="#">
-            <!-- <img class="media-object" src="<%=cp%>/images/worship/default_video.jpg" width="229" height="98"/>  -->
-            <img class="media-object" src="<%=cp %>/worshipFiles/${w.videoImageFileName }" width="229" height="98"/>
-        </a>
-        <div class="media-body" style="padding-left:39px;">
-        	<!-- 
-            <div class="h5 media-heading"><b><a href="javascript:viewPage('${w.id }')">${w.title}</a></b>
-            	<span class="label label-default">New</span>  
-            </div>
-            -->
-            <div class="h5 media-heading" style="margin:0">
-            	<a href="<%=cp%>/worship/view.do?id=${w.id}">
-            	<img src="<%=cp %>/worshipFiles/${w.titleWorshipFileName}"/>
-            	<div class="pull-right" style="padding-top:40px;padding-right:35px">
-                	<span style="padding-right:10px"><a href="<%=cp%>/worship/download.do?fileName=${w.audioFileName}"><img class="hoverImages" imgName="bt_audio" src="<%=cp%>/images/main/bt_audio.jpg"/></a></span>
-                	<c:if test="${!empty worship.audioFileName}">
-		             <a href="<%=cp%>/worship/download.do?fileName=${w.audioFileName}"><img class="hoverImages" imgName="top_bt_audio" src="<%=cp%>/images/main/top_bt_audio.jpg"/></a>
-		            </c:if>
-		            <c:if test="${!empty worship.textFileName}">
-		             <a href="<%=cp%>/worship/download.do?fileName=${w.textFileName}"><img class="hoverImages" imgName="top_bt_ebook" src="<%=cp%>/images/main/top_bt_ebook.jpg"/></a>
-		            </c:if>
-            	</div>
-            	</a>
-            </div>
-        </div>
-    </div>
-  </c:forEach>
-	<div style="text-align:center">
-	${pMap.pTag}
-	</div>
-</div>
-<!-- iFrame start
+<!-- iFrame start-->
 <iframe src="<%=cp%>/worship/insideView.do?cPage=${cPage}" width="100%" height="780px" frameborder="no"></iframe>
--->
+<!-- iFrame start-->
 
 
-<jsp:include page="../include/common_bottom.jsp"></jsp:include>
+<jsp:include page="../../include/common_bottom.jsp"></jsp:include>
 </body>
 </html>

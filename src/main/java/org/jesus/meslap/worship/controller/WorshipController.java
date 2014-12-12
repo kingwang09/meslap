@@ -117,10 +117,23 @@ public class WorshipController {
 		Integer recentWorshipId = wService.getRecentWorshipId(); 
 		if(id==null)
 			id = recentWorshipId;
-		Worship worship = wService.getWorship(id);
 		
-		mav.setViewName("/worship/view");
-		mav.addObject("worship", worship);
+		if(id!=null){
+			Worship worship = wService.getWorship(id);
+			mav.addObject("worship", worship);
+		}
+		
+		Integer total = wService.getWorshipCount();
+		Map pMap = pUtil.getCurrentPaging(WORSHIP_PAGE_SIZE, total, cPage);
+		
+		List<Worship> worships = wService.getWorships((Integer)pMap.get("fRow"), WORSHIP_PAGE_SIZE);
+		List<String> categorys = wService.getCateogrys();
+		mav.addObject("worships", worships);
+		mav.addObject("pMap", pMap);
+		mav.addObject("categorys", categorys);
+		
+		//mav.setViewName("/worship/view");
+		mav.setViewName("/worship/font/view");
 		mav.addObject("recentWorshipId", recentWorshipId);
 		mav.addObject("cPage", cPage);
 		return mav;

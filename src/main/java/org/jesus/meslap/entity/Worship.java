@@ -69,6 +69,8 @@ public class Worship {
 	@Getter @Setter
 	private String recitationBible;
 	
+	
+	
 	/**
 	 * 파일 저장경로
 	 */
@@ -163,16 +165,16 @@ public class Worship {
 	/**
 	 * Title Image <NotUsed>
 	 */
-//	@Column(name="TITLE_IMAGE_FILE_NAME")
-//	@Getter @Setter
-//	private String titleImageFileName;
+	@Column(name="TITLE_IMAGE_FILE_NAME")
+	@Getter @Setter
+	private String titleImageFileName;
 	
 	/**
 	 * Title Image File<NotUsed>
 	 */
-//	@Transient
-//	@Getter @Setter
-//	private MultipartFile titleImageFile; 
+	@Transient
+	@Getter @Setter
+	private MultipartFile titleImageFile; 
 	
 	public String getWdateStr(){
 		if(wdate==null)
@@ -188,4 +190,26 @@ public class Worship {
 		sb.append("Worship("+id+")["+title+"]");
 		return sb.toString();
 	}
+	
+	@Column(name="MAIN_WORSHIP_FILE_NAME")
+	@Getter @Setter
+	private String mainWorshipFileName;
+	@Transient
+	@Getter @Setter
+	private MultipartFile mainWorshipFile;
+	
+	@Column(name="SUB_WORSHIP_FILE_NAME")
+	@Getter @Setter
+	private String subWorshipFileName;
+	@Transient
+	@Getter @Setter
+	private MultipartFile subWorshipFile;
+	
+	@Column(name="TITLE_WORSHIP_FILE_NAME")
+	@Getter @Setter
+	private String titleWorshipFileName;
+	
+	@Transient
+	@Getter @Setter
+	private MultipartFile titleWorshipFile;
 }

@@ -15,6 +15,22 @@
 
 <!-- 나눔고딕폰트 -->
 <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/earlyaccess/nanumgothic.css">
+
+<!-- font-family: 'Hanna', serif; 
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/earlyaccess/hanna.css">
+-->
+<!-- font-family: 'Jeju Gothic', serif; -->
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/earlyaccess/jejugothic.css">
+
+<!-- font-family: 'Jeju Hallasan', serif; 
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/earlyaccess/jejuhallasan.css">
+-->
+<!-- font-family: 'Jeju Myeongjo', serif; 
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/earlyaccess/jejumyeongjo.css">
+-->
+<!-- font-family: 'Nanum Brush Script', serif; 
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/earlyaccess/nanumbrushscript.css">
+-->
 <!-- Latest compiled and minified JavaScript -->
 <script src="<%=cp %>/frameworks/jquery/jquery-1.11.1.js"></script>
 <script src="<%=cp %>/frameworks/bootstrap/js/bootstrap.js"></script>
@@ -22,13 +38,10 @@
 <script src="<%=cp %>/frameworks/sweet-alert/sweet-alert.min.js"></script>
 <!-- include/common_include.jsp end --> 
 <style>
-    body{
-        font-family: 'Nanum Gothic', sans-serif;
-        font-size:13px;
-        line-height:20px;
-        margin:0;
-    }
     .row{
         margin-right:0px;
+    }
+    th{
+    	text-align:center
     }
 </style>

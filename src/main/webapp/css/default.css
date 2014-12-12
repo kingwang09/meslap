@@ -3,10 +3,12 @@ html {
 }
 
 body {
-  font-family: 'Open Sans', sans-serif;
   color: #333;
   /*background: url(/img/main/bg_dark.png);*/
-  line-height: 1.2;
+  font-family: 'Jeju Gothic', sans-serif;
+  font-size:13px;
+  line-height:20px;
+  margin:0;
 }
 
 a {
@@ -1301,7 +1303,7 @@ div.worship-content{
 	padding-top:25px;
 }
 pre.worship{
-	font-family: 'Nanum Gothic', sans-serif;
+	 font-family: 'Jeju Gothic', sans-serif;
 	padding:0;
 	margin:0;
 	backgroud-color:none;

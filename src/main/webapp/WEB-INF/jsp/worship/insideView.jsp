@@ -5,12 +5,12 @@
 <jsp:include page="../include/common_include.jsp"></jsp:include>
 <script>
 $(document).ready(function(){
-    $(".media").on("mouseenter",function(){
-      $(this).css({backgroundColor:'#ECECEC'});
-    });
-     $(".media").on("mouseleave",function(){
-         $(this).css({backgroundColor:'white'});
-     });
+    //$(".media").on("mouseenter",function(){
+    //  $(this).css({backgroundColor:'#ECECEC'});
+    //});
+    // $(".media").on("mouseleave",function(){
+    //     $(this).css({backgroundColor:'white'});
+    // });
      
      var changeImage = function(obj, hover){
  		//console.log(obj);
@@ -62,7 +62,7 @@ function goPage(page){
         </div>
     </div>
     <c:forEach var="w" items="${worships}">
-    	<div class="media">
+    	<div class="media" style="border:1px solid #e7e7e7">
 	         <a class="pull-left" href="#">
 	             <img class="media-object img-rounded" src="<%=cp%>/images/worship/video1.jpg" width="160" height="100"/>
 	         </a>
